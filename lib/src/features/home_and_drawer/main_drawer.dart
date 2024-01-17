@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../screens/settings_screen.dart';
+import '../meals/screens/settings_screen.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({Key? key}) : super(key: key);

@@ -41,7 +41,7 @@ class MealDetailScreen extends StatelessWidget {
       body: NestedScrollView(
         floatHeaderSlivers: true,
         headerSliverBuilder: (context, innerBoxIsScrolled) {
-          print(innerBoxIsScrolled);
+          // print(innerBoxIsScrolled);
 
           return [
             SliverAppBar(

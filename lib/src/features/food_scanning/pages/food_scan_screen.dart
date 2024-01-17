@@ -2,8 +2,9 @@
 
 import 'package:flutter/material.dart';
 
-import '../../core/builders/go_to_screen_with_slide_transition.dart';
-import '../../core/builders/image_picker.dart';
+import '../../../core/builders/go_to_screen_with_slide_transition.dart';
+import '../../../core/builders/image_picker.dart';
+import '../../home_and_drawer/main_drawer.dart';
 import '../providers/convert_image_to_png.dart';
 import 'food_scan_result_screen.dart';
 
@@ -18,7 +19,7 @@ class FoodScanScreen extends StatelessWidget {
     }
 
     //print(image.path);
-    print(await image.length());
+    // print(await image.length());
 
     final convertedPath = convertImageToPng(image.path);
 
@@ -41,6 +42,7 @@ class FoodScanScreen extends StatelessWidget {
         title: const Text("Scan Food With AI"),
         centerTitle: true,
       ),
+      drawer: const MainDrawer(),
       body: Center(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(vertical: 10),

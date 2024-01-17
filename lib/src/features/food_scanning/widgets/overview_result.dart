@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
-import '../../core/functions/string_manipulations_and_search.dart';
+import '../../../core/functions/string_manipulations_and_search.dart';
 
 class OverviewResult extends StatelessWidget {
   const OverviewResult({

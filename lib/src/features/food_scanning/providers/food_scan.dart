@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/network/network_info.dart';
+import '../../../core/network/network_info.dart';
 
 import 'get_api.dart';
 

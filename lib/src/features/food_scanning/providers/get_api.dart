@@ -71,7 +71,7 @@ Future<String> foodOverview(String imagePath) async {
   );
 
   if (response.statusCode != 200) {
-    print('Response: ${response.body}');
+    // print('Response: ${response.body}');
 
     throw ErrorDescription("Error Happend");
   }
@@ -163,7 +163,7 @@ Future<String> foodMoreDetails(
   );
 
   if (response.statusCode != 200) {
-    print('Response: ${response.body}');
+    // print('Response: ${response.body}');
 
     throw ErrorDescription("Error Happend");
   }

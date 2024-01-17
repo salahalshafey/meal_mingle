@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/main_drawer.dart';
+import '../../home_and_drawer/main_drawer.dart';
 
 class SettingsScreen extends StatefulWidget {
   static const routeName = '/Settings_Screen';

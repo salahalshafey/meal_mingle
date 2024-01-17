@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/functions/string_manipulations_and_search.dart';
+import '../../../core/functions/string_manipulations_and_search.dart';
 import '../providers/food_scan.dart';
 
 class ChoiceResult extends StatelessWidget {

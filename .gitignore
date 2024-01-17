@@ -31,6 +31,7 @@ migrate_working_dir/
 .pub/
 /build/
 **/api_keys.*
+save_changes_and_push_it_to_github.cmd
 
 # Symbolication related
 app.*.symbols
