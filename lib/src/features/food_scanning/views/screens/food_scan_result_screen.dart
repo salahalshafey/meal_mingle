@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../injection_container.dart' as di;
+
 import '../providers/food_scan.dart';
 
 import '../widgets/result_info.dart';
@@ -12,7 +14,7 @@ class FoodScanResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => FoodScan(),
+      create: (context) => di.sl<FoodScan>(),
       builder: (ctx, child) => Scaffold(
         body: FutureBuilder(
           key: UniqueKey(),

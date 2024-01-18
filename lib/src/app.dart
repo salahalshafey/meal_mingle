@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 
 import 'core/theme/dark_theme.dart';
 import 'core/theme/light_theme.dart';
-import 'features/food_scanning/pages/food_scan_screen.dart';
 
+import 'features/home_and_drawer/home_page.dart';
 import 'features/meals/models/dummy_data.dart';
 import 'features/meals/models/meal.dart';
 import 'features/meals/providers/favorite.dart';
@@ -68,7 +68,7 @@ class _MyAppState extends State<MyApp> {
         // themeMode: ThemeMode.light,
         darkTheme: myDarkTheme(),
         theme: myLightTheme(),
-        home: const FoodScanScreen(), //const HomePage(),
+        home: const HomePage(), //  FoodScanScreen(),
 
         routes: {
           // '/': (ctx) => const TabsScreen(),

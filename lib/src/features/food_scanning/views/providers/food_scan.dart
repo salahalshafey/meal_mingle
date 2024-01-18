@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/network/network_info.dart';
+import '../../../../core/error/error_exceptions_with_message.dart';
+import '../../../../core/error/exceptions_without_message.dart';
 
-import 'get_api.dart';
+import '../../viewmodels/food_scanning_viewmodel.dart';
 
 class FoodScan with ChangeNotifier {
+  final FoodScanningViewModel foodScanningViewModel;
+
+  FoodScan({required this.foodScanningViewModel});
+
   late String _imagePath;
   late String _resultOverview;
 
@@ -38,7 +43,7 @@ If there is more than one item, "Give the result in table format for each item a
 If there is more than one item, "Give the result for each item".""",
   ];
 
-  final List<String> _questionsChoicesArabic = [
+  /*final List<String> _questionsChoicesArabic = [
     """هل يعتبر هذا الطعام صحي؟ اشرح فوائد هذا الطعام بالتفصيل ولماذا؟
 إذا كان هناك أكثر من عنصر واحد، "أعط النتيجة في جدول لكل عنصر".""",
     """من فضلك أعطني الحقائق الغذائية التالية:
@@ -66,7 +71,7 @@ If there is more than one item, "Give the result for each item".""",
     """طريقة تحضير هذا الطعام؟ "المكونات والخطوات"
 
 إذا كان هناك أكثر من عنصر واحد، "أعط النتيجة لكل عنصر".""",
-  ];
+  ];*/
 
   final List<String?> _questionsResults = [
     null,
@@ -77,17 +82,27 @@ If there is more than one item, "Give the result for each item".""",
 
   Future<String> getFoodOverview(String imagePath) async {
     try {
-      if (await MyNetworkInfoImpl().isNotConnected) {
-        throw ErrorDescription("You Are Offline.");
-      }
-
       _imagePath = imagePath;
-      _resultOverview = await foodOverview(imagePath);
+      _resultOverview = await foodScanningViewModel.foodOverview(imagePath);
       notifyListeners();
 
       return _resultOverview;
+    } on OfflineException {
+      throw ErrorMessage(
+          "you Are Currently Offline!!" //AppLocalizations.of(_context)!.youAreCurrentlyOffline,
+          );
+    } on ServerException {
+      throw ErrorMessage(
+          "something Went Wrong Please Try Again Later!!" //AppLocalizations.of(_context)!.somethingWentWrongPleaseTryAgainLater,
+          );
+    } on FilterException {
+      throw ErrorMessage(
+          "sorry There Is No Result For Your Search" //AppLocalizations.of(_context)!.sorryThereIsNoResultForYourSearch,
+          );
     } catch (error) {
-      rethrow;
+      throw ErrorMessage(
+          "unexpected Error Happened" //AppLocalizations.of(_context)!.unexpectedErrorHappened,
+          );
     }
   }
 
@@ -97,21 +112,32 @@ If there is more than one item, "Give the result for each item".""",
     }
 
     try {
-      if (await MyNetworkInfoImpl().isNotConnected) {
-        throw ErrorDescription("You Are Offline.");
-      }
-
-      _questionsResults[questionIndex] = await foodMoreDetails(
+      _questionsResults[questionIndex] =
+          await foodScanningViewModel.foodMoreDetails(
         _imagePath,
         _resultOverview,
-        _questionsChoicesArabic[questionIndex],
+        _questionsChoices[questionIndex],
       );
 
       notifyListeners();
 
       return _questionsResults[questionIndex]!;
+    } on OfflineException {
+      throw ErrorMessage(
+          "you Are Currently Offline!!" //AppLocalizations.of(_context)!.youAreCurrentlyOffline,
+          );
+    } on ServerException {
+      throw ErrorMessage(
+          "something Went Wrong Please Try Again Later!!" //AppLocalizations.of(_context)!.somethingWentWrongPleaseTryAgainLater,
+          );
+    } on FilterException {
+      throw ErrorMessage(
+          "sorry There Is No Result For Your Search" //AppLocalizations.of(_context)!.sorryThereIsNoResultForYourSearch,
+          );
     } catch (error) {
-      rethrow;
+      throw ErrorMessage(
+          "unexpected Error Happened" //AppLocalizations.of(_context)!.unexpectedErrorHappened,
+          );
     }
   }
 }

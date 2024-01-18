@@ -27,8 +27,8 @@ class ResultInfo extends StatelessWidget {
           SaveFoodScanningResultButton(),
         ],
       ),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.startFloat, ///// remove this
+      //  floatingActionButtonLocation:
+      // FloatingActionButtonLocation.startFloat, ///// remove this
       body: DefaultTabController(
         length: 5,
         child: NestedScrollView(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../food_scanning/pages/food_scan_screen.dart';
+import '../food_scanning/views/screens/food_scan_screen.dart';
 import '../meals/screens/tabs_screen.dart';
 import '../search/search_screen.dart';
 
