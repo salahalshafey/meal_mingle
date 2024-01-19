@@ -23,7 +23,7 @@ class _SaveFoodScanningResultButtonState
   Widget build(BuildContext context) {
     return FloatingActionButton(
       heroTag: null,
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       onPressed: toggleFavorite,
       child: Icon(
         _isVavorite ? Icons.favorite_rounded : Icons.favorite_border_rounded,
@@ -43,7 +43,7 @@ class ShareFoodScanningResultButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       heroTag: null,
-      backgroundColor: Colors.white,
+      //backgroundColor: Colors.white,
       onPressed: () {},
       child: const Icon(Icons.share),
     );

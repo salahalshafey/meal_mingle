@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_mingle/src/core/util/widgets/custom_card.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/favorite.dart';
@@ -18,7 +19,7 @@ class MealDetailScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         heroTag: null,
-        backgroundColor: Colors.white,
+        //  backgroundColor: Colors.white,
         onPressed: () {
           favMeals.toggleFavorite(mealId);
         },
@@ -61,7 +62,7 @@ class MealDetailScreen extends StatelessWidget {
                 icon: const Icon(Icons.arrow_back_ios_rounded),
                 style: ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(
-                      Theme.of(context).primaryColor.withOpacity(0.5)),
+                      Theme.of(context).colorScheme.primary.withOpacity(0.5)),
                 ),
                 onPressed: () => Navigator.of(context).pop(),
               ),
@@ -127,13 +128,13 @@ class MealDetailScreen extends StatelessWidget {
                         itemBuilder: (context, index) {
                           return SizedBox(
                             width: 150,
-                            height: 200,
-                            child: Card(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30)),
-                              color: Colors.white,
+                            height: 250,
+                            child: CustomCard(
+                              borderRadius: BorderRadius.circular(30),
+                              // color: Colors.white,
                               // Theme.of(context).scaffoldBackgroundColor,
                               elevation: 3,
+                              onTap: () {},
                               margin: const EdgeInsets.all(5),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,

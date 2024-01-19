@@ -44,18 +44,19 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentScreenInedex,
         onTap: _animateToScreen,
+        // selectedItemColor: ,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.dining_outlined),
-            label: "",
+            icon: Icon(Icons.restaurant_menu),
+            label: "Meals",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
-            label: "",
+            label: "Search",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.fact_check_outlined),
-            label: "",
+            label: "Scan Food",
           ),
         ],
       ),

@@ -31,7 +31,7 @@ class MainAppBar extends StatelessWidget {
         ),
       ),
       leading: IconButton(
-        color: Colors.black,
+        //color: Colors.black,
         iconSize: 28,
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 35),
         icon: const Icon(Icons.menu_rounded),

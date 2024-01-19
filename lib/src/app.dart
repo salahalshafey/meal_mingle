@@ -65,10 +65,10 @@ class _MyAppState extends State<MyApp> {
         title: 'Flutter Food Scanner',
         debugShowCheckedModeBanner: false,
         navigatorKey: _navigatorKey,
-        // themeMode: ThemeMode.light,
+        //themeMode: ThemeMode.dark,
         darkTheme: myDarkTheme(),
         theme: myLightTheme(),
-        home: const HomePage(), //  FoodScanScreen(),
+        home: const HomePage(), //  FoodScanScreen()
 
         routes: {
           // '/': (ctx) => const TabsScreen(),

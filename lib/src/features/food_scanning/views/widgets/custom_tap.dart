@@ -16,7 +16,7 @@ class CustomTap extends StatelessWidget {
         margin: const EdgeInsets.only(bottom: 5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
-          color: Colors.grey[300],
+          color: Theme.of(context).cardColor, //Colors.grey[800],
         ),
         child: FittedBox(
           child: Text(

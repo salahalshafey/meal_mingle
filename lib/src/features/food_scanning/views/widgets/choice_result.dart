@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/util/functions/string_manipulations_and_search.dart';
+import '../../../../core/util/widgets/note_description.dart';
 import '../providers/food_scan.dart';
 
 class ChoiceResult extends StatelessWidget {
-  const ChoiceResult(this.questionIndex, {super.key});
+  const ChoiceResult({
+    required this.questionIndex,
+    required this.title,
+    required this.icon,
+    super.key,
+  });
 
   final int questionIndex;
+  final String title;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +40,19 @@ class ChoiceResult extends StatelessWidget {
         final questionResult = snapshot.data!;
 
         //  style: Theme.of(context).textTheme.bodyLarge,
-        return Padding(
-          padding: const EdgeInsets.only(top: 20),
-          child: Directionality(
-            textDirection: getDirectionalityOf(questionResult),
-            child: Markdown(data: questionResult),
+        return Directionality(
+          textDirection: getDirectionalityOf(questionResult),
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10)
+                .add(const EdgeInsets.only(bottom: 120)),
+            child: NoteDescription(
+              icon: Icon(
+                icon,
+                color: Theme.of(context).colorScheme.primary,
+              ),
+              title: title,
+              child: MarkdownBody(data: questionResult),
+            ).animate(delay: 200.ms).slideY(begin: -0.07).fadeIn(),
           ),
         );
       },

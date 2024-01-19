@@ -5,6 +5,7 @@ import '../../../../injection_container.dart' as di;
 
 import '../providers/food_scan.dart';
 
+import '../widgets/loading_search_in_the_image.dart';
 import '../widgets/result_info.dart';
 
 class FoodScanResultScreen extends StatelessWidget {
@@ -28,9 +29,7 @@ class FoodScanResultScreen extends StatelessWidget {
             }
 
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
+              return LoadingSearchInTheImage(imagePath: imagePath);
             }
 
             final overviewResult = snapshot.data!;

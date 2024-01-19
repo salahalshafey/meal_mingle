@@ -30,7 +30,7 @@ class ImageAndChoicesAppbar extends StatelessWidget {
         icon: const Icon(Icons.arrow_back_ios_rounded),
         style: ButtonStyle(
           backgroundColor: MaterialStatePropertyAll(
-              Theme.of(context).primaryColor.withOpacity(0.5)),
+              Theme.of(context).colorScheme.primary.withOpacity(0.5)),
         ),
         onPressed: () => Navigator.of(context).pop(),
       ),
