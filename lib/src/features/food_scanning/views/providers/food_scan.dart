@@ -3,12 +3,24 @@ import 'package:flutter/material.dart';
 import '../../../../core/error/error_exceptions_with_message.dart';
 import '../../../../core/error/exceptions_without_message.dart';
 
+import '../../data/models/food_scanning_result_model.dart';
+
+import '../../viewmodels/favorite_food_scanning_viewmodel.dart';
 import '../../viewmodels/food_scanning_viewmodel.dart';
 
 class FoodScan with ChangeNotifier {
   final FoodScanningViewModel foodScanningViewModel;
+  final FavoriteFoodScanningViewmodel favoriteFoodScanningViewmodel;
 
-  FoodScan({required this.foodScanningViewModel});
+  FoodScan({
+    required this.foodScanningViewModel,
+    required this.favoriteFoodScanningViewmodel,
+  });
+
+  String? _savedWithId;
+  DateTime? _savedWithDate;
+
+  bool get isFavorite => _savedWithId != null;
 
   late String _imagePath;
   late String _resultOverview;
@@ -121,6 +133,10 @@ If there is more than one item, "Give the result for each item".""",
 
       notifyListeners();
 
+      if (isFavorite) {
+        _updateFavorite();
+      }
+
       return _questionsResults[questionIndex]!;
     } on OfflineException {
       throw ErrorMessage(
@@ -139,5 +155,83 @@ If there is more than one item, "Give the result for each item".""",
           "unexpected Error Happened" //AppLocalizations.of(_context)!.unexpectedErrorHappened,
           );
     }
+  }
+
+  Future<void> _saveToFavorite() async {
+    try {
+      _savedWithId = DateTime.now().hashCode.toString();
+      _savedWithDate = DateTime.now();
+
+      final modelToSave = FoodScanningResultModel(
+        id: _savedWithId!,
+        dateTime: _savedWithDate!,
+        imagePath: _imagePath,
+        resultOverview: _resultOverview,
+        questionsResults: _questionsResults,
+      );
+
+      await favoriteFoodScanningViewmodel.saveToFavoirte(modelToSave);
+
+      notifyListeners();
+    } on LocalDataException {
+      throw ErrorMessage("not Able To Save data To Local Device");
+    } on LocalStorageException {
+      throw ErrorMessage("not Able To Save Files To Local Device Storage");
+    } catch (error) {
+      throw ErrorMessage("unexpected Error Happened");
+    }
+  }
+
+  Future<void> _updateFavorite() async {
+    try {
+      final modelToSave = FoodScanningResultModel(
+        id: _savedWithId!,
+        dateTime: _savedWithDate!,
+        imagePath: _imagePath,
+        resultOverview: _resultOverview,
+        questionsResults: _questionsResults,
+      );
+
+      await favoriteFoodScanningViewmodel.saveToFavoirte(modelToSave);
+    } on LocalDataException {
+      throw ErrorMessage("not Able To Save data To Local Device");
+    } on LocalStorageException {
+      throw ErrorMessage("not Able To Save Files To Local Device Storage");
+    } catch (error) {
+      throw ErrorMessage("unexpected Error Happened");
+    }
+  }
+
+  Future<void> _deleteFavorite() async {
+    try {
+      await favoriteFoodScanningViewmodel.deleteFavorite(_savedWithId!);
+
+      _savedWithId = null;
+      _savedWithDate = null;
+
+      notifyListeners();
+    } on LocalDataException {
+      throw ErrorMessage("not Able To Save data To Local Device");
+    } on LocalStorageException {
+      throw ErrorMessage("not Able To Save Files To Local Device Storage");
+    } catch (error) {
+      throw ErrorMessage("unexpected Error Happened");
+    }
+  }
+
+  Future<void> toggleFavorite() async {
+    try {
+      if (isFavorite) {
+        await _deleteFavorite();
+      } else {
+        await _saveToFavorite();
+      }
+    } catch (error) {
+      rethrow;
+    }
+  }
+
+  Future<List<FoodScanningResultModel>> getAllForTest() {
+    return favoriteFoodScanningViewmodel.getAllFavorite();
   }
 }

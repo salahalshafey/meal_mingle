@@ -1,5 +1,7 @@
 class LocalStorageException implements Exception {}
 
+class LocalDataException implements Exception {}
+
 class ServerException implements Exception {}
 
 class FilterException implements Exception {}

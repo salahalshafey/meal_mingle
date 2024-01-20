@@ -1,33 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
-class SaveFoodScanningResultButton extends StatefulWidget {
+import '../providers/food_scan.dart';
+
+class SaveFoodScanningResultButton extends StatelessWidget {
   const SaveFoodScanningResultButton({
     super.key,
   });
 
   @override
-  State<SaveFoodScanningResultButton> createState() =>
-      _SaveFoodScanningResultButtonState();
-}
-
-class _SaveFoodScanningResultButtonState
-    extends State<SaveFoodScanningResultButton> {
-  bool _isVavorite = false;
-  void toggleFavorite() {
-    setState(() {
-      _isVavorite = !_isVavorite;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<FoodScan>(context);
+
     return FloatingActionButton(
       heroTag: null,
-      // backgroundColor: Colors.white,
-      onPressed: toggleFavorite,
+      onPressed: provider.toggleFavorite,
       child: Icon(
-        _isVavorite ? Icons.favorite_rounded : Icons.favorite_border_rounded,
-        color: _isVavorite ? Colors.pink : null,
+        provider.isFavorite
+            ? Icons.favorite_rounded
+            : Icons.favorite_border_rounded,
+        color: provider.isFavorite ? Colors.pink : null,
       ),
     );
   }
@@ -44,7 +37,13 @@ class ShareFoodScanningResultButton extends StatelessWidget {
     return FloatingActionButton(
       heroTag: null,
       //backgroundColor: Colors.white,
-      onPressed: () {},
+      onPressed: () async {
+        final allFav =
+            await Provider.of<FoodScan>(context, listen: false).getAllForTest();
+
+        print(allFav.length);
+        await Clipboard.setData(ClipboardData(text: allFav.toString()));
+      },
       child: const Icon(Icons.share),
     );
   }

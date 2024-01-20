@@ -103,7 +103,7 @@ class GeminiProVisionImpl implements FoodScanningService {
 
     return responseMap["candidates"][0]["content"]["parts"][0]["text"];
 
-    /*await Future.delayed(Duration(seconds: 1));
+    /*  await Future.delayed(Duration(seconds: 1));
 
     return test;*/
   }

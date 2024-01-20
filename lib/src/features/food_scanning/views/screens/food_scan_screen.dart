@@ -1,11 +1,15 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 import '../../../../core/util/builders/go_to_screen_with_slide_transition.dart';
 import '../../../../core/util/builders/image_picker.dart';
 import '../../../home_and_drawer/main_drawer.dart';
+import '../../data/services/favorite_food_scanning_local_data_service.dart';
+import '../../data/services/favorite_food_scanning_local_storage_service.dart';
+import '../../viewmodels/favorite_food_scanning_viewmodel.dart';
 import '../providers/convert_image_to_png.dart';
 import 'food_scan_result_screen.dart';
 
@@ -33,7 +37,7 @@ class FoodScanScreen extends StatelessWidget {
     goToScreenWithSlideTransition(
       context,
       FoodScanResultScreen(convertedPath),
-      beginOffset: const Offset(0, 0),
+      //  beginOffset: const Offset(0, 0),
     );
   }
 
@@ -60,7 +64,19 @@ class FoodScanScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           FloatingActionButton(
-            onPressed: () {}, // => _getImageAndGoToResultScreen(context),
+            heroTag: null,
+            onPressed: () async {
+              final test = FavoriteFoodScanningViewmodelImpl(
+                localDataService: FavoriteFoodScanningHiveImpl(),
+                localStorageService: FavoriteFoodScanningLocalStorageImpl(),
+              );
+
+              final allFavorite = await test.getAllFavorite();
+
+              print(allFavorite.length);
+              await Clipboard.setData(
+                  ClipboardData(text: allFavorite.toString()));
+            }, // => _getImageAndGoToResultScreen(context),
             child: const Icon(
               Icons.favorite,
               size: 30,
@@ -68,6 +84,7 @@ class FoodScanScreen extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           FloatingActionButton(
+            heroTag: null,
             onPressed: () => _getImageAndGoToResultScreen(context),
             child: const Icon(
               Icons.photo_camera,

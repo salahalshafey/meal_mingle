@@ -12,7 +12,7 @@ class LoadingSearchInTheImage extends StatelessWidget {
     final color = Theme.of(context).colorScheme.primary;
     final screenHeight = MediaQuery.of(context).size.height;
     const scanHeight = 150.0;
-    final offset = (screenHeight / scanHeight).ceil().toDouble();
+    final offset = (screenHeight / scanHeight).ceilToDouble();
     final duration = offset.seconds * 0.5;
 
     return Container(
