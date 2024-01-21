@@ -35,8 +35,81 @@ class AllFavoriteFoodScanScreen extends StatelessWidget {
 
           final allFavorites = Provider.of<FavoritesFoodScan>(ctx).allFavorites;
 
-          //  return AllFavoritesGrid(allFavorites: allFavorites);
-          return GridView.builder(
+          if (allFavorites.isEmpty) {
+            return const Center(
+              child: Text(
+                'You Have no Favorites yet - Start Adding Some!',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            );
+          }
+
+          return AllFavoritesGrid(allFavorites);
+        },
+      ),
+    );
+  }
+}
+
+class AllFavoritesGrid extends StatefulWidget {
+  const AllFavoritesGrid(this.allFavorites, {super.key});
+
+  final List<FoodScanningResultModel> allFavorites;
+
+  @override
+  State<AllFavoritesGrid> createState() => _AllFavoritesGridState();
+}
+
+class _AllFavoritesGridState extends State<AllFavoritesGrid> {
+  final GlobalKey<AnimatedGridState> _gridKey = GlobalKey<AnimatedGridState>();
+
+  void _removeItem(int index) {
+    _gridKey.currentState!.removeItem(
+      index,
+      duration: const Duration(milliseconds: 500),
+      (context, animation) => ScaleTransition(
+        scale: animation,
+        child: FoodScanItem(
+          favoriteId: widget.allFavorites.first.id,
+          imagePath: widget.allFavorites.first.imagePath,
+          overview: widget.allFavorites.first.resultOverview,
+          dateTime: widget.allFavorites.first.dateTime,
+          removeItem: _removeItem,
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedGrid(
+      key: _gridKey,
+      initialItemCount: widget.allFavorites.length,
+      itemBuilder: (context, index, animation) {
+        return ScaleTransition(
+          scale: animation,
+          child: FoodScanItem(
+            favoriteId: widget.allFavorites[index].id,
+            imagePath: widget.allFavorites[index].imagePath,
+            overview: widget.allFavorites[index].resultOverview,
+            dateTime: widget.allFavorites[index].dateTime,
+            removeItem: _removeItem,
+          ),
+        );
+      },
+      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: 800,
+        crossAxisSpacing: 15,
+        mainAxisExtent: 350,
+      ),
+    );
+  }
+}
+//////////////////////////////////////
+///////
+////
+
+   /* return GridView.builder(
             itemCount: allFavorites.length,
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 800,
@@ -51,64 +124,4 @@ class AllFavoriteFoodScanScreen extends StatelessWidget {
                 dateTime: allFavorites[index].dateTime,
               );
             },
-          );
-        },
-      ),
-    );
-  }
-}
-
-/*class AllFavoritesGrid extends StatefulWidget {
-  const AllFavoritesGrid({
-    super.key,
-    required this.allFavorites,
-  });
-
-  final List<FoodScanningResultModel> allFavorites;
-
-  @override
-  State<AllFavoritesGrid> createState() => _AllFavoritesGridState();
-}
-
-class _AllFavoritesGridState extends State<AllFavoritesGrid> {
-  final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
-
-  void _removeItem(int index) {
-    _listKey.currentState!.removeItem(
-      index,
-      (context, animation) => FadeTransition(
-        opacity: animation,
-        child: FoodScanItem(
-          favoriteId: widget.allFavorites[index].id,
-          imagePath: widget.allFavorites[index].imagePath,
-          overview: widget.allFavorites[index].resultOverview,
-          dateTime: widget.allFavorites[index].dateTime,
-        ),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedGrid(
-      key: _listKey,
-      initialItemCount: widget.allFavorites.length,
-      itemBuilder: (context, index, animation) {
-        return FadeTransition(
-          opacity: animation,
-          child: FoodScanItem(
-            favoriteId: widget.allFavorites[index].id,
-            imagePath: widget.allFavorites[index].imagePath,
-            overview: widget.allFavorites[index].resultOverview,
-            dateTime: widget.allFavorites[index].dateTime,
-          ),
-        );
-      },
-      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: 800,
-        crossAxisSpacing: 15,
-        mainAxisExtent: 350,
-      ),
-    );
-  }
-}*/
+          );*/

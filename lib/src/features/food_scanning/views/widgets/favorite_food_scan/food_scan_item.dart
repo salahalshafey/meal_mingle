@@ -12,12 +12,14 @@ class FoodScanItem extends StatelessWidget {
     required this.imagePath,
     required this.overview,
     required this.dateTime,
+    required this.removeItem,
   });
 
   final String favoriteId;
   final String imagePath;
   final String overview;
   final DateTime dateTime;
+  final void Function(int index) removeItem;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +46,7 @@ class FoodScanItem extends StatelessWidget {
               Positioned(
                 bottom: 10,
                 right: 5,
-                child: DeleteFromFavoriteButton(favoriteId),
+                child: DeleteFromFavoriteButton(favoriteId, removeItem),
               )
             ],
           ),

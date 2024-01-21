@@ -123,14 +123,18 @@ If there is more than one item, "Give the result for each item".""",
     }
   }
 
-  Future<void> deleteFavorite(String favoriteId) async {
+  Future<int> deleteFavorite(String favoriteId) async {
     try {
-      //  await favoriteFoodScanningViewmodel.deleteFavorite(favoriteId);
+      await favoriteFoodScanningViewmodel.deleteFavorite(favoriteId);
 
+      final removedIndex =
+          _allFavorites.indexWhere((element) => element.id == favoriteId);
       _allFavorites
           .removeWhere((favoriteModel) => favoriteModel.id == favoriteId);
 
       notifyListeners();
+
+      return removedIndex;
     } on LocalDataException {
       throw ErrorMessage("Not Able To Delete data To Local Device");
     } on LocalStorageException {

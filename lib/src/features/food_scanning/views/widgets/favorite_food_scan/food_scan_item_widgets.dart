@@ -69,8 +69,13 @@ class ScanOverview extends StatelessWidget {
 }
 
 class DeleteFromFavoriteButton extends StatelessWidget {
-  const DeleteFromFavoriteButton(this.favoriteId, {super.key});
+  const DeleteFromFavoriteButton(
+    this.favoriteId,
+    this.removeItem, {
+    super.key,
+  });
 
+  final void Function(int index) removeItem;
   final String favoriteId;
 
   void _deleteFromFavorite(BuildContext context) async {
@@ -108,10 +113,14 @@ class DeleteFromFavoriteButton extends StatelessWidget {
       return;
     }
 
-    Provider.of<FavoritesFoodScan>(context, listen: false)
-        .deleteFavorite(favoriteId)
-        .onError((error, stackTrace) =>
-            showCustomSnackBar(context: context, content: error.toString()));
+    try {
+      final index = await Provider.of<FavoritesFoodScan>(context, listen: false)
+          .deleteFavorite(favoriteId);
+
+      removeItem(index);
+    } catch (error) {
+      showCustomSnackBar(context: context, content: error.toString());
+    }
   }
 
   @override
