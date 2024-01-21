@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/util/widgets/custom_back_button.dart';
 import '../widgets/meal_item.dart';
 import '../models/meal.dart';
 
@@ -41,11 +42,7 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
         appBar: AppBar(
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
             elevation: 3,
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back_ios_rounded),
-              color: Colors.black,
-              onPressed: () => Navigator.of(context).pop(),
-            ),
+            leading: const CustomBackButton(),
             title: Text(
               'These Are Some $categoryTitle Recepies',
               style: Theme.of(context).textTheme.titleSmall,

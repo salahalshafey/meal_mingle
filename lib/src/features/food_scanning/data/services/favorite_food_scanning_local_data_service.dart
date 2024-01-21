@@ -13,8 +13,7 @@ abstract class FavoriteFoodScanningLocalDataService {
   Future<void> deleteAllFavorite();
 }
 
-final _favoritesBox =
-    Hive.box<Map<String, dynamic>>('favorite_food_scanning_results');
+final _favoritesBox = Hive.box<Map>('favorite_food_scanning_results');
 
 class FavoriteFoodScanningHiveImpl
     implements FavoriteFoodScanningLocalDataService {
@@ -29,7 +28,7 @@ class FavoriteFoodScanningHiveImpl
           .map((key) =>
               FoodScanningResultModel.fromJson(_favoritesBox.get(key)!))
           .toList();
-    } catch (error) {
+    } catch (erro) {
       throw LocalDataException();
     }
   }

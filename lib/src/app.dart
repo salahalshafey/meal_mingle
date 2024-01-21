@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import 'core/theme/dark_theme.dart';
 import 'core/theme/light_theme.dart';
 
-import 'features/home_and_drawer/home_page.dart';
+import 'features/food_scanning/views/screens/favorite_food_scan_screen.dart';
+import 'features/food_scanning/views/screens/food_scan_screen.dart';
 import 'features/meals/models/dummy_data.dart';
 import 'features/meals/models/meal.dart';
-import 'features/meals/providers/favorite.dart';
 import 'features/meals/screens/category_meals_screen.dart';
 import 'features/meals/screens/meal_detail_screen.dart';
 import 'features/meals/screens/settings_screen.dart';
@@ -59,26 +58,24 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     navigatorKey = _navigatorKey;
 
-    return ChangeNotifierProvider(
-      create: (context) => Favorite(),
-      child: MaterialApp(
-        title: 'Flutter Food Scanner',
-        debugShowCheckedModeBanner: false,
-        navigatorKey: _navigatorKey,
-        //themeMode: ThemeMode.dark,
-        darkTheme: myDarkTheme(),
-        theme: myLightTheme(),
-        home: const HomePage(), //  FoodScanScreen()
+    return MaterialApp(
+      title: 'Flutter Food Scanner',
+      debugShowCheckedModeBanner: false,
+      navigatorKey: _navigatorKey,
+      //themeMode: ThemeMode.dark,
+      darkTheme: myDarkTheme(),
+      theme: myLightTheme(),
+      home: const FoodScanScreen(), //   HomePage()
 
-        routes: {
-          // '/': (ctx) => const TabsScreen(),
-          CategoryMealsScreen.routeName: (ctx) =>
-              CategoryMealsScreen(_availableMeals),
-          MealDetailScreen.routeName: (ctx) => const MealDetailScreen(),
-          SettingsScreen.routeName: (ctx) =>
-              SettingsScreen(_filters, _setFilters)
-        },
-      ),
+      routes: {
+        // '/': (ctx) => const TabsScreen(),
+        FavoriteFoodScanScreen.routeName: (ctx) =>
+            const FavoriteFoodScanScreen(),
+        CategoryMealsScreen.routeName: (ctx) =>
+            CategoryMealsScreen(_availableMeals),
+        MealDetailScreen.routeName: (ctx) => const MealDetailScreen(),
+        SettingsScreen.routeName: (ctx) => SettingsScreen(_filters, _setFilters)
+      },
     );
   }
 }

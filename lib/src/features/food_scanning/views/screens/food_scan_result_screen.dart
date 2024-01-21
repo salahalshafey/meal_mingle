@@ -5,8 +5,8 @@ import '../../../../injection_container.dart' as di;
 
 import '../providers/food_scan.dart';
 
-import '../widgets/loading_search_in_the_image.dart';
-import '../widgets/result_info.dart';
+import '../widgets/food_scan/loading_search_in_the_image.dart';
+import '../widgets/food_scan/result_info.dart';
 
 class FoodScanResultScreen extends StatelessWidget {
   const FoodScanResultScreen(this.imagePath, {super.key});

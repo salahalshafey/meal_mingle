@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
-import 'floating_action_buttons.dart';
-import 'image_and_choices_appbar.dart';
+import '../floating_action_buttons.dart';
+import '../image_and_choices_appbar.dart';
 
-import 'overview_result.dart';
+import '../overview_result.dart';
 import 'choice_result.dart';
 
 class ResultInfo extends StatelessWidget {

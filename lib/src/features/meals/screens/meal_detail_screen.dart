@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:meal_mingle/src/core/util/widgets/custom_card.dart';
 import 'package:provider/provider.dart';
 
+import '../../../core/util/widgets/custom_back_button.dart';
 import '../providers/favorite.dart';
 import '../models/mesauring_icon_icons.dart';
 import '../models/dummy_data.dart';
@@ -32,6 +33,7 @@ class MealDetailScreen extends StatelessWidget {
       ),
       /*appBar: AppBar(
         leading: IconButton(
+          tooltip: "Back",
           icon: const Icon(Icons.arrow_back_ios_rounded),
           onPressed: () => Navigator.of(context).pop(),
         ),
@@ -56,16 +58,7 @@ class MealDetailScreen extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              leading: IconButton(
-                color: Colors.black,
-                iconSize: 28,
-                icon: const Icon(Icons.arrow_back_ios_rounded),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(
-                      Theme.of(context).colorScheme.primary.withOpacity(0.5)),
-                ),
-                onPressed: () => Navigator.of(context).pop(),
-              ),
+              leading: const CustomBackButton(includeBackgroundColor: true),
               //  leadingWidth: 100,
               floating: true,
               pinned: true,
@@ -78,6 +71,7 @@ class MealDetailScreen extends StatelessWidget {
               ),*/
               /*  bottom: AppBar(
                 leading: IconButton(
+                  tooltip: "Back",
                   icon: const Icon(Icons.arrow_back_ios_rounded),
                   onPressed: () => Navigator.of(context).pop(),
                 ),

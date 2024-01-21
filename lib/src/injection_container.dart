@@ -7,6 +7,7 @@ import 'features/food_scanning/data/services/favorite_food_scanning_local_storag
 import 'features/food_scanning/data/services/food_scanning_service.dart';
 import 'features/food_scanning/viewmodels/favorite_food_scanning_viewmodel.dart';
 import 'features/food_scanning/viewmodels/food_scanning_viewmodel.dart';
+import 'features/food_scanning/views/providers/favorites_food_scan.dart';
 import 'features/food_scanning/views/providers/food_scan.dart';
 
 final sl = GetIt.instance;
@@ -18,6 +19,10 @@ Future<void> init() async {
 // Provider "View"
 
   sl.registerFactory(() => FoodScan(
+        foodScanningViewModel: sl(),
+        favoriteFoodScanningViewmodel: sl(),
+      ));
+  sl.registerFactory(() => FavoritesFoodScan(
         foodScanningViewModel: sl(),
         favoriteFoodScanningViewmodel: sl(),
       ));

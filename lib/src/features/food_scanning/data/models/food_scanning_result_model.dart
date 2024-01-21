@@ -17,7 +17,7 @@ class FoodScanningResultModel {
   final String resultOverview;
   final List<String?> questionsResults;
 
-  factory FoodScanningResultModel.fromJson(Map<String, dynamic> json) =>
+  factory FoodScanningResultModel.fromJson(Map<dynamic, dynamic> json) =>
       _$FoodScanningResultModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$FoodScanningResultModelToJson(this);

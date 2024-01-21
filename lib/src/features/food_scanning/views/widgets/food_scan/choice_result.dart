@@ -3,9 +3,9 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../core/util/functions/string_manipulations_and_search.dart';
-import '../../../../core/util/widgets/note_description.dart';
-import '../providers/food_scan.dart';
+import '../../../../../core/util/functions/string_manipulations_and_search.dart';
+import '../../../../../core/util/widgets/note_description.dart';
+import '../../providers/food_scan.dart';
 
 class ChoiceResult extends StatelessWidget {
   const ChoiceResult({

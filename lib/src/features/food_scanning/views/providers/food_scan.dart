@@ -101,19 +101,19 @@ If there is more than one item, "Give the result for each item".""",
       return _resultOverview;
     } on OfflineException {
       throw ErrorMessage(
-          "you Are Currently Offline!!" //AppLocalizations.of(_context)!.youAreCurrentlyOffline,
+          "You Are Currently Offline!!" //AppLocalizations.of(_context)!.youAreCurrentlyOffline,
           );
     } on ServerException {
       throw ErrorMessage(
-          "something Went Wrong Please Try Again Later!!" //AppLocalizations.of(_context)!.somethingWentWrongPleaseTryAgainLater,
+          "Something Went Wrong Please Try Again Later!!" //AppLocalizations.of(_context)!.somethingWentWrongPleaseTryAgainLater,
           );
     } on FilterException {
       throw ErrorMessage(
-          "sorry There Is No Result For Your Search" //AppLocalizations.of(_context)!.sorryThereIsNoResultForYourSearch,
+          "Sorry There Is No Result For Your Scan" //AppLocalizations.of(_context)!.sorryThereIsNoResultForYourSearch,
           );
     } catch (error) {
       throw ErrorMessage(
-          "unexpected Error Happened" //AppLocalizations.of(_context)!.unexpectedErrorHappened,
+          "Unexpected Error Happened" //AppLocalizations.of(_context)!.unexpectedErrorHappened,
           );
     }
   }
@@ -140,19 +140,19 @@ If there is more than one item, "Give the result for each item".""",
       return _questionsResults[questionIndex]!;
     } on OfflineException {
       throw ErrorMessage(
-          "you Are Currently Offline!!" //AppLocalizations.of(_context)!.youAreCurrentlyOffline,
+          "You Are Currently Offline!!" //AppLocalizations.of(_context)!.youAreCurrentlyOffline,
           );
     } on ServerException {
       throw ErrorMessage(
-          "something Went Wrong Please Try Again Later!!" //AppLocalizations.of(_context)!.somethingWentWrongPleaseTryAgainLater,
+          "Something Went Wrong Please Try Again Later!!" //AppLocalizations.of(_context)!.somethingWentWrongPleaseTryAgainLater,
           );
     } on FilterException {
       throw ErrorMessage(
-          "sorry There Is No Result For Your Search" //AppLocalizations.of(_context)!.sorryThereIsNoResultForYourSearch,
+          "Sorry There Is No Result For Your Scan" //AppLocalizations.of(_context)!.sorryThereIsNoResultForYourSearch,
           );
     } catch (error) {
       throw ErrorMessage(
-          "unexpected Error Happened" //AppLocalizations.of(_context)!.unexpectedErrorHappened,
+          "Unexpected Error Happened" //AppLocalizations.of(_context)!.unexpectedErrorHappened,
           );
     }
   }
@@ -174,11 +174,11 @@ If there is more than one item, "Give the result for each item".""",
 
       notifyListeners();
     } on LocalDataException {
-      throw ErrorMessage("not Able To Save data To Local Device");
+      throw ErrorMessage("Not Able To Save data To Local Device");
     } on LocalStorageException {
-      throw ErrorMessage("not Able To Save Files To Local Device Storage");
+      throw ErrorMessage("Not Able To Save Files To Local Device Storage");
     } catch (error) {
-      throw ErrorMessage("unexpected Error Happened");
+      throw ErrorMessage("Unexpected Error Happened");
     }
   }
 
@@ -194,11 +194,11 @@ If there is more than one item, "Give the result for each item".""",
 
       await favoriteFoodScanningViewmodel.saveToFavoirte(modelToSave);
     } on LocalDataException {
-      throw ErrorMessage("not Able To Save data To Local Device");
+      throw ErrorMessage("Not Able To Save data To Local Device");
     } on LocalStorageException {
-      throw ErrorMessage("not Able To Save Files To Local Device Storage");
+      throw ErrorMessage("Not Able To Save Files To Local Device Storage");
     } catch (error) {
-      throw ErrorMessage("unexpected Error Happened");
+      throw ErrorMessage("Unexpected Error Happened");
     }
   }
 
@@ -211,11 +211,11 @@ If there is more than one item, "Give the result for each item".""",
 
       notifyListeners();
     } on LocalDataException {
-      throw ErrorMessage("not Able To Save data To Local Device");
+      throw ErrorMessage("Not Able To Delete data To Local Device");
     } on LocalStorageException {
-      throw ErrorMessage("not Able To Save Files To Local Device Storage");
+      throw ErrorMessage("Not Able To Delete Files To Local Device Storage");
     } catch (error) {
-      throw ErrorMessage("unexpected Error Happened");
+      throw ErrorMessage("Unexpected Error Happened");
     }
   }
 
@@ -229,9 +229,5 @@ If there is more than one item, "Give the result for each item".""",
     } catch (error) {
       rethrow;
     }
-  }
-
-  Future<List<FoodScanningResultModel>> getAllForTest() {
-    return favoriteFoodScanningViewmodel.getAllFavorite();
   }
 }

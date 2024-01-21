@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+
+import '../../../../core/util/builders/custom_snack_bar.dart';
 
 import '../providers/food_scan.dart';
 
@@ -15,7 +16,10 @@ class SaveFoodScanningResultButton extends StatelessWidget {
 
     return FloatingActionButton(
       heroTag: null,
-      onPressed: provider.toggleFavorite,
+      onPressed: () {
+        provider.toggleFavorite().onError((error, stackTrace) =>
+            showCustomSnackBar(context: context, content: error.toString()));
+      },
       child: Icon(
         provider.isFavorite
             ? Icons.favorite_rounded
@@ -36,14 +40,7 @@ class ShareFoodScanningResultButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       heroTag: null,
-      //backgroundColor: Colors.white,
-      onPressed: () async {
-        final allFav =
-            await Provider.of<FoodScan>(context, listen: false).getAllForTest();
-
-        print(allFav.length);
-        await Clipboard.setData(ClipboardData(text: allFav.toString()));
-      },
+      onPressed: () async {},
       child: const Icon(Icons.share),
     );
   }

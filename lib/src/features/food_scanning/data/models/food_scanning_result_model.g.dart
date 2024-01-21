@@ -7,7 +7,7 @@ part of 'food_scanning_result_model.dart';
 // **************************************************************************
 
 FoodScanningResultModel _$FoodScanningResultModelFromJson(
-        Map<String, dynamic> json) =>
+        Map<dynamic, dynamic> json) =>
     FoodScanningResultModel(
       id: json['id'] as String,
       dateTime: DateTime.parse(json['dateTime'] as String),

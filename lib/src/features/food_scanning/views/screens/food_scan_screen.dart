@@ -1,16 +1,13 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 import '../../../../core/util/builders/go_to_screen_with_slide_transition.dart';
 import '../../../../core/util/builders/image_picker.dart';
 import '../../../home_and_drawer/main_drawer.dart';
-import '../../data/services/favorite_food_scanning_local_data_service.dart';
-import '../../data/services/favorite_food_scanning_local_storage_service.dart';
-import '../../viewmodels/favorite_food_scanning_viewmodel.dart';
 import '../providers/convert_image_to_png.dart';
+import 'all_favorite_food_scan_screen.dart';
 import 'food_scan_result_screen.dart';
 
 class FoodScanScreen extends StatelessWidget {
@@ -66,16 +63,10 @@ class FoodScanScreen extends StatelessWidget {
           FloatingActionButton(
             heroTag: null,
             onPressed: () async {
-              final test = FavoriteFoodScanningViewmodelImpl(
-                localDataService: FavoriteFoodScanningHiveImpl(),
-                localStorageService: FavoriteFoodScanningLocalStorageImpl(),
+              goToScreenWithSlideTransition(
+                context,
+                const AllFavoriteFoodScanScreen(),
               );
-
-              final allFavorite = await test.getAllFavorite();
-
-              print(allFavorite.length);
-              await Clipboard.setData(
-                  ClipboardData(text: allFavorite.toString()));
             }, // => _getImageAndGoToResultScreen(context),
             child: const Icon(
               Icons.favorite,

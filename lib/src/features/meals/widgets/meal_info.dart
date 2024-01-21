@@ -13,6 +13,7 @@ class MealInfo extends StatelessWidget {
     required this.affordability,
     required this.complexity,
   }) : super(key: key);
+
   String get complexityText {
     switch (complexity) {
       case Complexity.simple:

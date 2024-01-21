@@ -25,6 +25,7 @@ Future<T?> showCustomAlretDialog<T>({
   Widget? contentWidget,
   Color? titleColor,
   Widget? icon,
+  bool showIconAboveTitle = true,
   List<Widget> Function(BuildContext dialogContext)? actionsBuilder,
   BoxConstraints? constraints,
   bool barrierDismissible = true,
@@ -54,23 +55,37 @@ Future<T?> showCustomAlretDialog<T>({
             bottom: 10,
           ),
           actionsPadding: actionsPadding,
-          title: Row(
-            children: [
-              icon ??
+          icon: showIconAboveTitle
+              ? icon ??
                   Icon(
                     Icons.warning_rounded,
-                    size: 45,
+                    size: 55,
                     color: titleColor ?? Colors.red.shade900,
-                  ),
-              const SizedBox(width: 20),
-              Expanded(
-                child: Text(
+                  )
+              : null,
+          title: showIconAboveTitle
+              ? Text(
                   title,
                   style: TextStyle(color: titleColor ?? Colors.red.shade900),
+                )
+              : Row(
+                  children: [
+                    icon ??
+                        Icon(
+                          Icons.warning_rounded,
+                          size: 45,
+                          color: titleColor ?? Colors.red.shade900,
+                        ),
+                    const SizedBox(width: 20),
+                    Expanded(
+                      child: Text(
+                        title,
+                        style:
+                            TextStyle(color: titleColor ?? Colors.red.shade900),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
-          ),
           content: Container(
             constraints: constraints,
             child: SingleChildScrollView(
