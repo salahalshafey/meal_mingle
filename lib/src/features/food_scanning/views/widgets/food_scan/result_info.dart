@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
+import '../../../data/models/food_scanning_result_model.dart';
 import '../floating_action_buttons.dart';
 import '../image_and_choices_appbar.dart';
 
@@ -23,7 +24,15 @@ class ResultInfo extends StatelessWidget {
       floatingActionButton: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const ShareFoodScanningResultButton(),
+          ShareFoodScanningResultButton(
+            FoodScanningResultModel(
+              id: "id",
+              dateTime: DateTime.now(),
+              imagePath: imagePath,
+              resultOverview: overviewResult,
+              questionsResults: [],
+            ),
+          ),
           const SizedBox(height: 20),
           const SaveFoodScanningResultButton(),
         ].animate(delay: 500.ms, interval: 50.ms).slideX(begin: 1.5),

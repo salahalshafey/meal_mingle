@@ -5,6 +5,8 @@ import '../../../../injection_container.dart' as di;
 
 import '../providers/food_scan.dart';
 
+import '../../../../core/util/widgets/custom_back_button.dart';
+
 import '../widgets/food_scan/loading_search_in_the_image.dart';
 import '../widgets/food_scan/result_info.dart';
 
@@ -23,8 +25,13 @@ class FoodScanResultScreen extends StatelessWidget {
               .getFoodOverview(imagePath),
           builder: (ctx, snapshot) {
             if (snapshot.hasError) {
-              return Center(
-                child: Text(snapshot.error.toString()),
+              return Scaffold(
+                appBar: AppBar(leading: const CustomBackButton()),
+                body: Center(
+                  child: Text(
+                    snapshot.error.toString(),
+                  ),
+                ),
               );
             }
 

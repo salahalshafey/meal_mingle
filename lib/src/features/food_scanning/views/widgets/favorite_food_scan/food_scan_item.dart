@@ -47,7 +47,7 @@ class FoodScanItem extends StatelessWidget {
                 bottom: 10,
                 right: 5,
                 child: DeleteFromFavoriteButton(favoriteId, removeItem),
-              )
+              ),
             ],
           ),
           Padding(

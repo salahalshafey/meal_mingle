@@ -62,6 +62,7 @@ class FoodScanScreen extends StatelessWidget {
         children: [
           FloatingActionButton(
             heroTag: null,
+            tooltip: "Favorites",
             onPressed: () async {
               goToScreenWithSlideTransition(
                 context,
@@ -76,6 +77,7 @@ class FoodScanScreen extends StatelessWidget {
           const SizedBox(height: 20),
           FloatingActionButton(
             heroTag: null,
+            tooltip: "Get Image to Scan",
             onPressed: () => _getImageAndGoToResultScreen(context),
             child: const Icon(
               Icons.photo_camera,

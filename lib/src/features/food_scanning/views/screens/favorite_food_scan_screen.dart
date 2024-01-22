@@ -20,7 +20,7 @@ class FavoriteFoodScanScreen extends StatelessWidget {
         Provider.of<FavoritesFoodScan>(context).getFavoriteById(favoriteId);
 
     return Scaffold(
-      floatingActionButton: const ShareFoodScanningResultButton()
+      floatingActionButton: ShareFoodScanningResultButton(foodScanResult)
           .animate(delay: 500.ms)
           .slideX(begin: 1.5),
       body: DefaultTabController(

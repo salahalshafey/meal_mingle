@@ -32,8 +32,8 @@ Future<void> _initHiveBoxes() async {
   await Hive.initFlutter();
 
   await Hive.openBox<Map>("favorite_food_scanning_results");
-  await Hive.openBox<Map<String, dynamic>>("favorite_meals");
-  await Hive.openBox<Map<String, dynamic>>("user_data");
-  await Hive.openBox<Map<String, dynamic>>("meals_settings");
-  await Hive.openBox<Map<String, dynamic>>("app_settings");
+  await Hive.openBox<Map>("favorite_meals");
+  await Hive.openBox<Map>("user_data");
+  await Hive.openBox<Map>("meals_settings");
+  await Hive.openBox<Map>("app_settings");
 }

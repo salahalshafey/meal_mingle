@@ -131,6 +131,7 @@ class DeleteFromFavoriteButton extends StatelessWidget {
       child: FittedBox(
         child: FloatingActionButton(
             heroTag: null,
+            tooltip: "Remove from favorites",
             // backgroundColor: Colors.white,
             onPressed: () => _deleteFromFavorite(context),
             child: const Icon(
