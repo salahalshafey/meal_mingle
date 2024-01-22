@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../core/util/functions/string_manipulations_and_search.dart';
+
 import '../providers/favorites_food_scan.dart';
+
 import '../widgets/favorite_food_scan/favorite_choice_result.dart';
 import '../widgets/floating_action_buttons.dart';
 import '../widgets/image_and_choices_appbar.dart';
@@ -22,7 +25,7 @@ class FavoriteFoodScanScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: ShareFoodScanningResultButton(foodScanResult)
           .animate(delay: 500.ms)
-          .slideX(begin: 1.5),
+          .slideX(begin: appCurrentDirectionalityIsRtl() ? -1.5 : 1.5),
       body: DefaultTabController(
         length: 5,
         child: NestedScrollView(

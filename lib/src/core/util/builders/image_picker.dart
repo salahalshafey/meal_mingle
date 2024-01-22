@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-//import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 /////// Don't forget to get image_picker package by using this command: flutter pub add image_picker////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -23,10 +23,10 @@ Future<XFile?> myImagePicker(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
-                    "Please Choose", //AppLocalizations.of(context)!.pleaseChoose,
+                  Text(
+                    AppLocalizations.of(context)!.pleaseChoose,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
                     ),
@@ -35,14 +35,12 @@ Future<XFile?> myImagePicker(
                   TextButton.icon(
                     onPressed: () => Navigator.of(context).pop(true),
                     icon: const Icon(Icons.camera_alt),
-                    label: const Text(
-                        /*AppLocalizations.of(context)!.camera*/ "Camera"),
+                    label: Text(AppLocalizations.of(context)!.camera),
                   ),
                   TextButton.icon(
                     onPressed: () => Navigator.of(context).pop(false),
                     icon: const Icon(Icons.camera),
-                    label: const Text(
-                        /*AppLocalizations.of(context)!.gallery*/ "Gallery"),
+                    label: Text(AppLocalizations.of(context)!.gallery),
                   ),
                 ],
               ),

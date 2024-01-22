@@ -16,20 +16,20 @@ class OverviewResult extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //  style: Theme.of(context).textTheme.bodyLarge,
-    return Directionality(
-      textDirection: getDirectionalityOf(result),
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10)
-            .add(const EdgeInsets.only(bottom: 120)),
-        child: NoteDescription(
-          icon: Icon(
-            Icons.description,
-            color: Theme.of(context).colorScheme.primary,
-          ),
-          title: "Unveiling Contents and Caloric Breakdown",
+    return SingleChildScrollView(
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10)
+          .add(const EdgeInsets.only(bottom: 120)),
+      child: NoteDescription(
+        icon: Icon(
+          Icons.description,
+          color: Theme.of(context).colorScheme.primary,
+        ),
+        title: "Unveiling Contents and Caloric Breakdown",
+        child: Directionality(
+          textDirection: getDirectionalityOf(result),
           child: MarkdownBody(data: result),
-        ).animate(delay: 200.ms).slideY(begin: -0.07).fadeIn(),
-      ),
+        ),
+      ).animate(delay: 200.ms).slideY(begin: -0.07).fadeIn(),
     );
   }
 }

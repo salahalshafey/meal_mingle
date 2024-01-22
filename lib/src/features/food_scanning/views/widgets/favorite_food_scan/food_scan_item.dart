@@ -38,14 +38,14 @@ class FoodScanItem extends StatelessWidget {
           Stack(
             children: [
               ScanImage(imagePath),
-              Positioned(
+              PositionedDirectional(
                 bottom: 0,
-                left: 0,
+                start: 0,
                 child: ScanOverview(overview),
               ),
-              Positioned(
+              PositionedDirectional(
                 bottom: 10,
-                right: 5,
+                end: 5,
                 child: DeleteFromFavoriteButton(favoriteId, removeItem),
               ),
             ],

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class CustomBackButton extends StatelessWidget {
   const CustomBackButton({
     super.key,
@@ -10,7 +12,7 @@ class CustomBackButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      tooltip: "Back",
+      tooltip: AppLocalizations.of(context)!.back,
       iconSize: 28,
       icon: const Icon(Icons.arrow_back_ios_rounded),
       color: includeBackgroundColor ? Colors.black : null,

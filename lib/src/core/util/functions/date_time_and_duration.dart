@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' as intl;
 
-//import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../app.dart';
+import 'nouns_in_diff_languages.dart';
 //import 'nouns_in_diff_languages.dart';
 
-final context = navigatorKey.currentContext!;
+final _context = navigatorKey.currentContext!;
 
 /// * DateFormat pattern = `hh:mm a`.
 ///
@@ -15,7 +16,7 @@ final context = navigatorKey.currentContext!;
 String time24To12HoursFormat(DateTime dateTime) {
   return intl.DateFormat(
     "hh:mm a",
-    Localizations.localeOf(context).languageCode,
+    Localizations.localeOf(_context).languageCode,
   ).format(dateTime);
 }
 
@@ -59,22 +60,20 @@ String formatedDate(DateTime date) {
   if (currentDate.year == date.year &&
       currentDate.month == date.month &&
       currentDate.day == date.day) {
-    return "Today";
-    //AppLocalizations.of(context)!.today;
+    return AppLocalizations.of(_context)!.today;
   }
 
   if (currentDate.year == date.year &&
       currentDate.month == date.month &&
       currentDate.day == date.day + 1) {
-    return "Yesterday";
-    //AppLocalizations.of(context)!.yesterday;
+    return AppLocalizations.of(_context)!.yesterday;
   }
 
   // return '${date.day}/${date.month}/${date.year}';
 
   return intl.DateFormat(
-    Directionality.of(context) == TextDirection.rtl ? "y/M/d" : "d/M/y",
-    Localizations.localeOf(context).languageCode,
+    Directionality.of(_context) == TextDirection.rtl ? "y/M/d" : "d/M/y",
+    Localizations.localeOf(_context).languageCode,
   ).format(date);
 }
 
@@ -104,7 +103,7 @@ String formatedDate(DateTime date) {
 ///
 
 String wellFormattedDateTime(DateTime date, {bool seperateByLine = false}) {
-  const at = "at"; //AppLocalizations.of(context)!.at;
+  final at = AppLocalizations.of(_context)!.at;
 
   return formatedDate(date) +
       (seperateByLine ? '\n' : ' $at ') +
@@ -120,7 +119,7 @@ String wellFormattedDateTimeLong(DateTime dateTime,
     {bool seperateByLine = false}) {
   final date = intl.DateFormat(
     "EEEE, d MMMM, y",
-    Localizations.localeOf(context).languageCode,
+    Localizations.localeOf(_context).languageCode,
   ).format(dateTime);
 
   return date + (seperateByLine ? '\n' : ' ') + time24To12HoursFormat(dateTime);
@@ -133,7 +132,7 @@ String wellFormattedDateTimeLong(DateTime dateTime,
 String wellFormattedDateWithoutDay(DateTime dateTime) {
   return intl.DateFormat(
     "MMMM yyy",
-    Localizations.localeOf(context).languageCode,
+    Localizations.localeOf(_context).languageCode,
   ).format(dateTime);
 }
 
@@ -150,7 +149,7 @@ String formatedDuration(Duration time) {
   return time.toString().substring(2, 7);
 }
 
-/*String wellFormatedDuration(Duration duration, {bool lineEach = false}) {
+String wellFormatedDuration(Duration duration, {bool lineEach = false}) {
   final hours = duration.inHours;
   final minutes = duration.inMinutes.remainder(60);
   final seconds = duration.inSeconds.remainder(60);
@@ -217,17 +216,17 @@ String pastOrFutureTimeFromNow(DateTime dateTime) {
     return res;
   }
 
-  return AppLocalizations.of(context)!.justNow;
+  return AppLocalizations.of(_context)!.justNow;
 }
 
 String? _res(int d, String timeInString) {
   if (d > 0) {
-    return AppLocalizations.of(context)!.durationAgo(timeInString);
+    return AppLocalizations.of(_context)!.durationAgo(timeInString);
   }
 
   if (d < 0) {
-    return AppLocalizations.of(context)!.durationFromNow(timeInString);
+    return AppLocalizations.of(_context)!.durationFromNow(timeInString);
   }
 
   return null;
-}*/
+}

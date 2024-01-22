@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-//import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-//import '../widgets/text_well_formatted.dart';
+import '../widgets/text_well_formatted.dart';
 
 /// * [titleColor] if null it will be Colors.red.shade900
 /// , this title color will be the color of (title, icon if null, ok button if action null).
@@ -91,11 +91,10 @@ Future<T?> showCustomAlretDialog<T>({
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Text(content, style: TextStyle(fontSize: contentFontSize)),
-                  /* TextWellFormattedWithBulleted(
+                  TextWellFormattedWithBulleted(
                     data: content,
                     fontSize: contentFontSize,
-                  ),*/
+                  ),
                   if (contentWidget != null) ...[
                     const SizedBox(height: 10),
                     contentWidget,
@@ -108,7 +107,7 @@ Future<T?> showCustomAlretDialog<T>({
             if (actionsBuilder == null)
               TextButton(
                 child: Text(
-                  "Ok", // AppLocalizations.of(context)!.ok,
+                  AppLocalizations.of(context)!.ok,
                   style: TextStyle(
                     color: titleColor ?? Colors.red.shade900,
                   ),

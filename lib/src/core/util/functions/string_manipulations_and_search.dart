@@ -4,6 +4,8 @@ import 'package:intl/intl.dart' as intl;
 import '../../../app.dart';
 import '../classes/pair_class.dart';
 
+final _context = navigatorKey.currentContext!;
+
 /// ## This function takes three parameters:
 /// * [string] A string to be analyzed.
 /// * [patterns] A list of Pattern objects representing regular expressions or patterns to match in the string.
@@ -146,38 +148,15 @@ String wellFormatedString(String str, {String seperatorBetweenWords = " "}) {
 
 String firstName(String fullName) => fullName.split(RegExp(r' +')).first;
 
-bool firstCharIsRtl(String text) {
-  final context = navigatorKey.currentContext!;
+bool appCurrentDirectionalityIsRtl() =>
+    Directionality.of(_context) == TextDirection.rtl;
 
+bool firstCharIsRtl(String text) {
   if (text.trim().isEmpty) {
-    return Directionality.of(context) == TextDirection.rtl;
+    return Directionality.of(_context) == TextDirection.rtl;
   }
 
   return intl.Bidi.startsWithRtl(text.trim());
-}
-
-String multiLineConvertTolowerCamelCaseStyle(String multiLinestring) {
-  return multiLinestring.split("\n").map((lineString) {
-    return converTolowerCamelCaseStyle(lineString);
-  }).join("\n");
-}
-
-String converTolowerCamelCaseStyle(String string) {
-  final dartNamingMather = RegExp(r"^[a-zA-Z]\w*$");
-  final whiteSpaceMatcher = RegExp(r" +");
-
-  final stringList = string.characters.toList()
-    ..removeWhere((char) =>
-        !dartNamingMather.hasMatch(char) && !whiteSpaceMatcher.hasMatch(char));
-
-  return wellFormatedString(stringList.join(), seperatorBetweenWords: "")
-      .replaceRange(
-    0,
-    stringList.join().trim().isEmpty ? 0 : 1,
-    stringList.join().trim().isEmpty
-        ? ""
-        : stringList.join().trim().substring(0, 1).toLowerCase(),
-  );
 }
 
 TextDirection getDirectionalityOf(String text) =>
@@ -213,6 +192,30 @@ bool firstCharIsArabic(String text) {
 
   // if all chars is special chars
   return false;
+}
+
+String multiLineConvertTolowerCamelCaseStyle(String multiLinestring) {
+  return multiLinestring.split("\n").map((lineString) {
+    return converTolowerCamelCaseStyle(lineString);
+  }).join("\n");
+}
+
+String converTolowerCamelCaseStyle(String string) {
+  final dartNamingMather = RegExp(r"^[a-zA-Z]\w*$");
+  final whiteSpaceMatcher = RegExp(r" +");
+
+  final stringList = string.characters.toList()
+    ..removeWhere((char) =>
+        !dartNamingMather.hasMatch(char) && !whiteSpaceMatcher.hasMatch(char));
+
+  return wellFormatedString(stringList.join(), seperatorBetweenWords: "")
+      .replaceRange(
+    0,
+    stringList.join().trim().isEmpty ? 0 : 1,
+    stringList.join().trim().isEmpty
+        ? ""
+        : stringList.join().trim().substring(0, 1).toLowerCase(),
+  );
 }
 
 extension on String {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-//import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-//import 'text_well_formatted.dart';
+import 'text_well_formatted.dart';
 
 class CustomErrorWidget extends StatelessWidget {
   const CustomErrorWidget({
@@ -45,7 +45,7 @@ class CustomErrorWidget extends StatelessWidget {
             ),
             const SizedBox(width: 20),
             Text(
-              "Error", //AppLocalizations.of(context)!.error,
+              AppLocalizations.of(context)!.error,
               style: TextStyle(fontSize: (iconSize ?? 70) - 10),
             )
           ],
@@ -59,9 +59,9 @@ class CustomErrorWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               color: color.withOpacity(0.1),
             ),
-            child: Text(
-              error ?? "",
-              style: TextStyle(fontSize: errorFontSize ?? 16),
+            child: TextWellFormattedWithBulleted(
+              data: error ?? "",
+              fontSize: errorFontSize ?? 16,
             ),
           ),
       ],

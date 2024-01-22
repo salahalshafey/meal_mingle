@@ -42,20 +42,20 @@ class FavoriteChoiceResult extends StatelessWidget {
         final questionResult = snapshot.data!;
 
         //  style: Theme.of(context).textTheme.bodyLarge,
-        return Directionality(
-          textDirection: getDirectionalityOf(questionResult),
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10)
-                .add(const EdgeInsets.only(bottom: 120)),
-            child: NoteDescription(
-              icon: Icon(
-                icon,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-              title: title,
+        return SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10)
+              .add(const EdgeInsets.only(bottom: 120)),
+          child: NoteDescription(
+            icon: Icon(
+              icon,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            title: title,
+            child: Directionality(
+              textDirection: getDirectionalityOf(questionResult),
               child: MarkdownBody(data: questionResult),
-            ).animate(delay: 200.ms).slideY(begin: -0.07).fadeIn(),
-          ),
+            ),
+          ).animate(delay: 200.ms).slideY(begin: -0.07).fadeIn(),
         );
       },
     );

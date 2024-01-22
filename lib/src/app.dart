@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'core/theme/dark_theme.dart';
 import 'core/theme/light_theme.dart';
@@ -65,6 +66,9 @@ class _MyAppState extends State<MyApp> {
       //themeMode: ThemeMode.dark,
       darkTheme: myDarkTheme(),
       theme: myLightTheme(),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: const Locale("en"),
       home: const FoodScanScreen(), //   HomePage()
 
       routes: {

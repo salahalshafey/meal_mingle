@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:meal_mingle/l10n/l10n.dart';
 
 import '../../../../core/util/builders/go_to_screen_with_slide_transition.dart';
 import '../../../../core/util/builders/image_picker.dart';
@@ -42,7 +43,7 @@ class FoodScanScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Scan Food With AI"),
+        title: Text(Strings.get.scanFoodWithAi),
         centerTitle: true,
       ),
       drawer: const MainDrawer(),

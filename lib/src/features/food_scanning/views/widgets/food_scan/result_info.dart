@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:meal_mingle/src/core/util/functions/string_manipulations_and_search.dart';
 
 import '../../../data/models/food_scanning_result_model.dart';
 import '../floating_action_buttons.dart';
@@ -35,7 +36,9 @@ class ResultInfo extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           const SaveFoodScanningResultButton(),
-        ].animate(delay: 500.ms, interval: 50.ms).slideX(begin: 1.5),
+        ]
+            .animate(delay: 500.ms, interval: 50.ms)
+            .slideX(begin: appCurrentDirectionalityIsRtl() ? -1.5 : 1.5),
       ),
       //  floatingActionButtonLocation:
       // FloatingActionButtonLocation.startFloat, ///// remove this
