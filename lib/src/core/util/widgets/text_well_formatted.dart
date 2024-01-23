@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../classes/pair_class.dart';
 import '../functions/string_manipulations_and_search.dart';
 import 'bulleted_list.dart';
+import 'code_container.dart';
 
 class TextWellFormattedWithBulleted extends StatelessWidget {
   const TextWellFormattedWithBulleted({
@@ -19,41 +21,129 @@ class TextWellFormattedWithBulleted extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: patternMatcher(
-        data,
-        patterns: [
-          // bulleted
-          RegExp(
-            r"^\* .*",
-            multiLine: true,
-            dotAll: false,
-          ),
-        ],
-        types: [
-          StringTypes.bulleted,
-          StringTypes.normal,
-        ],
-      ).map((inlineString) {
-        if (inlineString.type == StringTypes.bulleted) {
-          return BulletedList(
-            textDirection: getDirectionalityOf(data),
-            text: TextWellFormattedWitouthBulleted(
-              data: inlineString.string.substring(2),
+    return Directionality(
+      textDirection: getDirectionalityOf(data),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: patternMatcher(
+          data,
+          patterns: [
+            // bulleted
+            RegExp(
+              r'^(\s*[-*+]\s+|(\d+\.)\s+).*', //
+              multiLine: true,
+              dotAll: false,
+            ),
+
+            // code
+            RegExp(
+              r"^```.*?```",
+              multiLine: true,
+              dotAll: true,
+            ),
+
+            // table
+            RegExp(
+              r'^\s*\|.*\|\s*$\n^\s*\|(?::?-+:?\s*\|)+\s*$\n(\s*\|.*\|\s*$\n)*',
+              multiLine: true,
+            ),
+          ],
+          types: [
+            StringTypes.bulleted,
+            StringTypes.code,
+            StringTypes.table,
+            StringTypes.normal,
+          ],
+        ).map((inlineString) {
+          if (inlineString.type == StringTypes.code) {
+            final code = _getCodeAndlanguageName(inlineString.string);
+
+            return CodeContainer(
+              code: code.first,
+              languageName: code.second,
+              fontSize: fontSize,
+              animateTheCode: false,
+            );
+          }
+
+          if (inlineString.type == StringTypes.table) {
+            return ParseMarkdownTable(
+              table: inlineString.string,
               fontSize: fontSize,
               isSelectableText: isSelectableText,
-              textDirection: getDirectionalityOf(data),
-            ),
-          );
-        }
+              textDirection: getDirectionalityOf(inlineString.string),
+            );
+          }
 
-        return TextWellFormattedWitouthBulleted(
-          data: inlineString.string,
-          fontSize: fontSize,
-          isSelectableText: isSelectableText,
-          textDirection: getDirectionalityOf(data),
-        );
-      }).toList(),
+          if (inlineString.type == StringTypes.bulleted) {
+            // bulleted
+            if (inlineString.string.startsWith(
+              RegExp(
+                r'^(\s*[-*+]\s+)',
+                multiLine: true,
+                dotAll: false,
+              ),
+            )) {
+              return BulletedList(
+                textDirection: getDirectionalityOf(data),
+                text: TextWellFormattedWitouthBulleted(
+                  data: inlineString.string.replaceFirst(
+                    RegExp(
+                      r'^(\s*[-*+]\s+)',
+                      multiLine: true,
+                      dotAll: false,
+                    ),
+                    "",
+                  ),
+                  fontSize: fontSize,
+                  isSelectableText: isSelectableText,
+                  textDirection: getDirectionalityOf(inlineString.string),
+                ),
+              );
+            }
+
+            // if bulleted number
+            return BulletedList(
+              textDirection: getDirectionalityOf(data),
+              // the bullet is the number
+              bullet: Text(
+                inlineString.string.firstMatch(
+                  RegExp(
+                    r'\d+\.',
+                    multiLine: true,
+                    dotAll: false,
+                  ),
+                ),
+                style: TextStyle(fontSize: fontSize),
+              ),
+              bulletMargin: const EdgeInsetsDirectional.only(
+                end: 10,
+                start: 20,
+              ),
+              text: TextWellFormattedWitouthBulleted(
+                data: inlineString.string.replaceFirst(
+                  RegExp(
+                    r'^(\s*(\d+\.)\s+)', //
+                    multiLine: true,
+                    dotAll: false,
+                  ),
+                  "",
+                ),
+                fontSize: fontSize,
+                isSelectableText: isSelectableText,
+                textDirection: getDirectionalityOf(inlineString.string),
+              ),
+            );
+          }
+
+          return TextWellFormattedWitouthBulleted(
+            data: inlineString.string,
+            fontSize: fontSize,
+            isSelectableText: isSelectableText,
+            textDirection: getDirectionalityOf(inlineString.string),
+          );
+        }).toList(),
+      ),
     );
   }
 }
@@ -250,7 +340,11 @@ class _TextWellFormattedWitouthBulletedState
 }
 
 enum StringTypes {
+  code,
   bulleted,
+  bulletedNumber,
+
+  table,
   url,
   email,
   bold,
@@ -261,4 +355,94 @@ enum StringTypes {
 
 extension on double {
   double get plusOne => this + 1;
+}
+
+extension on String {
+  String firstMatch(Pattern pattern) {
+    final match = pattern.matchAsPrefix(this)!;
+
+    return substring(match.start, match.end);
+  }
+
+  int get numberOfStartingWhiteSpace {
+    int numOfWhiteSpace = 0;
+    for (final char in characters) {
+      if (char != " ") {
+        return numOfWhiteSpace;
+      }
+
+      numOfWhiteSpace++;
+    }
+
+    return numOfWhiteSpace;
+  }
+}
+
+Pair<String, String> _getCodeAndlanguageName(String code) {
+  final codelist = code.split("\n");
+
+  final programmingLanguage = codelist.first.substring(3).trim();
+
+  final theCode = codelist.sublist(1, codelist.length - 1).join("\n");
+
+  return Pair(theCode, programmingLanguage);
+}
+
+class ParseMarkdownTable extends StatelessWidget {
+  const ParseMarkdownTable({
+    super.key,
+    required this.table,
+    this.fontSize,
+    this.isSelectableText = false,
+    required this.textDirection,
+  });
+
+  final String table;
+  final double? fontSize;
+  final bool isSelectableText;
+  final TextDirection? textDirection;
+
+  List<String> get getRows => table.split("\n")
+    ..removeWhere((row) => row.isEmpty)
+    ..removeAt(1);
+
+  List<String> getCells(String row) {
+    final cells = row.split("|");
+
+    return cells.sublist(1, cells.length - 1);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    print(getRows);
+
+    return Table(
+      border: TableBorder.all(
+        color: Theme.of(context).brightness == Brightness.dark
+            ? Colors.white
+            : Colors.black,
+      ),
+      defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+      textDirection: textDirection,
+      children: getRows.map(
+        (row) {
+          return TableRow(
+              children: getCells(row).map(
+            (cell) {
+              return TableCell(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextWellFormattedWithBulleted(
+                    data: cell,
+                    fontSize: fontSize,
+                    isSelectableText: isSelectableText,
+                  ),
+                ),
+              );
+            },
+          ).toList());
+        },
+      ).toList(),
+    );
+  }
 }

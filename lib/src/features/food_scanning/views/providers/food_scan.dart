@@ -92,6 +92,8 @@ If there is more than one item, "Give the result for each item".""",
     null,
   ];
 
+  List<String?> get questionsResults => [..._questionsResults];
+
   Future<String> getFoodOverview(String imagePath) async {
     try {
       _imagePath = imagePath;

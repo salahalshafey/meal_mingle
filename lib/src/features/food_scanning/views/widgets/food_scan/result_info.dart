@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:meal_mingle/src/core/util/functions/string_manipulations_and_search.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../../core/util/functions/string_manipulations_and_search.dart';
 
 import '../../../data/models/food_scanning_result_model.dart';
+
+import '../../providers/food_scan.dart';
 import '../floating_action_buttons.dart';
 import '../image_and_choices_appbar.dart';
 
@@ -25,14 +29,18 @@ class ResultInfo extends StatelessWidget {
       floatingActionButton: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          ShareFoodScanningResultButton(
-            FoodScanningResultModel(
-              id: "id",
-              dateTime: DateTime.now(),
-              imagePath: imagePath,
-              resultOverview: overviewResult,
-              questionsResults: [],
-            ),
+          Consumer<FoodScan>(
+            builder: (context, provider, child) {
+              return ShareFoodScanningResultButton(
+                FoodScanningResultModel(
+                  id: "id",
+                  dateTime: DateTime.now(),
+                  imagePath: imagePath,
+                  resultOverview: overviewResult,
+                  questionsResults: provider.questionsResults,
+                ),
+              );
+            },
           ),
           const SizedBox(height: 20),
           const SaveFoodScanningResultButton(),

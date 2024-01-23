@@ -51,6 +51,9 @@ dependencies:
   path_provider: ^2.1.2
   pdf: ^3.10.7
   url_launcher: ^6.2.3
+  screenshot: ^2.1.0
+  share_plus: ^7.2.1
+  
 
 dev_dependencies:
   flutter_test:
@@ -113,6 +116,9 @@ flutter:
     - family: MesauringIcon
       fonts:
         - asset: assets/fonts/MesauringIcon.ttf
+    - family: NotoSansArabic
+      fonts:
+        - asset: assets/fonts/NotoSansArabic_Condensed-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

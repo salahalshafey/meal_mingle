@@ -1,12 +1,13 @@
 import 'dart:io';
-import 'dart:typed_data';
+
+import 'package:flutter/services.dart';
 
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 
-import '../../../../core/util/functions/string_manipulations_and_search.dart';
+import '../../../../../core/util/functions/string_manipulations_and_search.dart';
 
-Future<Uint8List> generateFoodScanReportPdf(
+Future<Uint8List> generateFoodScanReportPdfFromResultText(
   PdfPageFormat format, {
   required String fileImagePath,
   required String resultOverview,
@@ -115,11 +116,17 @@ Future<pw.PageTheme> _myPageTheme(PdfPageFormat format) async {
 
   return pw.PageTheme(
     pageFormat: format,
-    /* theme: pw.ThemeData.withFont(
-      base: await PdfGoogleFonts.openSansRegular(),
-      bold: await PdfGoogleFonts.openSansBold(),
-      icons: await PdfGoogleFonts.materialIcons(),
-    ),*/
+    theme: pw.ThemeData.withFont(
+      //  base: await PdfGoogleFonts.openSansRegular(),
+      //  bold: await PdfGoogleFonts.openSansBold(),
+      // icons: await PdfGoogleFonts.materialIcons(),
+      fontFallback: [
+        pw.Font.ttf(
+          await rootBundle
+              .load('assets/fonts/NotoSansArabic_Condensed-Regular.ttf'),
+        )
+      ],
+    ),
     /* buildBackground: (pw.Context context) {
       return pw.FullPage(
         ignoreMargins: true,
@@ -195,3 +202,4 @@ pw.Widget _description(String title, String description) {
     ],
   );
 }
+//

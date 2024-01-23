@@ -33,16 +33,18 @@ class BulletedList extends StatelessWidget {
       charHeight = "C".charHeight(fontSize);
     }
 
+    // print(charHeight);
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       textDirection: textDirection,
       children: [
         Padding(
           padding: bulletMargin ??
-              EdgeInsets.only(
-                right: 10,
-                left: 20,
-                top: charHeight - 7 < 0 ? 0 : charHeight - 7,
+              EdgeInsetsDirectional.only(
+                end: 10,
+                start: 20,
+                top: charHeight - 7 < 0 ? 0 : (charHeight - 5) / 2,
               ),
           child: bullet ??
               Container(
