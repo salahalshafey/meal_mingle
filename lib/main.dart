@@ -10,12 +10,13 @@ import 'src/app.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await di.init();
+  await Future.wait([
+    di.init(),
+    _initHiveBoxes(),
+  ]);
 
-  await _initHiveBoxes();
-
-  // await _initAppSettings();
-  // await _initMealsSettings();
+  // _initAppSettings();
+  //_initMealsSettings();
 
   runApp(
     MultiProvider(
@@ -31,9 +32,11 @@ void main() async {
 Future<void> _initHiveBoxes() async {
   await Hive.initFlutter();
 
-  await Hive.openBox<Map>("favorite_food_scanning_results");
-  await Hive.openBox<Map>("favorite_meals");
-  await Hive.openBox<Map>("user_data");
-  await Hive.openBox<Map>("meals_settings");
-  await Hive.openBox<Map>("app_settings");
+  await Future.wait([
+    Hive.openBox<Map>("favorite_food_scanning_results"),
+    Hive.openBox<Map>("favorite_meals"),
+    Hive.openBox<Map>("user_data"),
+    Hive.openBox<Map>("meals_settings"),
+    Hive.openBox<Map>("app_settings"),
+  ]);
 }

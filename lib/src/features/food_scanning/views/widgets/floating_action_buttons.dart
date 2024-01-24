@@ -1,19 +1,18 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:meal_mingle/src/core/util/builders/go_to_screen_with_slide_transition.dart';
-import 'package:meal_mingle/src/core/util/widgets/custom_back_button.dart';
-import 'package:meal_mingle/src/core/util/widgets/text_well_formatted.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../../../../core/util/builders/custom_snack_bar.dart';
 
 import '../../data/models/food_scanning_result_model.dart';
 import '../providers/food_scan.dart';
 import 'generate_pdf/generate_food_scan_from_images.dart';
-import 'generate_pdf/generate_food_scan_report_from_text.dart';
 
 class SaveFoodScanningResultButton extends StatelessWidget {
   const SaveFoodScanningResultButton({
@@ -42,34 +41,56 @@ class SaveFoodScanningResultButton extends StatelessWidget {
   }
 }
 
-///////////////////////////////////////////
-///////////////
-/////
 class ShareFoodScanningResultButton extends StatelessWidget {
   const ShareFoodScanningResultButton(this.dataToShare, {super.key});
 
   final FoodScanningResultModel dataToShare;
 
-  void _covertToPdfAndShare(BuildContext context) async {
-    final pdfbytes =
-        await generateFoodScanReportPdfAfterConvertingResultsToImages(
-      PdfPageFormat.a4,
-      fileImagePath: dataToShare.imagePath,
-      resultOverview: dataToShare.resultOverview,
-      questionsResults: dataToShare.questionsResults,
-    );
+  String get desktopPath =>
+      'C:\\Users\\${Platform.environment['USERPROFILE']!.split('\\').last}\\Desktop';
 
-    final file = File("C:\\Users\\salah alaa\\Desktop\\example.pdf");
-    await file.writeAsBytes(pdfbytes);
+  Future<void> _shareThePdf(String pdfFilePath) async {
+    await Share.shareXFiles([XFile(pdfFilePath)]);
+  }
 
-    print("Finished");
+  void _convertTheDataToPdfAndShare(BuildContext context) async {
+    try {
+      final pdfbytes =
+          await generateFoodScanReportPdfAfterConvertingResultsToImages(
+        PdfPageFormat.a4,
+        fileImagePath: dataToShare.imagePath,
+        resultOverview: dataToShare.resultOverview,
+        questionsResults: dataToShare.questionsResults,
+      );
 
-    /* goToScreenWithSlideTransition(
-        context,
-        TestMyMarkDown(
-          data: //test3,
-              "${dataToShare.resultOverview}\n\n\n${dataToShare.questionsResults[0]}\n\n\n${dataToShare.questionsResults[1]}\n\n\n${dataToShare.questionsResults[2]}\n\n\n${dataToShare.questionsResults[3]}\n\n\n",
-        ));*/
+      if (Platform.isWindows) {
+        final pdfName = "food_report_${dataToShare.id}.pdf";
+        final desktopFilePath = File("$desktopPath\\$pdfName");
+        await desktopFilePath.writeAsBytes(pdfbytes);
+
+        showCustomSnackBar(
+          context: context,
+          content: "PDF saved at the Desktop",
+          durationInSec: 6,
+        );
+
+        return;
+      }
+
+      const pdfName = "food_report.pdf";
+      final tempDir = await getApplicationCacheDirectory();
+
+      final pdfFile = File("${tempDir.path}/$pdfName");
+      await pdfFile.writeAsBytes(pdfbytes);
+
+      await _shareThePdf(pdfFile.path);
+    } catch (error) {
+      showCustomSnackBar(
+        context: context,
+        content: "Error Happened, couldn't share the PDF",
+        durationInSec: 6,
+      );
+    }
   }
 
   @override
@@ -77,13 +98,17 @@ class ShareFoodScanningResultButton extends StatelessWidget {
     return FloatingActionButton(
       heroTag: null,
       tooltip: "Share as PDF",
-      onPressed: () => _covertToPdfAndShare(context),
+      onPressed: () => _convertTheDataToPdfAndShare(context),
       child: const Icon(Icons.share),
     );
   }
 }
 
-class TestMyMarkDown extends StatelessWidget {
+/////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////
+///////////////
+
+/*class TestMyMarkDown extends StatelessWidget {
   const TestMyMarkDown({super.key, required this.data});
 
   final String data;
@@ -102,9 +127,9 @@ class TestMyMarkDown extends StatelessWidget {
       ),
     );
   }
-}
+}*/
 
-const test3 = """ * bgbgb
+/*const test3 = """ * bgbgb
           This is a photo of a glass of tea. 
 **Tea** is a beverage made from the Camellia sinensis plant. It is typically brewed with hot water and can be served with milk, sugar, or other flavorings. Tea contains caffeine, which is a stimulant. The amount of caffeine in tea varies depending on the type of tea and how it is brewed.
       
@@ -369,3 +394,4 @@ class MyApp extends StatelessWidget {
 
 يعد Flutter Speech to Text أداة قوية يمكن استخدامها لإضافة ميزة التعرف على الكلام إلى تطبيقات Flutter. إنه سهل الاستخدام ويدعم مجموعة متنوعة من اللغات.
 """;
+*/
