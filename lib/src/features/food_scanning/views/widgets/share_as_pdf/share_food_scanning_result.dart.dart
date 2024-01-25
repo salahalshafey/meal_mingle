@@ -1,108 +1,49 @@
-// ignore_for_file: use_build_context_synchronously
-
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:pdf/pdf.dart';
-import 'package:provider/provider.dart';
-import 'package:share_plus/share_plus.dart';
 
-import '../../../../core/util/builders/custom_snack_bar.dart';
-
-import '../../data/models/food_scanning_result_model.dart';
-import '../providers/food_scan.dart';
-import 'generate_pdf/generate_food_scan_from_images.dart';
-
-class SaveFoodScanningResultButton extends StatelessWidget {
-  const SaveFoodScanningResultButton({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final provider = Provider.of<FoodScan>(context);
-
-    return FloatingActionButton(
-      heroTag: null,
-      tooltip:
-          provider.isFavorite ? "Remove from favorites" : "Save to favorites",
-      onPressed: () {
-        provider.toggleFavorite().onError((error, stackTrace) =>
-            showCustomSnackBar(context: context, content: error.toString()));
-      },
-      child: Icon(
-        provider.isFavorite
-            ? Icons.favorite_rounded
-            : Icons.favorite_border_rounded,
-        color: provider.isFavorite ? Colors.pink : null,
-      ),
-    );
-  }
-}
+import '../../../data/models/food_scanning_result_model.dart';
+import 'sharing_with_state.dart';
 
 class ShareFoodScanningResultButton extends StatelessWidget {
   const ShareFoodScanningResultButton(this.dataToShare, {super.key});
 
   final FoodScanningResultModel dataToShare;
 
-  String get desktopPath =>
-      'C:\\Users\\${Platform.environment['USERPROFILE']!.split('\\').last}\\Desktop';
-
-  Future<void> _shareThePdf(String pdfFilePath) async {
-    await Share.shareXFiles([XFile(pdfFilePath)]);
-  }
-
-  void _convertTheDataToPdfAndShare(BuildContext context) async {
-    try {
-      final pdfbytes =
-          await generateFoodScanReportPdfAfterConvertingResultsToImages(
-        PdfPageFormat.a4,
-        fileImagePath: dataToShare.imagePath,
-        resultOverview: dataToShare.resultOverview,
-        questionsResults: dataToShare.questionsResults,
-      );
-
-      if (Platform.isWindows) {
-        final pdfName = "food_report_${dataToShare.id}.pdf";
-        final desktopFilePath = File("$desktopPath\\$pdfName");
-        await desktopFilePath.writeAsBytes(pdfbytes);
-
-        showCustomSnackBar(
-          context: context,
-          content: "PDF saved at the Desktop",
-          durationInSec: 6,
-        );
-
-        return;
-      }
-
-      const pdfName = "food_report.pdf";
-      final tempDir = await getApplicationCacheDirectory();
-
-      final pdfFile = File("${tempDir.path}/$pdfName");
-      await pdfFile.writeAsBytes(pdfbytes);
-
-      await _shareThePdf(pdfFile.path);
-    } catch (error) {
-      showCustomSnackBar(
-        context: context,
-        content: "Error Happened, couldn't share the PDF",
-        durationInSec: 6,
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
       heroTag: null,
       tooltip: "Share as PDF",
-      onPressed: () => _convertTheDataToPdfAndShare(context),
+      onPressed: () => _showSharingWithStateDialog(context, dataToShare),
       child: const Icon(Icons.share),
     );
   }
 }
+
+void _showSharingWithStateDialog(
+  BuildContext context,
+  FoodScanningResultModel dataToShare,
+) {
+  showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (BuildContext dialogContext) {
+      return PopScope(
+        canPop: false,
+        child: Dialog(
+          child: Container(
+            constraints: const BoxConstraints(maxWidth: 400),
+            child: Padding(
+              padding: const EdgeInsets.all(15),
+              child: ShareWithState(dataToShare),
+            ),
+          ),
+        ),
+      );
+    },
+  );
+}
+
+
 
 /////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////

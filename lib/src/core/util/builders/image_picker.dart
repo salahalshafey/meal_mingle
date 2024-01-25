@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -14,6 +16,17 @@ Future<XFile?> myImagePicker(
   CameraDevice preferredCameraDevice = CameraDevice.rear,
   bool requestFullMetadata = true,
 }) async {
+  if (Platform.isWindows) {
+    return ImagePicker().pickImage(
+      source: ImageSource.gallery,
+      imageQuality: imageQuality,
+      maxWidth: maxWidth,
+      maxHeight: maxHeight,
+      preferredCameraDevice: preferredCameraDevice,
+      requestFullMetadata: requestFullMetadata,
+    );
+  }
+
   final choiceCamera = await showDialog<bool>(
       context: context,
       builder: (context) => Dialog(

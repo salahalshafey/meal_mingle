@@ -7,11 +7,12 @@ import '../../../../../core/util/functions/string_manipulations_and_search.dart'
 import '../../../data/models/food_scanning_result_model.dart';
 
 import '../../providers/food_scan.dart';
-import '../floating_action_buttons.dart';
+import '../share_as_pdf/share_food_scanning_result.dart.dart';
 import '../image_and_choices_appbar.dart';
 
 import '../overview_result.dart';
 import 'choice_result.dart';
+import 'save_food_scanning_result_button.dart';
 
 class ResultInfo extends StatelessWidget {
   const ResultInfo({

@@ -7,7 +7,7 @@ import '../../../../core/util/functions/string_manipulations_and_search.dart';
 import '../providers/favorites_food_scan.dart';
 
 import '../widgets/favorite_food_scan/favorite_choice_result.dart';
-import '../widgets/floating_action_buttons.dart';
+import '../widgets/share_as_pdf/share_food_scanning_result.dart.dart';
 import '../widgets/image_and_choices_appbar.dart';
 import '../widgets/overview_result.dart';
 

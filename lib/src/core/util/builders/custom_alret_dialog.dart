@@ -22,6 +22,8 @@ Future<T?> showCustomAlretDialog<T>({
   double contentFontSize = 16.0,
   EdgeInsetsGeometry contentPadding = const EdgeInsets.all(10),
   EdgeInsetsGeometry actionsPadding = const EdgeInsets.all(10),
+  EdgeInsetsGeometry titlePadding =
+      const EdgeInsetsDirectional.only(start: 20, end: 10, top: 10, bottom: 10),
   Widget? contentWidget,
   Color? titleColor,
   Widget? icon,
@@ -48,12 +50,7 @@ Future<T?> showCustomAlretDialog<T>({
         canPop: canPopScope,
         child: AlertDialog(
           contentPadding: contentPadding,
-          titlePadding: const EdgeInsetsDirectional.only(
-            start: 20,
-            end: 10,
-            top: 10,
-            bottom: 10,
-          ),
+          titlePadding: titlePadding,
           actionsPadding: actionsPadding,
           icon: showIconAboveTitle
               ? icon ??
