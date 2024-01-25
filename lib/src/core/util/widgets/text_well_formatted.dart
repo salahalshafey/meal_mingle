@@ -7,6 +7,11 @@ import '../functions/string_manipulations_and_search.dart';
 import 'bulleted_list.dart';
 import 'code_container.dart';
 
+/// # Has a lot of problems
+/// * Try to do a `Markdown parser` using robust solutions like the `Markdown package`.
+/// * And rename this to `CustomMarkdown`.
+/// * Or go to the `flutter_markdown` package, `Fork` it, and add your `UI customizations`.
+
 class TextWellFormattedWithBulleted extends StatelessWidget {
   const TextWellFormattedWithBulleted({
     super.key,
@@ -44,6 +49,7 @@ class TextWellFormattedWithBulleted extends StatelessWidget {
 
             // table
             RegExp(
+              // this reg has problems, fix it (if there are tables above each other will take them as one table, if the table is last thing in the string it will not detect the last row of the table. and more)
               r'^\s*\|.*\|\s*$\n^\s*\|(?::?-+:?\s*\|)+\s*$\n(\s*\|.*\|\s*$\n)*',
               multiLine: true,
             ),
@@ -364,7 +370,7 @@ extension on String {
     return substring(match.start, match.end);
   }
 
-  int get numberOfStartingWhiteSpace {
+  /*int get numberOfStartingWhiteSpace {
     int numOfWhiteSpace = 0;
     for (final char in characters) {
       if (char != " ") {
@@ -375,7 +381,7 @@ extension on String {
     }
 
     return numOfWhiteSpace;
-  }
+  }*/
 }
 
 Pair<String, String> _getCodeAndlanguageName(String code) {
@@ -414,8 +420,6 @@ class ParseMarkdownTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(getRows);
-
     return Table(
       border: TableBorder.all(
         color: Theme.of(context).brightness == Brightness.dark

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../core/util/functions/string_manipulations_and_search.dart';
 import '../../../../../core/util/widgets/note_description.dart';
 import '../../providers/food_scan.dart';
+
+import '../customized_markdown.dart';
 
 class ChoiceResult extends StatelessWidget {
   const ChoiceResult({
@@ -49,10 +49,7 @@ class ChoiceResult extends StatelessWidget {
               color: Theme.of(context).colorScheme.primary,
             ),
             title: title,
-            child: Directionality(
-              textDirection: getDirectionalityOf(questionResult),
-              child: MarkdownBody(data: questionResult),
-            ),
+            child: CustomizedMarkdown(data: questionResult),
           ).animate(delay: 200.ms).slideY(begin: -0.07).fadeIn(),
         );
       },

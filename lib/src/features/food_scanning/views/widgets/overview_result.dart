@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 
-import '../../../../core/util/functions/string_manipulations_and_search.dart';
 import '../../../../core/util/widgets/note_description.dart';
+import 'customized_markdown.dart';
 
 class OverviewResult extends StatelessWidget {
   const OverviewResult({
@@ -25,10 +24,7 @@ class OverviewResult extends StatelessWidget {
           color: Theme.of(context).colorScheme.primary,
         ),
         title: "Unveiling Contents and Caloric Breakdown",
-        child: Directionality(
-          textDirection: getDirectionalityOf(result),
-          child: MarkdownBody(data: result),
-        ),
+        child: CustomizedMarkdown(data: result),
       ).animate(delay: 200.ms).slideY(begin: -0.07).fadeIn(),
     );
   }
