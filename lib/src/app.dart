@@ -10,7 +10,7 @@ import 'features/meals/models/dummy_data.dart';
 import 'features/meals/models/meal.dart';
 import 'features/meals/screens/category_meals_screen.dart';
 import 'features/meals/screens/meal_detail_screen.dart';
-import 'features/meals/screens/settings_screen.dart';
+import 'features/home_and_drawer_screens/screens/settings_screen.dart';
 
 late GlobalKey<NavigatorState> navigatorKey;
 

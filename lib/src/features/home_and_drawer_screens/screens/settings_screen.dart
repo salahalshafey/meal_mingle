@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../../home_and_drawer/main_drawer.dart';
+import '../../../core/util/widgets/custom_back_button.dart';
+import '../main_drawer.dart';
 
 class SettingsScreen extends StatefulWidget {
   static const routeName = '/Settings_Screen';
+
   final Function saveFilters;
   final Map<String, bool> currentFilter;
   const SettingsScreen(this.currentFilter, this.saveFilters, {Key? key})
       : super(key: key);
+
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
 }
@@ -55,14 +58,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Builder(builder: (context) {
-          return IconButton(
-            color: Colors.black,
-            iconSize: 28,
-            icon: const Icon(Icons.menu_rounded),
-            onPressed: () => Scaffold.of(context).openDrawer(),
-          );
-        }),
+        leading: const CustomBackButton(),
         title: Text(
           'Your Settings',
           style: Theme.of(context).textTheme.titleSmall,
