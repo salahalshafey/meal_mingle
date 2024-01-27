@@ -51,7 +51,7 @@ class MainDrawer extends StatelessWidget {
           ),
           DrawerItem(
             title: 'Meals Settings',
-            icon: Icons.settings,
+            icon: Icons.settings_suggest,
             onTap: () {
               //  goToScreenWithSlideTransition(context ,  SettingsScreen());
 

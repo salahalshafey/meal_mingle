@@ -11,10 +11,6 @@ class GeneralSettings extends ChangeNotifier {
 ///////////////////////////// Locale //////////////////////////////
 
   Locale? get currentLocal {
-    if (_generalSettingsBox.isEmpty) {
-      return null;
-    }
-
     final languageCode = _generalSettingsBox.get(_languageCode) as String?;
     if (languageCode == null) {
       return null;
@@ -40,10 +36,6 @@ class GeneralSettings extends ChangeNotifier {
   ///////////////////////// Theme Mode /////////////////////////
 
   ThemeMode get themeMode {
-    if (_generalSettingsBox.isEmpty) {
-      return ThemeMode.system;
-    }
-
     final themeIsDark = _generalSettingsBox.get(_themeIsDark) as bool?;
     if (themeIsDark == null) {
       return ThemeMode.system;
@@ -69,10 +61,6 @@ class GeneralSettings extends ChangeNotifier {
   /////////////////////// Color //////////////////////////////
 
   Color get currentColor {
-    if (_generalSettingsBox.isEmpty) {
-      return const Color.fromRGBO(95, 190, 30, 1);
-    }
-
     final color = _generalSettingsBox.get(_color) as int?;
     if (color == null) {
       return const Color.fromRGBO(95, 190, 30, 1);

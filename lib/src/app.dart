@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'core/theme/dark_theme.dart';
 import 'core/theme/light_theme.dart';
 
-import 'features/food_scanning/views/screens/favorite_food_scan_screen.dart';
-import 'features/food_scanning/views/screens/food_scan_screen.dart';
 import 'features/home_and_drawer_screens/providers/general_settings_provider.dart';
+import 'features/home_and_drawer_screens/providers/meals_settings_provider.dart';
+
 import 'features/meals/models/dummy_data.dart';
 import 'features/meals/models/meal.dart';
+
+import 'features/food_scanning/views/screens/favorite_food_scan_screen.dart';
+import 'features/food_scanning/views/screens/food_scan_screen.dart';
 import 'features/meals/screens/category_meals_screen.dart';
 import 'features/meals/screens/meal_detail_screen.dart';
 import 'features/home_and_drawer_screens/screens/meals_settings_screen.dart';
@@ -26,30 +30,23 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
 
-  Map<String, bool> _filters = {
-    'gluten': false,
-    'lactose': false,
-    'vegan': false,
-    'vegetarian': false
-  };
-
   List<Meal> _availableMeals = dummyMeal;
 
-  void _setFilters(Map<String, bool> filtersData) {
-    setState(() {
-      _filters = filtersData;
+  void _setFilters() {
+    final provider = Provider.of<MealsSettings>(context, listen: false);
 
+    setState(() {
       _availableMeals = dummyMeal.where((meal) {
-        if (_filters['gluten'] == true && !meal.isGlutenFree) {
+        if (provider.isGlutenFree && !meal.isGlutenFree) {
           return false;
         }
-        if (_filters['lactose'] == true && !meal.isLactoseFree) {
+        if (provider.isLactoseFree && !meal.isLactoseFree) {
           return false;
         }
-        if (_filters['vegan'] == true && !meal.isVegan) {
+        if (provider.isVegetarian && !meal.isVegetarian) {
           return false;
         }
-        if (_filters['vegetarian'] == true && !meal.isVegetarian) {
+        if (provider.isVegan && !meal.isVegan) {
           return false;
         }
 
@@ -83,8 +80,7 @@ class _MyAppState extends State<MyApp> {
         CategoryMealsScreen.routeName: (ctx) =>
             CategoryMealsScreen(_availableMeals),
         MealDetailScreen.routeName: (ctx) => const MealDetailScreen(),
-        MealsSettingsScreen.routeName: (ctx) =>
-            MealsSettingsScreen(_filters, _setFilters)
+        MealsSettingsScreen.routeName: (ctx) => MealsSettingsScreen(_setFilters)
       },
     );
   }

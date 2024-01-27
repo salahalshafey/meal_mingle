@@ -1,39 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../core/util/widgets/custom_back_button.dart';
 
-import '../widgets/cusom_switch.dart';
+import '../providers/meals_settings_provider.dart';
 
-class MealsSettingsScreen extends StatefulWidget {
+import '../widgets/cusom_switch.dart';
+import '../widgets/reset_button.dart';
+
+class MealsSettingsScreen extends StatelessWidget {
   static const routeName = '/Settings_Screen';
 
-  final Function saveFilters;
-  final Map<String, bool> currentFilter;
-  const MealsSettingsScreen(this.currentFilter, this.saveFilters, {Key? key})
-      : super(key: key);
+  final void Function() saveFilters;
 
-  @override
-  State<MealsSettingsScreen> createState() => _MealsSettingsScreenState();
-}
-
-class _MealsSettingsScreenState extends State<MealsSettingsScreen> {
-  bool _glutenFree = false;
-  bool _lactoseFree = false;
-  bool _vegan = false;
-  bool _vegetarian = false;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _glutenFree = widget.currentFilter['gluten']!;
-    _lactoseFree = widget.currentFilter['lactose']!;
-    _vegan = widget.currentFilter['vegan']!;
-    _vegetarian = widget.currentFilter['vegetarian']!;
-  }
+  const MealsSettingsScreen(this.saveFilters, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<MealsSettings>(context);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -43,6 +28,12 @@ class _MealsSettingsScreenState extends State<MealsSettingsScreen> {
           'Meals Settings',
           style: Theme.of(context).textTheme.titleSmall,
         ),
+        actions: [
+          ResetButton(
+            reset: Provider.of<MealsSettings>(context, listen: false)
+                .resetMealsSettings,
+          ),
+        ],
       ),
       body: ListView(
         children: [
@@ -61,69 +52,41 @@ class _MealsSettingsScreenState extends State<MealsSettingsScreen> {
           CusomSwitch(
             title: 'Gluten-Free',
             subtitle: 'Display Gluten-Free Meals',
-            currentValue: _glutenFree,
+            currentValue: provider.isGlutenFree,
             onChanged: (newValue) {
-              setState(() {
-                _glutenFree = newValue;
-                final filters = {
-                  'gluten': _glutenFree,
-                  'lactose': _lactoseFree,
-                  'vegan': _vegan,
-                  'vegetarian': _vegetarian
-                };
-                widget.saveFilters(filters);
-              });
+              provider.isGlutenFree = newValue;
+
+              saveFilters();
             },
           ),
           CusomSwitch(
             title: 'Lactose-Free',
             subtitle: 'Display Lactose-Free Meals',
-            currentValue: _lactoseFree,
+            currentValue: provider.isLactoseFree,
             onChanged: (newValue) {
-              setState(() {
-                _lactoseFree = newValue;
-                final filters = {
-                  'gluten': _glutenFree,
-                  'lactose': _lactoseFree,
-                  'vegan': _vegan,
-                  'vegetarian': _vegetarian
-                };
-                widget.saveFilters(filters);
-              });
+              provider.isLactoseFree = newValue;
+
+              saveFilters();
             },
           ),
           CusomSwitch(
             title: 'Vegetarian',
             subtitle: 'Display Vegetarian Meals',
-            currentValue: _vegetarian,
+            currentValue: provider.isVegetarian,
             onChanged: (newValue) {
-              setState(() {
-                _vegetarian = newValue;
-                final filters = {
-                  'gluten': _glutenFree,
-                  'lactose': _lactoseFree,
-                  'vegan': _vegan,
-                  'vegetarian': _vegetarian
-                };
-                widget.saveFilters(filters);
-              });
+              provider.isVegetarian = newValue;
+
+              saveFilters();
             },
           ),
           CusomSwitch(
             title: 'Vegan',
             subtitle: 'Display Vegan Meals',
-            currentValue: _vegan,
+            currentValue: provider.isVegan,
             onChanged: (newValue) {
-              setState(() {
-                _vegan = newValue;
-                final filters = {
-                  'gluten': _glutenFree,
-                  'lactose': _lactoseFree,
-                  'vegan': _vegan,
-                  'vegetarian': _vegetarian
-                };
-                widget.saveFilters(filters);
-              });
+              provider.isVegan = newValue;
+
+              saveFilters();
             },
           ),
         ],
