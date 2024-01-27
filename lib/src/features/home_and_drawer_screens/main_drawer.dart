@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'screens/settings_screen.dart';
+import '../../core/util/builders/go_to_screen_with_slide_transition.dart';
+import 'screens/genearal_settings_screen.dart';
+import 'screens/meals_settings_screen.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({Key? key}) : super(key: key);
@@ -8,7 +10,7 @@ class MainDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Column(
+      child: ListView(
         children: [
           Container(
             height: 200,
@@ -16,10 +18,12 @@ class MainDrawer extends StatelessWidget {
             alignment: Alignment.centerLeft,
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary,
-                borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20))),
+              color: Theme.of(context).colorScheme.primary,
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20),
+              ),
+            ),
             child: const Text(
               'Cooking Up!',
               style: TextStyle(
@@ -31,17 +35,55 @@ class MainDrawer extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           DrawerItem(
-            title: 'Meals',
-            icon: Icons.restaurant_menu_outlined,
+            title: 'Home',
+            icon: Icons.home_filled,
             onTap: () {
               Scaffold.of(context).closeDrawer();
             },
           ),
           DrawerItem(
-            title: 'Settings',
+            title: 'Profile',
+            icon: Icons.account_box,
+            onTap: () {
+              //  goToScreenWithSlideTransition(context ,  SettingsScreen());
+              Scaffold.of(context).closeDrawer();
+            },
+          ),
+          DrawerItem(
+            title: 'Meals Settings',
             icon: Icons.settings,
             onTap: () {
-              Navigator.of(context).pushNamed(SettingsScreen.routeName);
+              //  goToScreenWithSlideTransition(context ,  SettingsScreen());
+
+              Navigator.of(context).pushNamed(MealsSettingsScreen.routeName);
+              Scaffold.of(context).closeDrawer();
+            },
+          ),
+          DrawerItem(
+            title: 'General Settings',
+            icon: Icons.settings,
+            onTap: () {
+              goToScreenWithSlideTransition(
+                context,
+                const GeneralSettingsScreen(),
+              );
+
+              Scaffold.of(context).closeDrawer();
+            },
+          ),
+          DrawerItem(
+            title: 'Share',
+            icon: Icons.share,
+            onTap: () {
+              //  goToScreenWithSlideTransition(context ,  SettingsScreen());
+              Scaffold.of(context).closeDrawer();
+            },
+          ),
+          DrawerItem(
+            title: 'About',
+            icon: Icons.info,
+            onTap: () {
+              //  goToScreenWithSlideTransition(context ,  SettingsScreen());
               Scaffold.of(context).closeDrawer();
             },
           ),

@@ -478,7 +478,23 @@
   
 
 
-  "@_SETTINGS_SCREEN": {},
+  "@_SETTINGS_SCREENS": {},
+  "generalSettings": "General Settings",
+  "@generalSettings": {
+    "description": "title in `_SETTINGS_SCREENS`"
+  },
+  "displayArabicLanguage": "Display Arabic Language",
+  "@displayArabicLanguage": {
+    "description": "subtitle of Language in `_SETTINGS_SCREENS`"
+  },
+  "displayDarkTheme": "Display Dark Theme",
+  "@displayDarkTheme": {
+    "description": "subtitle of ThemeMode in `_SETTINGS_SCREENS`"
+  },
+  "color": "Color",
+  "@color": {
+    "description": "the color word"
+  },
   "resetToDefault": "Reset to default",
   "@resetToDefault": {
   "description": "the reset to default tooltip in `_SETTINGS_SCREEN`"
@@ -486,6 +502,10 @@
   "theme": "Theme",
   "@theme": {
   "description": "theme text of settings screen"
+  },
+  "themeMode": "Theme Mode",
+  "@themeMode": {
+  "description": "theme mode text of settings screen"
   },
   "systemDefault": "System default",
   "@systemDefault": {

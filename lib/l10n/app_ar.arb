@@ -107,10 +107,15 @@
     
   
 
-    "@_SETTINGS_SCREEN": {},
+    "@_SETTINGS_SCREENS": {},
+    "generalSettings": "الإعدادات العامة",
+    "displayArabicLanguage": "عرض اللغة العربية",
+    "displayDarkTheme": "عرض الوضع المظلم",
+    "color": "اللون",
     "resetToDefault": "إعادة إلى الوضع الافتراضي",
     "settings": "الإعدادات",
     "theme": "السمات",
+    "themeMode": "السمات",
     "systemDefault": "تلقائياً مع النظام",
     "light": "فاتح",
     "dark": "مظلم",
