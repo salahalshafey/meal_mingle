@@ -1,13 +1,24 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../../../../l10n/l10n.dart';
 import '../../../core/util/widgets/custom_card.dart';
-import '../providers/general_settings_provider.dart';
 
 class ColorPicker extends StatelessWidget {
-  const ColorPicker({super.key});
+  const ColorPicker({
+    super.key,
+    required this.colorsCircleRadius,
+    required this.spacingBetweenColorsItems,
+    this.rowsMainAxisAlignment = MainAxisAlignment.center,
+    required this.currentColor,
+    required this.onSelected,
+  });
+
+  final double colorsCircleRadius;
+  final double spacingBetweenColorsItems;
+  final MainAxisAlignment rowsMainAxisAlignment;
+  final Color currentColor;
+  final void Function(Color color) onSelected;
 
   static const _colors = <Color>[
     Color.fromRGBO(95, 190, 30, 1),
@@ -48,12 +59,13 @@ class ColorPicker extends StatelessWidget {
       child: Container(
         constraints: const BoxConstraints(maxWidth: 1000),
         child: CustomCard(
-          padding: const EdgeInsets.all(15),
+          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 5),
           margin: const EdgeInsets.all(15),
           borderRadius: BorderRadius.circular(15),
           child: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
-              int countForEachRow = (constraints.maxWidth ~/ 76);
+              int countForEachRow = constraints.maxWidth ~/
+                  (spacingBetweenColorsItems * 2 + colorsCircleRadius);
               if (countForEachRow == 0) {
                 countForEachRow = 1;
               }
@@ -64,18 +76,27 @@ class ColorPicker extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    Strings.get.color,
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodySmall
-                        ?.copyWith(fontSize: 18, fontWeight: FontWeight.bold),
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.only(start: 10, bottom: 5),
+                    child: Text(
+                      Strings.of(context).color,
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodySmall
+                          ?.copyWith(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
                   ),
                   for (int i = 0; i < _colors.length; i += countForEachRow)
                     ColorsRow(
                       colors: _colors,
                       fromIndex: i,
                       toIndex: min(i + countForEachRow, _colors.length),
+                      colorsCircleRadius: colorsCircleRadius,
+                      spacingBetweenColorsItems: spacingBetweenColorsItems,
+                      mainAxisAlignment: rowsMainAxisAlignment,
+                      currentColor: currentColor,
+                      onSelected: onSelected,
                     ),
                 ],
               );
@@ -93,13 +114,21 @@ class ColorsRow extends StatelessWidget {
     required this.colors,
     required this.fromIndex,
     required this.toIndex,
-    this.mainAxisAlignment = MainAxisAlignment.center,
+    required this.colorsCircleRadius,
+    required this.spacingBetweenColorsItems,
+    required this.mainAxisAlignment,
+    required this.currentColor,
+    required this.onSelected,
   });
 
   final List<Color> colors;
   final int fromIndex;
   final int toIndex;
+  final double colorsCircleRadius;
+  final double spacingBetweenColorsItems;
   final MainAxisAlignment mainAxisAlignment;
+  final Color currentColor;
+  final void Function(Color color) onSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -108,22 +137,20 @@ class ColorsRow extends StatelessWidget {
       children: colors
           .sublist(fromIndex, toIndex)
           .map(
-            (color) => Consumer<GeneralSettings>(
-              builder: (ctx, provider, child) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: IconButton(
-                    onPressed: () => provider.setColor(color),
-                    icon: provider.currentColorIsSameOf(color)
-                        ? const Icon(Icons.check, color: Colors.white)
-                        : const SizedBox(),
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll(color),
-                      fixedSize: const MaterialStatePropertyAll(Size(60, 60)),
-                    ),
+            (color) => Padding(
+              padding: EdgeInsets.all(spacingBetweenColorsItems),
+              child: IconButton(
+                onPressed: () => onSelected(color),
+                icon: currentColor.value == color.value
+                    ? const Icon(Icons.check, color: Colors.white)
+                    : const SizedBox(),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(color),
+                  fixedSize: MaterialStatePropertyAll(
+                    Size(colorsCircleRadius, colorsCircleRadius),
                   ),
-                );
-              },
+                ),
+              ),
             ),
           )
           .toList(),

@@ -25,11 +25,13 @@ class CategoryItem extends StatelessWidget {
         alignment: Alignment.center,
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [color.withOpacity(0.5), color],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight),
-            borderRadius: BorderRadius.circular(20)),
+          gradient: LinearGradient(
+            colors: [color.withOpacity(0.5), color],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          borderRadius: BorderRadius.circular(20),
+        ),
         child: Column(
           children: [
             Image.network(
@@ -39,6 +41,7 @@ class CategoryItem extends StatelessWidget {
             ),
             Text(
               title,
+              textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodySmall,
             ),
           ],

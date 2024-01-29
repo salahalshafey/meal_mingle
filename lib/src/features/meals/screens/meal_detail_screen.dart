@@ -107,8 +107,8 @@ class MealDetailScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                Container(
-                  margin: const EdgeInsets.only(left: 10),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
                   child: Text(
                     'INGREDIENTS',
                     style: Theme.of(context).textTheme.displayLarge,

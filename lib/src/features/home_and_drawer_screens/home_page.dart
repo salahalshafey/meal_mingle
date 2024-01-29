@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_mingle/src/features/home_and_drawer_screens/main_drawer.dart';
 
 import '../food_scanning/views/screens/food_scan_screen.dart';
 import '../meals/screens/tabs_screen.dart';
@@ -16,9 +17,9 @@ class _HomePageState extends State<HomePage> {
   int _currentScreenInedex = 0;
 
   final _screenOptions = [
-    const TabsScreen(),
-    const SearchScreen(),
-    const FoodScanScreen(),
+    const TabsScreen(key: PageStorageKey("TabsScreen")),
+    const SearchScreen(key: PageStorageKey("SearchScreen")),
+    const FoodScanScreen(key: PageStorageKey("FoodScanScreen")),
   ];
 
   void _animateToScreen(int pageIndex) {
@@ -32,14 +33,27 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: _controller,
-        children: _screenOptions,
-        onPageChanged: (pageIndex) {
-          setState(() {
-            _currentScreenInedex = pageIndex;
-          });
-        },
+      body: Row(
+        children: [
+          Builder(
+            builder: (ctx) {
+              final isWideScreen = MediaQuery.of(ctx).size.width > 1000;
+
+              return isWideScreen ? const MainDrawer() : const SizedBox();
+            },
+          ),
+          Expanded(
+            child: PageView(
+              controller: _controller,
+              children: _screenOptions,
+              onPageChanged: (pageIndex) {
+                setState(() {
+                  _currentScreenInedex = pageIndex;
+                });
+              },
+            ),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentScreenInedex,

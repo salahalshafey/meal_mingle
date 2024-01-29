@@ -15,6 +15,8 @@ class TabsScreen extends StatefulWidget {
 class _TabsScreenState extends State<TabsScreen> {
   @override
   Widget build(BuildContext context) {
+    final isWideScreen = MediaQuery.of(context).size.width > 1000;
+
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -23,10 +25,13 @@ class _TabsScreenState extends State<TabsScreen> {
           headerSliverBuilder: (context, innerBoxIsScrolled) =>
               const [MainAppBar()],
           body: const TabBarView(
-            children: [CategoriesScreen(), FavoritesScreen()],
+            children: [
+              CategoriesScreen(key: PageStorageKey("CategoriesScreen")),
+              FavoritesScreen(key: PageStorageKey("FavoritesScreen")),
+            ],
           ),
         ),
-        drawer: const MainDrawer(),
+        drawer: isWideScreen ? null : const MainDrawer(),
       ),
     );
   }

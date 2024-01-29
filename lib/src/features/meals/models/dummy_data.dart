@@ -17,7 +17,7 @@ const dummyData = [
     title: 'Quick & Easy',
     color: Colors.red,
     image:
-        'https://dl.airtable.com/.attachmentThumbnails/5cd9c9749f9b4f9f58eecc127973966a/4f789b20',
+        'https://uploads-ssl.webflow.com/5ce87e408cdd0a4373281d7b/6017fa780eb0741848b6af9a_cover.png',
   ),
   Category(
       id: 'c3',
@@ -30,7 +30,7 @@ const dummyData = [
       title: 'German',
       color: Colors.amber,
       image:
-          'https://likemeat.com/wp-content/uploads/2019/05/like-schnitzel-plate.png'),
+          'https://uploads-ssl.webflow.com/5ce87e408cdd0a4373281d7b/6017fa780eb0741848b6af9a_cover.png'),
   Category(
       id: 'c5',
       title: 'Light & Lovely',
@@ -42,13 +42,13 @@ const dummyData = [
       title: 'Sweet',
       color: Colors.pink,
       image:
-          'https://www.wagamama.be/-/media/wagamamaint/menu/food-dishes/desserts/desserts-white-chocolate-ginger-cheesecake.png'),
+          'https://uploads-ssl.webflow.com/5ce87e408cdd0a4373281d7b/6017fa780eb0741848b6af9a_cover.png'),
   Category(
       id: 'c7',
       title: 'Breakfast',
       color: Colors.lightBlue,
       image:
-          'https://www.jonesdairyfarm.com/App_Themes/JDF/Images/brinner/How%20Tos/How%20to%20Cook%20Eggs/soft_boiled.png'),
+          'https://uploads-ssl.webflow.com/5ce87e408cdd0a4373281d7b/6017fa780eb0741848b6af9a_cover.png'),
   Category(
       id: 'c8',
       title: 'Asian',

@@ -7,12 +7,14 @@ class SearchScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isWideScreen = MediaQuery.of(context).size.width > 1000;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Search For Meals"),
         centerTitle: true,
       ),
-      drawer: const MainDrawer(),
+      drawer: isWideScreen ? null : const MainDrawer(),
       body: const Placeholder(),
     );
   }

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class MainAppBar extends StatelessWidget {
-  const MainAppBar({
-    Key? key,
-  }) : super(key: key);
+  const MainAppBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final isWideScreen = MediaQuery.of(context).size.width > 1000;
+
     return SliverAppBar(
       expandedHeight: 135,
       flexibleSpace: FlexibleSpaceBar(
@@ -30,13 +30,15 @@ class MainAppBar extends StatelessWidget {
           textScaler: const TextScaler.linear(0.7),
         ),
       ),
-      leading: IconButton(
-        //color: Colors.black,
-        iconSize: 28,
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 35),
-        icon: const Icon(Icons.menu_rounded),
-        onPressed: () => Scaffold.of(context).openDrawer(),
-      ),
+      leading: isWideScreen
+          ? null
+          : IconButton(
+              //color: Colors.black,
+              iconSize: 28,
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 35),
+              icon: const Icon(Icons.menu_rounded),
+              onPressed: () => Scaffold.of(context).openDrawer(),
+            ),
       floating: true,
       pinned: true,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,

@@ -6,6 +6,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'core/theme/dark_theme.dart';
 import 'core/theme/light_theme.dart';
 
+import 'features/home_and_drawer_screens/home_page.dart';
 import 'features/home_and_drawer_screens/providers/general_settings_provider.dart';
 import 'features/home_and_drawer_screens/providers/meals_settings_provider.dart';
 
@@ -13,7 +14,6 @@ import 'features/meals/models/dummy_data.dart';
 import 'features/meals/models/meal.dart';
 
 import 'features/food_scanning/views/screens/favorite_food_scan_screen.dart';
-import 'features/food_scanning/views/screens/food_scan_screen.dart';
 import 'features/meals/screens/category_meals_screen.dart';
 import 'features/meals/screens/meal_detail_screen.dart';
 import 'features/home_and_drawer_screens/screens/meals_settings_screen.dart';
@@ -71,7 +71,7 @@ class _MyAppState extends State<MyApp> {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       locale: provider.currentLocal,
-      home: const FoodScanScreen(), //   HomePage()
+      home: const HomePage(), //    FoodScanScreen()
 
       routes: {
         // '/': (ctx) => const TabsScreen(),

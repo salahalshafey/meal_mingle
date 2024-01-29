@@ -20,7 +20,7 @@ class GeneralSettingsScreen extends StatelessWidget {
         elevation: 0,
         leading: const CustomBackButton(),
         title: Text(
-          Strings.get.generalSettings,
+          Strings.of(context).generalSettings,
           style: Theme.of(context).textTheme.titleSmall,
         ),
         actions: [
@@ -36,8 +36,8 @@ class GeneralSettingsScreen extends StatelessWidget {
           Consumer<GeneralSettings>(
             builder: (ctx, provider, child) {
               return CusomSwitch(
-                title: Strings.get.language,
-                subtitle: Strings.get.displayArabicLanguage,
+                title: Strings.of(context).language,
+                subtitle: Strings.of(context).displayArabicLanguage,
                 currentValue: provider.languageIsArabic(context),
                 onChanged: provider.setLanguage,
               );
@@ -47,15 +47,25 @@ class GeneralSettingsScreen extends StatelessWidget {
           Consumer<GeneralSettings>(
             builder: (ctx, provider, child) {
               return CusomSwitch(
-                title: Strings.get.themeMode,
-                subtitle: Strings.get.displayDarkTheme,
+                title: Strings.of(context).themeMode,
+                subtitle: Strings.of(context).displayDarkTheme,
                 currentValue: provider.themeIsDark(context),
                 onChanged: provider.setThemeMode,
               );
             },
           ),
           const SizedBox(height: 20),
-          const ColorPicker(),
+          Consumer<GeneralSettings>(
+            builder: (ctx, provider, child) {
+              return ColorPicker(
+                colorsCircleRadius: 50,
+                spacingBetweenColorsItems: 4.0,
+                rowsMainAxisAlignment: MainAxisAlignment.center,
+                currentColor: provider.currentColor,
+                onSelected: provider.setColor,
+              );
+            },
+          ),
           // add color scheme sellection
         ],
       ),

@@ -41,12 +41,14 @@ class FoodScanScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isWideScreen = MediaQuery.of(context).size.width > 1000;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(Strings.get.scanFoodWithAi),
         centerTitle: true,
       ),
-      drawer: const MainDrawer(),
+      drawer: isWideScreen ? null : const MainDrawer(),
       body: Center(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(vertical: 10),

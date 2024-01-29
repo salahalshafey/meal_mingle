@@ -12,7 +12,7 @@ class ResetButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsetsDirectional.only(end: 15),
       child: IconButton(
-        tooltip: Strings.get.resetToDefault, //"Reset to default",
+        tooltip: Strings.of(context).resetToDefault, //"Reset to default",
         onPressed: reset,
         icon: const Icon(Icons.restart_alt),
       ),

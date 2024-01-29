@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../../core/util/builders/go_to_screen_with_slide_transition.dart';
 import 'screens/genearal_settings_screen.dart';
@@ -75,8 +76,12 @@ class MainDrawer extends StatelessWidget {
             title: 'Share',
             icon: Icons.share,
             onTap: () {
-              //  goToScreenWithSlideTransition(context ,  SettingsScreen());
-              Scaffold.of(context).closeDrawer();
+              //  Scaffold.of(context).closeDrawer();
+
+              Share.share(
+                "           MealMingle App\nDownload from the Play Store\n\n"
+                "https://play.google.com/store/apps/details?id=com.salahalshafey.mealmingle",
+              );
             },
           ),
           DrawerItem(
