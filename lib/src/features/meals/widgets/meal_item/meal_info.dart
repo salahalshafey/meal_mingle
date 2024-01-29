@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
 
-import '../models/meal.dart';
+import '../../models/meal.dart';
 
 class MealInfo extends StatelessWidget {
   final int duration;
@@ -24,6 +23,17 @@ class MealInfo extends StatelessWidget {
         return 'Challenging';
       default:
         return 'Unknown';
+    }
+  }
+
+  String get affordabilityText {
+    switch (affordability) {
+      case Affordability.luxurious:
+        return 'Luxurious';
+      case Affordability.pricey:
+        return 'Pricey';
+      case Affordability.affordable:
+        return 'Affordable';
     }
   }
 
@@ -50,7 +60,7 @@ class MealInfo extends StatelessWidget {
           children: [
             const Icon(Icons.attach_money_rounded),
             const SizedBox(width: 6),
-            Text(describeEnum(affordability))
+            Text(affordabilityText)
           ],
         )
       ],

@@ -44,8 +44,6 @@ class MainAppBar extends StatelessWidget {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       elevation: 2,
       bottom: TabBar(
-        indicatorColor: Theme.of(context).scaffoldBackgroundColor,
-        labelColor: Theme.of(context).colorScheme.primary,
         unselectedLabelColor: const Color.fromARGB(255, 44, 54, 63),
         tabs: [
           Tab(
@@ -54,8 +52,9 @@ class MainAppBar extends StatelessWidget {
               height: 40,
               width: 140,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: Colors.grey[300]),
+                borderRadius: BorderRadius.circular(50),
+                color: Colors.grey[300],
+              ),
               child: const Text(
                 'CATEGORIES',
                 style: TextStyle(
@@ -71,8 +70,9 @@ class MainAppBar extends StatelessWidget {
               height: 40,
               width: 140,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: Colors.grey[300]),
+                borderRadius: BorderRadius.circular(50),
+                color: Colors.grey[300],
+              ),
               child: const Text(
                 'FAVORITES',
                 style: TextStyle(

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/favorite.dart';
-import '../widgets/meal_item.dart';
+import '../widgets/meal_item/meal_item.dart';
 
 class FavoritesScreen extends StatelessWidget {
   const FavoritesScreen({Key? key}) : super(key: key);
@@ -11,6 +11,7 @@ class FavoritesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final favMeals = Provider.of<Favorite>(context).favoriteMeals;
+
     if (favMeals.isEmpty) {
       return const Center(
         child: Text(
@@ -18,23 +19,24 @@ class FavoritesScreen extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
       );
-    } else {
-      return MediaQuery.removePadding(
-        context: context,
-        removeTop: true,
-        child: ListView.builder(
-            itemCount: favMeals.length,
-            itemBuilder: (ctx, index) {
-              return MealItem(
-                id: favMeals[index].id,
-                imageUrl: favMeals[index].imageUrl,
-                affordability: favMeals[index].affordability,
-                title: favMeals[index].title,
-                complexity: favMeals[index].complexity,
-                duration: favMeals[index].duration,
-              );
-            }),
-      );
     }
+
+    return MediaQuery.removePadding(
+      context: context,
+      removeTop: true,
+      child: ListView.builder(
+        itemCount: favMeals.length,
+        itemBuilder: (ctx, index) {
+          return MealItem(
+            id: favMeals[index].id,
+            imageUrl: favMeals[index].imageUrl,
+            affordability: favMeals[index].affordability,
+            title: favMeals[index].title,
+            complexity: favMeals[index].complexity,
+            duration: favMeals[index].duration,
+          );
+        },
+      ),
+    );
   }
 }

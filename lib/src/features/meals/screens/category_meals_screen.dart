@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/util/widgets/custom_back_button.dart';
-import '../widgets/meal_item.dart';
+
+import '../widgets/meal_item/meal_item.dart';
 import '../models/meal.dart';
 
 class CategoryMealsScreen extends StatefulWidget {
@@ -39,26 +40,28 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-            elevation: 3,
-            leading: const CustomBackButton(),
-            title: Text(
-              'These Are Some $categoryTitle Recepies',
-              style: Theme.of(context).textTheme.titleSmall,
-              textScaler: const TextScaler.linear(0.8),
-            )),
-        body: ListView.builder(
-            itemCount: displayMeals.length,
-            itemBuilder: (ctx, index) {
-              return MealItem(
-                id: displayMeals[index].id,
-                imageUrl: displayMeals[index].imageUrl,
-                affordability: displayMeals[index].affordability,
-                title: displayMeals[index].title,
-                complexity: displayMeals[index].complexity,
-                duration: displayMeals[index].duration,
-              );
-            }));
+      appBar: AppBar(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          elevation: 3,
+          leading: const CustomBackButton(),
+          title: Text(
+            'These Are Some $categoryTitle Recepies',
+            style: Theme.of(context).textTheme.titleSmall,
+            textScaler: const TextScaler.linear(0.8),
+          )),
+      body: ListView.builder(
+        itemCount: displayMeals.length,
+        itemBuilder: (ctx, index) {
+          return MealItem(
+            id: displayMeals[index].id,
+            imageUrl: displayMeals[index].imageUrl,
+            affordability: displayMeals[index].affordability,
+            title: displayMeals[index].title,
+            complexity: displayMeals[index].complexity,
+            duration: displayMeals[index].duration,
+          );
+        },
+      ),
+    );
   }
 }
