@@ -24,8 +24,13 @@ class FavoritesScreen extends StatelessWidget {
     return MediaQuery.removePadding(
       context: context,
       removeTop: true,
-      child: ListView.builder(
+      child: GridView.builder(
         itemCount: favMeals.length,
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 800,
+          crossAxisSpacing: 15,
+          mainAxisExtent: 350,
+        ),
         itemBuilder: (ctx, index) {
           return MealItem(
             id: favMeals[index].id,

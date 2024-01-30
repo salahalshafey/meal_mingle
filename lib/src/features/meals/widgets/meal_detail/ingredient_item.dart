@@ -29,21 +29,25 @@ class IngredientItem extends StatelessWidget {
             Container(
               padding: const EdgeInsets.only(top: 10),
               alignment: Alignment.center,
-              child: Image.network(
-                ingredient.ingredientImage,
-                height: 80,
-                width: 80,
-                fit: BoxFit.contain,
-                errorBuilder: (ctx, error, stk) {
-                  return const SizedBox(
-                    height: 80,
-                    width: 80,
-                    child: Icon(
-                      Icons.restaurant_rounded,
-                      size: 35,
-                    ),
-                  );
-                },
+              child: Transform.flip(
+                flipX: Directionality.of(context) == TextDirection.rtl,
+                child: Image.network(
+                  ingredient.ingredientImage,
+                  height: 80,
+                  width: 80,
+                  fit: BoxFit.contain,
+                  errorBuilder: (ctx, error, stk) {
+                    return const SizedBox(
+                      height: 80,
+                      width: 80,
+                      child: Icon(
+                        Icons.restaurant_rounded,
+                        size: 35,
+                        textDirection: TextDirection.ltr,
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
             const SizedBox(height: 8),
@@ -58,9 +62,10 @@ class IngredientItem extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(bottom: 10),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   const Padding(
-                    padding: EdgeInsets.only(left: 8),
+                    padding: EdgeInsetsDirectional.only(start: 8),
                     child: Icon(MesauringIcon.measuringSpoons),
                   ),
                   const SizedBox(width: 8),

@@ -9,7 +9,7 @@ class MealTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        borderRadius: BorderRadius.only(topRight: Radius.circular(40)),
+        borderRadius: BorderRadiusDirectional.only(topEnd: Radius.circular(40)),
         color: Colors.black54,
       ),
       width: 300,

@@ -49,8 +49,13 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
             style: Theme.of(context).textTheme.titleSmall,
             textScaler: const TextScaler.linear(0.8),
           )),
-      body: ListView.builder(
+      body: GridView.builder(
         itemCount: displayMeals.length,
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 800,
+          crossAxisSpacing: 15,
+          mainAxisExtent: 350,
+        ),
         itemBuilder: (ctx, index) {
           return MealItem(
             id: displayMeals[index].id,

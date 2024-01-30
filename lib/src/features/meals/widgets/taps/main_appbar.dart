@@ -10,7 +10,7 @@ class MainAppBar extends StatelessWidget {
     return SliverAppBar(
       expandedHeight: 135,
       flexibleSpace: FlexibleSpaceBar(
-        titlePadding: const EdgeInsets.only(left: 50, bottom: 50),
+        titlePadding: const EdgeInsetsDirectional.only(start: 50, bottom: 50),
         title: RichText(
           overflow: TextOverflow.clip,
           softWrap: true,
@@ -32,12 +32,15 @@ class MainAppBar extends StatelessWidget {
       ),
       leading: isWideScreen
           ? null
-          : IconButton(
-              //color: Colors.black,
-              iconSize: 28,
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 35),
-              icon: const Icon(Icons.menu_rounded),
-              onPressed: () => Scaffold.of(context).openDrawer(),
+          : Transform.translate(
+              offset: const Offset(0, 20),
+              child: IconButton(
+                // color: Colors.black,
+                // iconSize: 28,
+                // padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 35),
+                icon: const Icon(Icons.menu_rounded),
+                onPressed: () => Scaffold.of(context).openDrawer(),
+              ),
             ),
       floating: true,
       pinned: true,

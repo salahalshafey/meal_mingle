@@ -56,9 +56,12 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        /*  type: BottomNavigationBarType.shifting,
+        elevation: 10,
+        selectedItemColor: Theme.of(context).colorScheme.primary,
+        unselectedItemColor: Theme.of(context).textTheme.bodyLarge?.color,*/
         currentIndex: _currentScreenInedex,
         onTap: _animateToScreen,
-        // selectedItemColor: ,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.restaurant_menu),

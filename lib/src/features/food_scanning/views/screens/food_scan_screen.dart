@@ -6,8 +6,9 @@ import 'package:meal_mingle/l10n/l10n.dart';
 
 import '../../../../core/util/builders/go_to_screen_with_slide_transition.dart';
 import '../../../../core/util/builders/image_picker.dart';
-import '../../../home_and_drawer_screens/main_drawer.dart';
+
 import '../providers/convert_image_to_png.dart';
+import '../../../home_and_drawer_screens/main_drawer.dart';
 import 'all_favorite_food_scan_screen.dart';
 import 'food_scan_result_screen.dart';
 
@@ -45,7 +46,7 @@ class FoodScanScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(Strings.get.scanFoodWithAi),
+        title: Text(Strings.of(context).scanFoodWithAi),
         centerTitle: true,
       ),
       drawer: isWideScreen ? null : const MainDrawer(),
