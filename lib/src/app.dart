@@ -71,8 +71,7 @@ class _MyAppState extends State<MyApp> {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       locale: provider.currentLocal,
-      home: const HomePage(), //    FoodScanScreen()
-
+      home: const HomePage(),
       routes: {
         // '/': (ctx) => const TabsScreen(),
         FavoriteFoodScanScreen.routeName: (ctx) =>
