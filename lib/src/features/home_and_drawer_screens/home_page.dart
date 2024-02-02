@@ -3,7 +3,7 @@ import 'package:meal_mingle/src/features/home_and_drawer_screens/main_drawer.dar
 
 import '../food_scanning/views/screens/food_scan_screen.dart';
 import '../meals/screens/tabs_screen.dart';
-import '../search/search_screen.dart';
+import '../meals/screens/search_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

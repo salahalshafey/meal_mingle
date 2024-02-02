@@ -20,12 +20,13 @@ class Meal {
   final List<Ingredients> ingredients;
   final List<String> steps;
   final int duration;
-  final Complexity complexity;
-  final Affordability affordability;
+  final String complexity;
+  final String affordability;
   final bool isGlutenFree;
   final bool isLactoseFree;
   final bool isVegan;
   final bool isVegetarian;
+
   const Meal({
     required this.id,
     required this.categories,

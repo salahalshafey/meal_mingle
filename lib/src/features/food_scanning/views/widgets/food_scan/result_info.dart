@@ -34,7 +34,7 @@ class ResultInfo extends StatelessWidget {
             builder: (context, provider, child) {
               return ShareFoodScanningResultButton(
                 FoodScanningResultModel(
-                  id: "food_report",
+                  id: DateTime.now().hashCode.toString(),
                   dateTime: DateTime.now(),
                   imagePath: imagePath,
                   resultOverview: overviewResult,

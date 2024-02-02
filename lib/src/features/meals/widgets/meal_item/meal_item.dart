@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import '../../../../core/util/widgets/custom_card.dart';
 
 import '../../providers/favorite.dart';
-import '../../models/meal.dart';
 
 import '../../screens/meal_detail_screen.dart';
 import 'meal_image.dart';
@@ -17,8 +16,8 @@ class MealItem extends StatelessWidget {
   final String imageUrl;
   final String title;
   final int duration;
-  final Complexity complexity;
-  final Affordability affordability;
+  final String complexity;
+  final String affordability;
 
   const MealItem({
     Key? key,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../home_and_drawer_screens/main_drawer.dart';
+import '../../home_and_drawer_screens/main_drawer.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
