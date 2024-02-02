@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meal_mingle/src/features/meals/providers/favorite.dart';
+import 'package:meal_mingle/src/features/meals/views/providers/favorite.dart';
 
 class MealToggleFavoriteButton extends StatelessWidget {
   const MealToggleFavoriteButton({

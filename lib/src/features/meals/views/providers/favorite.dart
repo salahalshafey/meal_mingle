@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../models/meal.dart';
-import '../models/dummy_data.dart';
+import '../../data/models/meal.dart';
+import '../../data/models/dummy_data.dart';
 
 class Favorite with ChangeNotifier {
   final List<Meal> _favoriteMeals = [];

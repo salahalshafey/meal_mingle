@@ -3,7 +3,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
 import 'src/features/food_scanning/views/providers/favorites_food_scan.dart';
-import 'src/features/meals/providers/favorite.dart';
+import 'src/features/meals/views/providers/favorite.dart';
 import 'src/features/home_and_drawer_screens/providers/general_settings_provider.dart';
 import 'src/features/home_and_drawer_screens/providers/meals_settings_provider.dart';
 

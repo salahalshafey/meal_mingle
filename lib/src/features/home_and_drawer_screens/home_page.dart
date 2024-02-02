@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:meal_mingle/src/features/home_and_drawer_screens/main_drawer.dart';
 
 import '../food_scanning/views/screens/food_scan_screen.dart';
-import '../meals/screens/tabs_screen.dart';
-import '../meals/screens/search_screen.dart';
+import '../meals/views/screens/tabs_screen.dart';
+import '../meals/views/screens/search_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

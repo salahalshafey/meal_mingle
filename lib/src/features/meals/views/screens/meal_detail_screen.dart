@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../core/util/widgets/custom_back_button.dart';
+import '../../../../core/util/widgets/custom_back_button.dart';
 
 import '../providers/favorite.dart';
 
-import '../models/dummy_data.dart';
+import '../../data/models/dummy_data.dart';
 import '../widgets/meal_detail/ingredient_item.dart';
 import '../widgets/meal_detail/recipe_step_item.dart';
 

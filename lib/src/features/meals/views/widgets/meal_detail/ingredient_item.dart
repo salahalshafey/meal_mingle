@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/util/widgets/custom_card.dart';
+import '../../../../../core/util/widgets/custom_card.dart';
 
-import '../../models/ingredient.dart';
-import '../../models/mesauring_icon_icons.dart';
+import '../../../data/models/ingredient.dart';
+import '../../../data/models/mesauring_icon_icons.dart';
 
 class IngredientItem extends StatelessWidget {
   const IngredientItem({

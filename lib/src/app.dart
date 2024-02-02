@@ -10,12 +10,12 @@ import 'features/home_and_drawer_screens/home_page.dart';
 import 'features/home_and_drawer_screens/providers/general_settings_provider.dart';
 import 'features/home_and_drawer_screens/providers/meals_settings_provider.dart';
 
-import 'features/meals/models/dummy_data.dart';
-import 'features/meals/models/meal.dart';
+import 'features/meals/data/models/dummy_data.dart';
+import 'features/meals/data/models/meal.dart';
 
 import 'features/food_scanning/views/screens/favorite_food_scan_screen.dart';
-import 'features/meals/screens/category_meals_screen.dart';
-import 'features/meals/screens/meal_detail_screen.dart';
+import 'features/meals/views/screens/category_meals_screen.dart';
+import 'features/meals/views/screens/meal_detail_screen.dart';
 import 'features/home_and_drawer_screens/screens/meals_settings_screen.dart';
 
 late GlobalKey<NavigatorState> navigatorKey;

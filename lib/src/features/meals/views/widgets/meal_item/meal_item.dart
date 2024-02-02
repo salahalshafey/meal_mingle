@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../core/util/widgets/custom_card.dart';
+import '../../../../../core/util/widgets/custom_card.dart';
 
 import '../../providers/favorite.dart';
 
