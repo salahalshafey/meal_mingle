@@ -17,7 +17,6 @@ class IngredientItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 150,
-      height: 250,
       child: CustomCard(
         borderRadius: BorderRadius.circular(30),
         elevation: 3,
@@ -25,6 +24,7 @@ class IngredientItem extends StatelessWidget {
         margin: const EdgeInsets.all(5),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Container(
               padding: const EdgeInsets.only(top: 10),
@@ -55,6 +55,7 @@ class IngredientItem extends StatelessWidget {
               padding: const EdgeInsets.all(3),
               child: Text(
                 ingredient.ingredientName,
+                textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
             ),
@@ -69,10 +70,13 @@ class IngredientItem extends StatelessWidget {
                     child: Icon(MesauringIcon.measuringSpoons),
                   ),
                   const SizedBox(width: 8),
-                  Text(
-                    ingredient.ingredientAmount,
-                    style: Theme.of(context).textTheme.titleMedium,
-                  )
+                  Expanded(
+                    child: Text(
+                      ingredient.ingredientAmount,
+                      // textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                  ),
                 ],
               ),
             )

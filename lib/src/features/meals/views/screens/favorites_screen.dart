@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/favorite.dart';
+import '../providers/favorite_meals.dart';
 import '../widgets/meal_item/meal_item.dart';
 
 class FavoritesScreen extends StatelessWidget {
@@ -10,7 +10,7 @@ class FavoritesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final favMeals = Provider.of<Favorite>(context).favoriteMeals;
+    final favMeals = Provider.of<FavoriteMeals>(context).favoriteMeals;
 
     if (favMeals.isEmpty) {
       return const Center(
@@ -32,14 +32,7 @@ class FavoritesScreen extends StatelessWidget {
           mainAxisExtent: 350,
         ),
         itemBuilder: (ctx, index) {
-          return MealItem(
-            id: favMeals[index].id,
-            imageUrl: favMeals[index].imageUrl,
-            affordability: favMeals[index].affordability,
-            title: favMeals[index].title,
-            complexity: favMeals[index].complexity,
-            duration: favMeals[index].duration,
-          );
+          return MealItem(favMeals[index]);
         },
       ),
     );

@@ -57,14 +57,7 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
           mainAxisExtent: 350,
         ),
         itemBuilder: (ctx, index) {
-          return MealItem(
-            id: displayMeals[index].id,
-            imageUrl: displayMeals[index].imageUrl,
-            affordability: displayMeals[index].affordability,
-            title: displayMeals[index].title,
-            complexity: displayMeals[index].complexity,
-            duration: displayMeals[index].duration,
-          );
+          return MealItem(displayMeals[index]);
         },
       ),
     );

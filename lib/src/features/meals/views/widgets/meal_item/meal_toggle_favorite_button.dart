@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meal_mingle/src/features/meals/views/providers/favorite.dart';
+import 'package:meal_mingle/src/features/meals/views/providers/favorite_meals.dart';
 
 class MealToggleFavoriteButton extends StatelessWidget {
   const MealToggleFavoriteButton({
@@ -8,7 +8,7 @@ class MealToggleFavoriteButton extends StatelessWidget {
     required this.id,
   });
 
-  final Favorite favMeals;
+  final FavoriteMeals favMeals;
   final String id;
 
   @override

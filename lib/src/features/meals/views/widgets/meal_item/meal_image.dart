@@ -19,6 +19,17 @@ class MealImage extends StatelessWidget {
           height: 250,
           width: double.infinity,
           fit: BoxFit.cover,
+          errorBuilder: (ctx, error, stk) {
+            return const SizedBox(
+              height: 250,
+              width: double.infinity,
+              child: Icon(
+                Icons.restaurant_rounded,
+                size: 80,
+                textDirection: TextDirection.ltr,
+              ),
+            );
+          },
         ),
       ),
     );

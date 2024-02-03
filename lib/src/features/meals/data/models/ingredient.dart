@@ -8,4 +8,10 @@ class Ingredients {
     required this.ingredientImage,
     required this.ingredientAmount,
   });
+
+  factory Ingredients.fromJson(Map<String, dynamic> json) => Ingredients(
+        ingredientName: json['name'] as String,
+        ingredientImage: json['image'] ?? "",
+        ingredientAmount: json['quantity'] as String,
+      );
 }

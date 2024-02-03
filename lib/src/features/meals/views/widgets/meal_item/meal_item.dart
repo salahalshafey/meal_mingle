@@ -3,7 +3,8 @@ import 'package:provider/provider.dart';
 
 import '../../../../../core/util/widgets/custom_card.dart';
 
-import '../../providers/favorite.dart';
+import '../../../data/models/meal.dart';
+import '../../providers/favorite_meals.dart';
 
 import '../../screens/meal_detail_screen.dart';
 import 'meal_image.dart';
@@ -12,28 +13,18 @@ import 'meal_toggle_favorite_button.dart';
 import 'meal_info.dart';
 
 class MealItem extends StatelessWidget {
-  final String id;
-  final String imageUrl;
-  final String title;
-  final int duration;
-  final String complexity;
-  final String affordability;
+  final Meal meal;
 
-  const MealItem({
+  const MealItem(
+    this.meal, {
     Key? key,
-    required this.id,
-    required this.imageUrl,
-    required this.affordability,
-    required this.title,
-    required this.complexity,
-    required this.duration,
   }) : super(key: key);
 
   void selectMeal(BuildContext context) {
     Navigator.of(context)
         .pushNamed(
       MealDetailScreen.routeName,
-      arguments: id,
+      arguments: meal,
     )
         .then((result) {
       if (result != null) {
@@ -44,7 +35,7 @@ class MealItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final favMeals = Provider.of<Favorite>(context);
+    final favMeals = Provider.of<FavoriteMeals>(context);
 
     return CustomCard(
       borderRadius: BorderRadius.circular(20),
@@ -55,25 +46,26 @@ class MealItem extends StatelessWidget {
         children: [
           Stack(
             children: [
-              MealImage(imageUrl),
+              MealImage(meal.imageUrl),
               PositionedDirectional(
                 bottom: 0,
                 start: 0,
-                child: MealTitle(title),
+                child: MealTitle(meal.title),
               ),
               PositionedDirectional(
                 bottom: 10,
                 end: 5,
-                child: MealToggleFavoriteButton(favMeals: favMeals, id: id),
+                child:
+                    MealToggleFavoriteButton(favMeals: favMeals, id: meal.id),
               ),
             ],
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: MealInfo(
-              duration: duration,
-              affordability: affordability,
-              complexity: complexity,
+              duration: meal.duration,
+              affordability: meal.affordability,
+              complexity: meal.complexity,
             ),
           ),
         ],

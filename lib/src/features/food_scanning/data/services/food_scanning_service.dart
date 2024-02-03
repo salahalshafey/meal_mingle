@@ -11,7 +11,7 @@ abstract class FoodScanningService {
       [String? foodOverview, String? question]);
 }
 
-class GeminiProVisionImpl implements FoodScanningService {
+class FoodScanningGeminiProVisionImpl implements FoodScanningService {
   @override
   Future<String> getResult(String imagePath,
       [String? foodOverview, String? question]) async {

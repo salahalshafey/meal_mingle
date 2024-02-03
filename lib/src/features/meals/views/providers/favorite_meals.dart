@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../data/models/meal.dart';
 import '../../data/models/dummy_data.dart';
 
-class Favorite with ChangeNotifier {
+class FavoriteMeals with ChangeNotifier {
   final List<Meal> _favoriteMeals = [];
 
   List<Meal> get favoriteMeals {

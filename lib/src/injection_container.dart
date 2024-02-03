@@ -42,7 +42,8 @@ Future<void> init() async {
 
 // Services "Model"
 
-  sl.registerLazySingleton<FoodScanningService>(() => GeminiProVisionImpl());
+  sl.registerLazySingleton<FoodScanningService>(
+      () => FoodScanningGeminiProVisionImpl());
   sl.registerLazySingleton<FavoriteFoodScanningLocalDataService>(
       () => FavoriteFoodScanningHiveImpl());
   sl.registerLazySingleton<FavoriteFoodScanningLocalStorageService>(

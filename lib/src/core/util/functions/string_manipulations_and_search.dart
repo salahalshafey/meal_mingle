@@ -162,6 +162,12 @@ bool firstCharIsRtl(String text) {
 TextDirection getDirectionalityOf(String text) =>
     firstCharIsRtl(text) ? TextDirection.rtl : TextDirection.ltr;
 
+TextDirection getDirectionalityOfLangCode(String langCode) {
+  return intl.Bidi.isRtlLanguage(langCode)
+      ? TextDirection.rtl
+      : TextDirection.ltr;
+}
+
 /// ### Useful to detect if the first character in a string is an Arabic OR English character.
 ///
 /// * If `true` this means it starts with an **Arabic** character OR empty and `Directionality.of(context)` is [TextDirection.rtl].
