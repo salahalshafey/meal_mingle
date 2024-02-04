@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../core/util/functions/string_manipulations_and_search.dart';
 
+import '../../providers/search_meals.dart';
 import '../meal_item/meal_item.dart';
-
-import '../../../data/services/meals_service.dart';
 
 class MealSearchResult extends StatelessWidget {
   const MealSearchResult(this.mealName, {super.key});
@@ -15,7 +15,8 @@ class MealSearchResult extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
       key: UniqueKey(),
-      future: MealsGeminiProVisionImpl().getMealInfo(mealName),
+      future:
+          Provider.of<SearchMeals>(context, listen: false).searchMeal(mealName),
       builder: (ctx, snapshot) {
         if (snapshot.hasError) {
           return Center(

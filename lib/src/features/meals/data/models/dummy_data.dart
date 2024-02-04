@@ -83,37 +83,37 @@ const dummyMeal = [
         'https://www.giallozafferano.com/images/228-22832/spaghetti-with-tomato-sauce_1200x800.jpg',
     duration: 20,
     ingredients: [
-      Ingredients(
+      Ingredient(
         ingredientName: 'Tomatoes',
         ingredientImage:
             'https://www.bordbia.ie/globalassets/bordbia2020/food-and-living/best-in-season-2020/salads/tomato.png',
         ingredientAmount: '4 pcs.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Olive Oil',
         ingredientImage:
             'https://www.anticofrantoioligure.it/de/images/sito3.png',
         ingredientAmount: '1 tbsp.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Onion',
         ingredientImage:
             'https://www.toponions.com/l/en/library/download/urn:uuid:47b63dcd-dcc5-466a-bcab-c214b0f45c8b/gele-uien--thumb.png',
         ingredientAmount: '1 pc.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Spaghetti',
         ingredientImage:
             'https://ammiraticoffee.com/wp-content/uploads/2020/11/home_detail_fasciospaghettihome.png',
         ingredientAmount: '250 g.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Spices',
         ingredientImage:
             'https://landspices.com/wp-content/uploads/2016/09/amaya_recipe1-320x255.png',
         ingredientAmount: 'As you Like',
       ),
-      Ingredients(
+      Ingredient(
           ingredientName: 'Cheese',
           ingredientImage:
               'https://cdn.shopify.com/s/files/1/0244/3513/0423/products/2300717_4fcdc746-ea0b-4f94-af17-5f185d26d6a2_600x.png?v=1627800575',
@@ -145,31 +145,31 @@ const dummyMeal = [
         'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg',
     duration: 10,
     ingredients: [
-      Ingredients(
+      Ingredient(
         ingredientName: 'White Bread',
         ingredientImage:
             'https://purepng.com/public/uploads/large/purepng.com-sliced-white-breadfood-bread-941524637306lfujv.png',
         ingredientAmount: '1 Slice',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Ham',
         ingredientImage:
             'https://5.imimg.com/data5/SELLER/Default/2021/5/OF/TL/YD/1432671/american-smoked-turkey-ham-500x500.png',
         ingredientAmount: '1 slice',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Pineapple',
         ingredientImage:
             'https://purepng.com/public/uploads/large/purepng.com-pineapple-slicespineappleripeananasfruithealth-981524761302kzrco.png',
         ingredientAmount: '1 Slice',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Cheese',
         ingredientImage:
             'https://violifefoods.com/wp-content/uploads/2017/07/cheddar-slices-transparent.png',
         ingredientAmount: '1-2 Slices',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Butter',
         ingredientImage:
             'https://freight.cargo.site/i/37cc760e6c63a6591e874bd90c14f5c22afc16b227817a37310aedd4b5a04507/free-png-butter-png-images-transparent-butter-png-850_559.png',
@@ -199,37 +199,37 @@ const dummyMeal = [
         'https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg',
     duration: 45,
     ingredients: [
-      Ingredients(
+      Ingredient(
         ingredientName: 'Ground Beef',
         ingredientImage:
             'https://albertafoodservice.ca/wp-content/uploads/2016/05/ground-beef-1.png',
         ingredientAmount: '300 g.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Tomato',
         ingredientImage:
             'https://www.bordbia.ie/globalassets/bordbia2020/food-and-living/best-in-season-2020/salads/tomato.png',
         ingredientAmount: '1 Slice',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Pickeled Cucumber',
         ingredientImage:
             'https://assets.stickpng.com/thumbs/5eafed1ff7f4540004b715eb.png',
         ingredientAmount: '2-3 Slices',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Onion',
         ingredientImage:
             'https://www.toponions.com/l/en/library/download/urn:uuid:47b63dcd-dcc5-466a-bcab-c214b0f45c8b/gele-uien--thumb.png',
         ingredientAmount: '1 Slice',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Ketchup',
         ingredientImage:
             'https://pngpress.com/wp-content/uploads/2020/09/uploads_ketchup_ketchup_PNG15.png',
         ingredientAmount: 'As you Like',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Burger Buns',
         ingredientImage:
             'https://cdn.shopify.com/s/files/1/0376/3742/3148/products/brioche-buns_3_700x.png?v=1590100863',
@@ -260,48 +260,48 @@ const dummyMeal = [
         'https://cdn.pixabay.com/photo/2018/03/31/19/29/schnitzel-3279045_1280.jpg',
     duration: 60,
     ingredients: [
-      Ingredients(
+      Ingredient(
         ingredientName: 'Veal',
         ingredientImage:
             'https://cdn.shopify.com/s/files/1/0359/8149/2361/products/MG_9112-removebg-preview_348x.png?v=1591473682',
         ingredientAmount: '8 Cutlets',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Eggs',
         ingredientImage:
             'https://lohmann-breeders.com/media/2020/07/egg-weight-lost.png',
         ingredientAmount: '4 pcs.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Bread Crumps',
         ingredientImage:
             'https://turano.com/wp-content/uploads/2019/03/47857_Bread_Crumbs_25_lb_Fine_Bread_Crumbs_TD_05_EDITED_forceUpdate.png',
         ingredientAmount: '200 g.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Flour',
         ingredientImage:
             'https://nulifemarket.com/wp-content/uploads/2018/03/bowl_white-pearled-grain-flour.png',
         ingredientAmount: '100 g.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Butter',
         ingredientImage:
             'https://freight.cargo.site/i/37cc760e6c63a6591e874bd90c14f5c22afc16b227817a37310aedd4b5a04507/free-png-butter-png-images-transparent-butter-png-850_559.png',
         ingredientAmount: '300 ml.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Vegetable Oil',
         ingredientImage:
             'https://www.excelfood.co.uk/wp-content/uploads/2015/05/veg-oil-spoon-e1433156391598_clipped_rev_1-e1433429581869.png',
         ingredientAmount: '100 g.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Salt',
         ingredientImage: 'https://i.dlpng.com/static/png/6664237_preview.png',
         ingredientAmount: '1 Pinch',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Sliced Lemon',
         ingredientImage:
             'https://www.gadcoegypt.com/wp-content/uploads/2018/05/Gadco-Lemon2.png',
@@ -336,55 +336,55 @@ const dummyMeal = [
         'https://cdn.pixabay.com/photo/2016/10/25/13/29/smoked-salmon-salad-1768890_1280.jpg',
     duration: 15,
     ingredients: [
-      Ingredients(
+      Ingredient(
         ingredientName: 'Arugula',
         ingredientImage:
             'https://static.wixstatic.com/media/081e09_88e0719a1aa34c4394da87edc9a408b5~mv2.png/v1/fit/w_500,h_500,q_90/file.png',
         ingredientAmount: '100 g.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Lamb\'s Lettuce',
         ingredientImage:
             'https://www.fondation-louisbonduelle.org/wp-content/uploads/2016/09/mache_416993071-e1475241025446.png',
         ingredientAmount: '100 g.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Parsley',
         ingredientImage:
             'https://cdn.pixabay.com/photo/2018/08/22/05/16/parsley-3622868_1280.png',
         ingredientAmount: '100 g.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Fennel',
         ingredientImage:
             'https://5.imimg.com/data5/SELLER/Default/2020/8/OW/NN/MK/84500358/fennel-seeds-variyali-500x500.png',
         ingredientAmount: '100 g.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Smoked Salmon',
         ingredientImage:
             'https://fourseasinter.com/wp-content/uploads/2021/01/400-by-400-products3-300x300.png',
         ingredientAmount: '200 g.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Mustard',
         ingredientImage:
             'https://wilstar.com/wp-content/uploads/2016/08/national-mustard-day.png',
         ingredientAmount: '2 tbsp.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Balsamic Vinegar',
         ingredientImage:
             'https://static.wixstatic.com/media/4fa0ed_9dce3284eafc4fce8e1b860efa4da3fb~mv2.png/v1/fill/w_1000,h_667,al_c,usm_0.66_1.00_0.01/4fa0ed_9dce3284eafc4fce8e1b860efa4da3fb~mv2.png',
         ingredientAmount: '2 tbsp..',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Olive Oil',
         ingredientImage:
             'https://www.anticofrantoioligure.it/de/images/sito3.png',
         ingredientAmount: '2 tbsp.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Salt & Pepper',
         ingredientImage:
             'https://cdn.shopify.com/s/files/1/0256/3594/6544/products/SaltandPepperCellar_1200x1200.png?v=1629209237',
@@ -416,37 +416,37 @@ const dummyMeal = [
         'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg',
     duration: 240,
     ingredients: [
-      Ingredients(
+      Ingredient(
         ingredientName: 'Gelatine Sheets',
         ingredientImage:
             'https://www.frije.com/content/ingredients/331.png?cc=24482',
         ingredientAmount: '4 Sheets',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Orange Juice',
         ingredientImage:
             'https://www.dole.com/-/media/project/dole/produce-images/fruit/oranges_cut_web.png?h=630&w=1200&rev=5e260d0d7c624319b64d7667c3242e04&hash=C02D624D0A7769E761931CD94BB68AED',
         ingredientAmount: '150 ml.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Sugar',
         ingredientImage:
             'https://cdn.shopify.com/s/files/1/0504/5600/2723/products/organic-cane-sugar-bulk_1440x1600.png?v=1628023692',
         ingredientAmount: '80 g.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Yoghurt',
         ingredientImage:
             'https://www.pngarts.com/files/3/Yogurt-Transparent-Image.png',
         ingredientAmount: '300 g.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Cream',
         ingredientImage:
             'https://s3.amazonaws.com/static.realcaliforniamilk.com/media/assets/cream_fraich_c.png',
         ingredientAmount: '200 g.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Orange Peel',
         ingredientImage:
             'https://www.biovoices.eu/image_temp/516X516_516X516_983d2efd57d6375b74c96647e731092f.png',
@@ -481,42 +481,42 @@ const dummyMeal = [
         'https://cdn.pixabay.com/photo/2018/07/10/21/23/pancake-3529653_1280.jpg',
     duration: 20,
     ingredients: [
-      Ingredients(
+      Ingredient(
         ingredientName: 'All-Purpose Flour',
         ingredientImage:
             'https://nulifemarket.com/wp-content/uploads/2018/03/bowl_white-pearled-grain-flour.png',
         ingredientAmount: '1 1/2 Cups',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Baking Powder',
         ingredientImage:
             'https://swagatgrocery.com/wp-content/uploads/2021/01/baking-powder.png',
         ingredientAmount: '3 1/2 tsp.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Salt',
         ingredientImage: 'https://i.dlpng.com/static/png/6664237_preview.png',
         ingredientAmount: '1 tsp.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'White Sugar',
         ingredientImage:
             'https://cdn.shopify.com/s/files/1/0504/5600/2723/products/organic-cane-sugar-bulk_1440x1600.png?v=1628023692',
         ingredientAmount: '1 tbsp.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Milk',
         ingredientImage:
             'https://drinkmilk.co.uk/wp-content/uploads/2020/05/milk_2pint.png',
         ingredientAmount: '1 1/4 Cups',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Egg',
         ingredientImage:
             'https://lohmann-breeders.com/media/2020/07/egg-weight-lost.png',
         ingredientAmount: '1 pc.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Melted Butter',
         ingredientImage:
             'https://igav3-metcdn-com.global.ssl.fastly.net/content/uploads/sites/2/2016/10/26041213/melted-butter.png',
@@ -546,43 +546,43 @@ const dummyMeal = [
         'https://cdn.pixabay.com/photo/2018/06/18/16/05/indian-food-3482749_1280.jpg',
     duration: 35,
     ingredients: [
-      Ingredients(
+      Ingredient(
         ingredientName: 'Chicken Breast',
         ingredientImage:
             'https://www.wholesalemeatsdirect.co.nz/wp-content/uploads/chicken-breasts-skinless.png',
         ingredientAmount: '4 pcs.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Onion',
         ingredientImage:
             'https://www.toponions.com/l/en/library/download/urn:uuid:47b63dcd-dcc5-466a-bcab-c214b0f45c8b/gele-uien--thumb.png',
         ingredientAmount: '1 pc.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Garlic Cloves',
         ingredientImage:
             'https://spiceworldinc.com/wp-content/uploads/2020/01/Fresh-Garlic-Product-Page-Feature.png',
         ingredientAmount: '2 pcs.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Ginger Slices',
         ingredientImage:
             'https://freshworld.pk/wp-content/uploads/2020/05/ginger-1.png',
         ingredientAmount: '1 pc.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Almonds',
         ingredientImage:
             'https://www.greekseller.com/images/products/original/roasted-almonds.png',
         ingredientAmount: '4 tbsp.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Cayenne Pepper',
         ingredientImage:
             'https://al-salamtrading.com/wp-content/uploads/cayenne-pepper02.png',
         ingredientAmount: '1 tbsp.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Coconut Milk',
         ingredientImage:
             'https://cdn.forestessentialsindia.com/blog/wp-content/uploads/2020/02/Coconut-milk.png',
@@ -614,72 +614,72 @@ const dummyMeal = [
         'https://cdn.pixabay.com/photo/2014/08/07/21/07/souffle-412785_1280.jpg',
     duration: 45,
     ingredients: [
-      Ingredients(
+      Ingredient(
         ingredientName: 'Melted Butter',
         ingredientImage:
             'https://igav3-metcdn-com.global.ssl.fastly.net/content/uploads/sites/2/2016/10/26041213/melted-butter.png',
         ingredientAmount: '1 tsp.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'White Sugar',
         ingredientImage:
             'https://cdn.shopify.com/s/files/1/0504/5600/2723/products/organic-cane-sugar-bulk_1440x1600.png?v=1628023692',
         ingredientAmount: '2 tbsp.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Dark Chocolate',
         ingredientImage:
             'https://purepng.com/public/uploads/large/purepng.com-chocolatechocolatesweetcacaoanandamide-14115272312602xqll.png',
         ingredientAmount: '2 oz.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Butter',
         ingredientImage:
             'https://freight.cargo.site/i/37cc760e6c63a6591e874bd90c14f5c22afc16b227817a37310aedd4b5a04507/free-png-butter-png-images-transparent-butter-png-850_559.png',
         ingredientAmount: '1 tbsp.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'All-Purpose Flour',
         ingredientImage:
             'https://nulifemarket.com/wp-content/uploads/2018/03/bowl_white-pearled-grain-flour.png',
         ingredientAmount: '1 tbsp.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Cold Milk',
         ingredientImage:
             'https://drinkmilk.co.uk/wp-content/uploads/2020/05/milk_2pint.png',
         ingredientAmount: '4 1/3 tbsp.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Salt',
         ingredientImage: 'https://i.dlpng.com/static/png/6664237_preview.png',
         ingredientAmount: '1 Pinch',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Cayenne Pepper',
         ingredientImage:
             'https://al-salamtrading.com/wp-content/uploads/cayenne-pepper02.png',
         ingredientAmount: '1 Pinch',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Egg Yolk',
         ingredientImage:
             'https://www.vippng.com/png/full/436-4362382_products-boiled-egg.png',
         ingredientAmount: '1 pc.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Egg Whites',
         ingredientImage:
             'https://www.pngkey.com/png/full/597-5973159_we-chose-to-use-a-bit-of-egg.png',
         ingredientAmount: '2 pcs.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Tartar Cream',
         ingredientImage:
             'https://cdn.shopify.com/s/files/1/0271/3537/7545/products/Cream-of-Tartar-removebg-preview.png?v=1598904513',
         ingredientAmount: '1 Pinsh',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'White Sugar',
         ingredientImage:
             'https://cdn.shopify.com/s/files/1/0504/5600/2723/products/organic-cane-sugar-bulk_1440x1600.png?v=1628023692',
@@ -724,31 +724,31 @@ const dummyMeal = [
         'https://cdn.pixabay.com/photo/2018/04/09/18/26/asparagus-3304997_1280.jpg',
     duration: 30,
     ingredients: [
-      Ingredients(
+      Ingredient(
         ingredientName: 'Aspargus',
         ingredientImage:
             'https://ml0gvze9zd0y.i.optimole.com/_69KEH4-K2xj4sR3/w:1024/h:634/q:90/https://euromeridian.nl/wp-content/uploads/2021/01/59bf7ed37a216d0b052f12cf.png',
         ingredientAmount: '200 g.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Pine Nuts',
         ingredientImage:
             'https://www.southernstylespices.com/wp-content/uploads/2019/04/Nuts_Seeds-Pine_Nuts_20190125_042-e1555209265984.png',
         ingredientAmount: '30 g.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Cherry Tomatoes',
         ingredientImage:
             'https://mucci-production-user-uploads-bucket.s3.amazonaws.com/images/Product-IMG_ChertoTomatoes-rev2.original.png',
         ingredientAmount: '300 g.',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Salt & Pepper',
         ingredientImage:
             'https://cdn.shopify.com/s/files/1/0256/3594/6544/products/SaltandPepperCellar_1200x1200.png?v=1629209237',
         ingredientAmount: '1 Pinch',
       ),
-      Ingredients(
+      Ingredient(
         ingredientName: 'Olive Oil',
         ingredientImage:
             'https://www.anticofrantoioligure.it/de/images/sito3.png',

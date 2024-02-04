@@ -11,12 +11,12 @@ class IngredientItem extends StatelessWidget {
     required this.ingredient,
   });
 
-  final Ingredients ingredient;
+  final Ingredient ingredient;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 150,
+      width: 200,
       child: CustomCard(
         borderRadius: BorderRadius.circular(30),
         elevation: 3,
@@ -33,16 +33,16 @@ class IngredientItem extends StatelessWidget {
                 flipX: Directionality.of(context) == TextDirection.rtl,
                 child: Image.network(
                   ingredient.ingredientImage,
-                  height: 80,
-                  width: 80,
+                  height: 120,
+                  width: 120,
                   fit: BoxFit.contain,
                   errorBuilder: (ctx, error, stk) {
                     return const SizedBox(
-                      height: 80,
-                      width: 80,
+                      height: 120,
+                      width: 120,
                       child: Icon(
                         Icons.restaurant_rounded,
-                        size: 35,
+                        size: 55,
                         textDirection: TextDirection.ltr,
                       ),
                     );

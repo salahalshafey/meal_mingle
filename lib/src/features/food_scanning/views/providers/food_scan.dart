@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_mingle/l10n/l10n.dart';
 
 import '../../../../core/error/error_exceptions_with_message.dart';
 import '../../../../core/error/exceptions_without_message.dart';
@@ -102,21 +103,13 @@ If there is more than one item, "Give the result for each item".""",
 
       return _resultOverview;
     } on OfflineException {
-      throw ErrorMessage(
-          "You Are Currently Offline!!" //AppLocalizations.of(_context)!.youAreCurrentlyOffline,
-          );
+      throw ErrorMessage(Strings.get.youAreCurrentlyOffline);
     } on ServerException {
-      throw ErrorMessage(
-          "Something Went Wrong Please Try Again Later!!" //AppLocalizations.of(_context)!.somethingWentWrongPleaseTryAgainLater,
-          );
+      throw ErrorMessage(Strings.get.somethingWentWrongPleaseTryAgainLater);
     } on FilterException {
-      throw ErrorMessage(
-          "Sorry There Is No Result For Your Scan" //AppLocalizations.of(_context)!.sorryThereIsNoResultForYourSearch,
-          );
+      throw ErrorMessage(Strings.get.sorryThereIsNoResultForYourSearch);
     } catch (error) {
-      throw ErrorMessage(
-          "Unexpected Error Happened" //AppLocalizations.of(_context)!.unexpectedErrorHappened,
-          );
+      throw ErrorMessage(Strings.get.unexpectedErrorHappened);
     }
   }
 
@@ -141,21 +134,13 @@ If there is more than one item, "Give the result for each item".""",
 
       return _questionsResults[questionIndex]!;
     } on OfflineException {
-      throw ErrorMessage(
-          "You Are Currently Offline!!" //AppLocalizations.of(_context)!.youAreCurrentlyOffline,
-          );
+      throw ErrorMessage(Strings.get.youAreCurrentlyOffline);
     } on ServerException {
-      throw ErrorMessage(
-          "Something Went Wrong Please Try Again Later!!" //AppLocalizations.of(_context)!.somethingWentWrongPleaseTryAgainLater,
-          );
+      throw ErrorMessage(Strings.get.somethingWentWrongPleaseTryAgainLater);
     } on FilterException {
-      throw ErrorMessage(
-          "Sorry There Is No Result For Your Scan" //AppLocalizations.of(_context)!.sorryThereIsNoResultForYourSearch,
-          );
+      throw ErrorMessage(Strings.get.sorryThereIsNoResultForYourSearch);
     } catch (error) {
-      throw ErrorMessage(
-          "Unexpected Error Happened" //AppLocalizations.of(_context)!.unexpectedErrorHappened,
-          );
+      throw ErrorMessage(Strings.get.unexpectedErrorHappened);
     }
   }
 
@@ -178,9 +163,9 @@ If there is more than one item, "Give the result for each item".""",
     } on LocalDataException {
       throw ErrorMessage("Not Able To Save data To Local Device");
     } on LocalStorageException {
-      throw ErrorMessage("Not Able To Save Files To Local Device Storage");
+      throw ErrorMessage(Strings.get.notAbleToSaveFilesToLocalDeviceStorage);
     } catch (error) {
-      throw ErrorMessage("Unexpected Error Happened");
+      throw ErrorMessage(Strings.get.unexpectedErrorHappened);
     }
   }
 
@@ -198,9 +183,9 @@ If there is more than one item, "Give the result for each item".""",
     } on LocalDataException {
       throw ErrorMessage("Not Able To Save data To Local Device");
     } on LocalStorageException {
-      throw ErrorMessage("Not Able To Save Files To Local Device Storage");
+      throw ErrorMessage(Strings.get.notAbleToSaveFilesToLocalDeviceStorage);
     } catch (error) {
-      throw ErrorMessage("Unexpected Error Happened");
+      throw ErrorMessage(Strings.get.unexpectedErrorHappened);
     }
   }
 
@@ -215,9 +200,10 @@ If there is more than one item, "Give the result for each item".""",
     } on LocalDataException {
       throw ErrorMessage("Not Able To Delete data To Local Device");
     } on LocalStorageException {
-      throw ErrorMessage("Not Able To Delete Files To Local Device Storage");
+      throw ErrorMessage(
+          Strings.get.notAbleToDeleteFilesFromLocalDeviceStorage);
     } catch (error) {
-      throw ErrorMessage("Unexpected Error Happened");
+      throw ErrorMessage(Strings.get.unexpectedErrorHappened);
     }
   }
 

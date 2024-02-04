@@ -46,16 +46,19 @@ class _SearchScreenState extends State<SearchScreen> {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {
+            onPressed: () async {
               _setMealName(_controller.text);
             },
             icon: const Icon(Icons.search),
+            tooltip: "Search",
           ),
         ],
       ),
       drawer: isWideScreen ? null : const MainDrawer(),
       body: _mealName == null
-          ? const Placeholder()
+          ? Center(
+              child: Image.asset("assets/images/search_meals.png"),
+            )
           : MealSearchResult(_mealName!),
     );
   }

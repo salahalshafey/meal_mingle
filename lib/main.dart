@@ -7,6 +7,7 @@ import 'src/features/meals/views/providers/favorite_meals.dart';
 import 'src/features/home_and_drawer_screens/providers/general_settings_provider.dart';
 import 'src/features/home_and_drawer_screens/providers/meals_settings_provider.dart';
 
+import 'src/features/meals/views/providers/search_meals.dart';
 import 'src/injection_container.dart' as di;
 import 'src/app.dart';
 
@@ -22,6 +23,7 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (ctx) => di.sl<FavoritesFoodScan>()),
+        ChangeNotifierProvider(create: (ctx) => di.sl<SearchMeals>()),
         ChangeNotifierProvider(create: (ctx) => FavoriteMeals()),
         ChangeNotifierProvider(create: (ctx) => GeneralSettings()),
         ChangeNotifierProvider(create: (ctx) => MealsSettings()),

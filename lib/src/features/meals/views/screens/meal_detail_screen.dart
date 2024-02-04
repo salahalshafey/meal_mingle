@@ -97,7 +97,7 @@ class MealDetailScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 220,
+                  height: 250,
                   child: ListView.builder(
                     itemCount: meal.ingredients.length,
                     scrollDirection: Axis.horizontal,

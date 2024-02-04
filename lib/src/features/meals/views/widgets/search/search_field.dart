@@ -45,7 +45,7 @@ class _SearchFieldState extends State<SearchField> {
         textDirection: _textDirection,
         controller: widget.controller,
         decoration: InputDecoration(
-          hintText: "Search Meal Using AI",
+          hintText: "Search Meals Using AI",
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(100)),
           suffixIcon: widget.controller.text.isNotEmpty
               ? IconButton(
@@ -55,6 +55,7 @@ class _SearchFieldState extends State<SearchField> {
                     setState(() {});
                   },
                   icon: const Icon(Icons.close),
+                  tooltip: "Clear",
                 )
               : null,
         ),
