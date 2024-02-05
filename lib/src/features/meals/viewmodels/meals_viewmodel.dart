@@ -2,6 +2,7 @@ import '../../../core/error/exceptions_without_message.dart';
 import '../../../core/network/network_info.dart';
 
 import '../data/models/meal.dart';
+
 import '../data/services/food_image_service.dart';
 import '../data/services/meals_service.dart';
 
@@ -28,6 +29,15 @@ class MealsViewModelImpl implements MealsViewModel {
 
     try {
       final mealWithoutImages = await mealsSrevice.getMealInfo(mealName);
+
+      return await _addImagesToMeal(mealWithoutImages);
+    } catch (error) {
+      rethrow;
+    }
+  }
+
+  Future<Meal> _addImagesToMeal(Meal mealWithoutImages) async {
+    try {
       final imagesNameInEnglish = mealWithoutImages.ingredients
           .map((ingredient) => ingredient.ingredientImage)
           .toList();
@@ -51,7 +61,7 @@ class MealsViewModelImpl implements MealsViewModel {
         ingredients: ingredientsWithImages,
       );
     } catch (error) {
-      rethrow;
+      return mealWithoutImages;
     }
   }
 }

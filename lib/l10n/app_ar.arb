@@ -16,6 +16,7 @@
     "@_CORE": {},
     "ok": "حسناً",
     "back": "رجوع",
+    "openNavigationMenu": "فتح قائمة التنقل",
     "error": "خطأ",
     "pleaseChoose": "الرجاء تحديد خيار",
     "camera": "الكاميرا",
@@ -137,6 +138,21 @@
 
     "@_FOOD_SCAN_SCREEN": {},
     "scanFoodWithAi": "مسح الطعام باستخدام الذكاء الاصطناعي",
+    "scanFood": "مسح الطعام",
+
+
+
+    "@_SEARCH_SCREEN": {},
+    "search": "بحث",
+    "searchMealsUsingAi": "بحث عن وجبات باستخدام الذكاء الإصطناعي",
+    "clear": "إزالة",
+
+
+
+    "@_MEALS_SCREEN": {},
+    "meals": "وجبات",
+    "ingredients": "المكونات والمقادير",
+    "recipe": "طريقة التحضير",
 
 
 

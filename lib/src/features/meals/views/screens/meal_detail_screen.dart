@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_mingle/l10n/l10n.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/util/functions/string_manipulations_and_search.dart';
@@ -92,7 +93,7 @@ class MealDetailScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsetsDirectional.only(start: 10),
                   child: Text(
-                    'INGREDIENTS',
+                    Strings.of(context).ingredients,
                     style: Theme.of(context).textTheme.displayLarge,
                   ),
                 ),
@@ -113,7 +114,7 @@ class MealDetailScreen extends StatelessWidget {
                   padding:
                       const EdgeInsetsDirectional.only(start: 10, bottom: 10),
                   child: Text(
-                    'RECIPE',
+                    Strings.of(context).recipe,
                     style: Theme.of(context).textTheme.displayLarge,
                   ),
                 ),

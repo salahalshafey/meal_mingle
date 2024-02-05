@@ -5,14 +5,14 @@ import '../../../../core/error/exceptions_without_message.dart';
 import '../../../../core/util/functions/string_manipulations_and_search.dart';
 
 abstract class FoodImageService {
-  Future<String> getImageLink(String foodName, [int squareDimention = 200]);
+  Future<String> getImageLink(String foodName, [int squareDimension = 200]);
 }
 
 class FoodImageWikipediaScrapingImpl implements FoodImageService {
   @override
   Future<String> getImageLink(
     String foodName, [
-    int squareDimention = 200,
+    int squareDimension = 200,
   ]) async {
     try {
       final isFirstCharArabic = firstCharIsArabic(foodName);
@@ -51,7 +51,7 @@ class FoodImageWikipediaScrapingImpl implements FoodImageService {
       final imageLink =
           images.firstWhere((image) => image != null, orElse: () => null);
 
-      final scaledImage = _scaleWikipediaImage(imageLink, squareDimention);
+      final scaledImage = _scaleWikipediaImage(imageLink, squareDimension);
 
       return "https:$scaledImage";
     } catch (error) {
@@ -61,7 +61,7 @@ class FoodImageWikipediaScrapingImpl implements FoodImageService {
 
   String? _scaleWikipediaImage(
     String? wikipediaImageLink, [
-    int squareDimention = 200,
+    int squareDimension = 200,
   ]) {
     if (wikipediaImageLink == null || wikipediaImageLink.isEmpty) {
       return wikipediaImageLink;
@@ -69,6 +69,6 @@ class FoodImageWikipediaScrapingImpl implements FoodImageService {
 
     RegExp regex = RegExp(r'\/\d+px');
 
-    return wikipediaImageLink.replaceFirst(regex, "/${squareDimention}px");
+    return wikipediaImageLink.replaceFirst(regex, "/${squareDimension}px");
   }
 }

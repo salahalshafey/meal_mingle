@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_mingle/l10n/l10n.dart';
 
 import '../../../../../core/util/functions/string_manipulations_and_search.dart';
 
@@ -45,7 +46,7 @@ class _SearchFieldState extends State<SearchField> {
         textDirection: _textDirection,
         controller: widget.controller,
         decoration: InputDecoration(
-          hintText: "Search Meals Using AI",
+          hintText: Strings.of(context).searchMealsUsingAi,
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(100)),
           suffixIcon: widget.controller.text.isNotEmpty
               ? IconButton(
@@ -55,7 +56,7 @@ class _SearchFieldState extends State<SearchField> {
                     setState(() {});
                   },
                   icon: const Icon(Icons.close),
-                  tooltip: "Clear",
+                  tooltip: Strings.of(context).clear,
                 )
               : null,
         ),

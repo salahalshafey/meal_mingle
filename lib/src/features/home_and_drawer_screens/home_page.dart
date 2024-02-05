@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_mingle/l10n/l10n.dart';
 import 'package:meal_mingle/src/features/home_and_drawer_screens/main_drawer.dart';
 
 import '../food_scanning/views/screens/food_scan_screen.dart';
@@ -62,18 +63,18 @@ class _HomePageState extends State<HomePage> {
         unselectedItemColor: Theme.of(context).textTheme.bodyLarge?.color,*/
         currentIndex: _currentScreenInedex,
         onTap: _animateToScreen,
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.restaurant_menu),
-            label: "Meals",
+            icon: const Icon(Icons.restaurant_menu),
+            label: Strings.of(context).meals,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: "Search",
+            icon: const Icon(Icons.search),
+            label: Strings.of(context).search,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.fact_check_outlined),
-            label: "Scan Food",
+            icon: const Icon(Icons.fact_check_outlined),
+            label: Strings.of(context).scanFood,
           ),
         ],
       ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/util/functions/nouns_in_diff_languages.dart';
+
 class MealInfo extends StatelessWidget {
   final int duration;
   final String complexity;
@@ -21,7 +23,7 @@ class MealInfo extends StatelessWidget {
           children: [
             const Icon(Icons.schedule),
             const SizedBox(width: 6),
-            Text('$duration min')
+            Text(minuteWithLocalization(duration))
           ],
         ),
         Row(

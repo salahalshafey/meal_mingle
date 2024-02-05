@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_mingle/l10n/l10n.dart';
 
 class MainAppBar extends StatelessWidget {
   const MainAppBar({Key? key}) : super(key: key);
@@ -39,6 +40,7 @@ class MainAppBar extends StatelessWidget {
                 // iconSize: 28,
                 // padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 35),
                 icon: const Icon(Icons.menu_rounded),
+                tooltip: Strings.of(context).openNavigationMenu,
                 onPressed: () => Scaffold.of(context).openDrawer(),
               ),
             ),

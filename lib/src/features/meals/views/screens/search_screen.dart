@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_mingle/l10n/l10n.dart';
 
 import '../../../../app.dart';
 
@@ -45,13 +46,7 @@ class _SearchScreenState extends State<SearchScreen> {
         ),
         centerTitle: true,
         actions: [
-          IconButton(
-            onPressed: () async {
-              _setMealName(_controller.text);
-            },
-            icon: const Icon(Icons.search),
-            tooltip: "Search",
-          ),
+          SearchIcon(mealName: _controller.text, setMealName: _setMealName),
         ],
       ),
       drawer: isWideScreen ? null : const MainDrawer(),
@@ -60,6 +55,26 @@ class _SearchScreenState extends State<SearchScreen> {
               child: Image.asset("assets/images/search_meals.png"),
             )
           : MealSearchResult(_mealName!),
+    );
+  }
+}
+
+class SearchIcon extends StatelessWidget {
+  const SearchIcon({
+    super.key,
+    required this.mealName,
+    required this.setMealName,
+  });
+
+  final String mealName;
+  final void Function(String mealName) setMealName;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () => setMealName(mealName),
+      icon: const Icon(Icons.search),
+      tooltip: Strings.of(context).search,
     );
   }
 }

@@ -41,6 +41,10 @@
   "@back": {
     "description": "the back word `for backArrow icon tooltip`"
   },
+  "openNavigationMenu": "Open navigation menu",
+  "@openNavigationMenu": {
+    "description": "the drawer icon tooltip`"
+  },
   "error": "Error",
   "@error": {
     "description": "the Error word"
@@ -555,6 +559,43 @@
   "@scanFoodWithAi": {
     "description": "the Scan Food With AI word"
   },
+  "scanFood": "Scan Food",
+  "@scanFood": {
+    "description": "the Scan Food word"
+  },
+
+
+
+  "@_SEARCH_SCREEN": {},
+  "search": "Search",
+  "@search": {
+    "description": "the Search word"
+  },
+  "searchMealsUsingAi": "Search Meals Using AI",
+  "@searchMealsUsingAi": {
+    "description": "the Scan Food With AI word"
+  },
+  "clear": "Clear",
+  "@clear": {
+    "description": "the Scan Food With AI word"
+  },
+
+
+
+  "@_MEALS_SCREEN": {},
+  "meals": "Meals",
+  "@meals": {
+    "description": "the Meals word"
+  },
+  "ingredients": "INGREDIENTS",
+  "@ingredients": {
+    "description": "the INGREDIENTS word"
+  },
+  "recipe": "RECIPE",
+  "@recipe": {
+    "description": "the RECIPE word"
+  },
+
 
 
   "@_ABOUT_SCREEN": {},
