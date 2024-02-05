@@ -131,7 +131,7 @@ class MealsGeminiProVisionImpl implements MealsSrevice {
     final result =
         jsonDecode(mealJsonRemovedCodeAnotation) as Map<String, dynamic>;
 
-    print(result);
+    // print(result);
 
     return Meal.fromJson(result["recipe"]);
   }

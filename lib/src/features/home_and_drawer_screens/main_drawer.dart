@@ -79,8 +79,8 @@ class MainDrawer extends StatelessWidget {
               //  Scaffold.of(context).closeDrawer();
 
               Share.share(
-                "           MealMingle App\nDownload from the Play Store\n\n"
-                "https://play.google.com/store/apps/details?id=com.salahalshafey.mealmingle",
+                "           AI MealMingle App\nDownload from the Play Store\n\n"
+                "https://play.google.com/store/apps/details?id=com.salahalshafey.aimealmingle",
               );
             },
           ),

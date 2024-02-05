@@ -62,7 +62,7 @@ class _MyAppState extends State<MyApp> {
     final provider = Provider.of<GeneralSettings>(context);
 
     return MaterialApp(
-      title: 'Flutter Food Scanner',
+      title: 'AI MealMingle',
       debugShowCheckedModeBanner: false,
       navigatorKey: _navigatorKey,
       themeMode: provider.themeMode,

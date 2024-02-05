@@ -135,7 +135,7 @@ pw.Widget _titleForRefrencingTheApp() {
           children: [
             const pw.TextSpan(text: "This Food Report is From "),
             pw.TextSpan(
-              text: "MealMingle",
+              text: "AI MealMingle",
               style: pw.TextStyle(fontWeight: pw.FontWeight.bold),
             ),
             const pw.TextSpan(text: " App."),
@@ -152,7 +152,7 @@ pw.Widget _titleForRefrencingTheApp() {
           ),
         ),
         destination:
-            "https://play.google.com/store/apps/details?id=com.salahalshafey.mealmingle",
+            "https://play.google.com/store/apps/details?id=com.salahalshafey.aimealmingle",
       ),
       pw.Divider(),
     ],
