@@ -98,7 +98,7 @@ class DeleteFromFavoriteButton extends StatelessWidget {
       actionsBuilder: (builderContext) => [
         TextButton(
           onPressed: () {
-            Navigator.of(context).pop(true);
+            Navigator.of(builderContext).pop(true);
           },
           child: const Text(
             "Remove",
@@ -107,7 +107,7 @@ class DeleteFromFavoriteButton extends StatelessWidget {
         ),
         TextButton(
           onPressed: () {
-            Navigator.of(context).pop(false);
+            Navigator.of(builderContext).pop(false);
           },
           child: const Text(
             "Cancel",

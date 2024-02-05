@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../../../../../core/util/widgets/custom_card.dart';
 
 import '../../../data/models/meal.dart';
-import '../../providers/favorite_meals.dart';
 
 import '../../screens/meal_detail_screen.dart';
 import 'meal_image.dart';
@@ -35,8 +33,6 @@ class MealItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final favMeals = Provider.of<FavoriteMeals>(context);
-
     return CustomCard(
       borderRadius: BorderRadius.circular(20),
       elevation: 10,
@@ -55,8 +51,7 @@ class MealItem extends StatelessWidget {
               PositionedDirectional(
                 bottom: 10,
                 end: 5,
-                child:
-                    MealToggleFavoriteButton(favMeals: favMeals, id: meal.id),
+                child: MealToggleFavoriteButton(meal),
               ),
             ],
           ),

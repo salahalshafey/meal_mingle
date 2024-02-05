@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:meal_mingle/l10n/l10n.dart';
-import 'package:provider/provider.dart';
 
 import '../../../../core/util/functions/string_manipulations_and_search.dart';
 import '../../../../core/util/widgets/custom_back_button.dart';
@@ -8,10 +7,10 @@ import '../../../../core/util/widgets/custom_back_button.dart';
 import '../../../../app.dart';
 
 import '../../data/models/meal.dart';
-import '../providers/favorite_meals.dart';
 
 import '../widgets/meal_detail/ingredient_item.dart';
 import '../widgets/meal_detail/recipe_step_item.dart';
+import '../widgets/meal_item/meal_toggle_favorite_button.dart';
 
 class MealDetailScreen extends StatelessWidget {
   const MealDetailScreen({Key? key}) : super(key: key);
@@ -19,24 +18,12 @@ class MealDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final favMeals = Provider.of<FavoriteMeals>(context);
     final meal = ModalRoute.of(context)!.settings.arguments as Meal;
 
     return Directionality(
       textDirection: getDirectionalityOfLangCode(meal.mealLanguageCode),
       child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          heroTag: null,
-          onPressed: () {
-            favMeals.toggleFavorite(meal.id);
-          },
-          child: favMeals.isMealFavorite(meal.id)
-              ? const Icon(
-                  Icons.favorite_rounded,
-                  color: Colors.pink,
-                )
-              : const Icon(Icons.favorite_border_rounded),
-        ),
+        floatingActionButton: MealToggleFavoriteButton(meal),
         body: NestedScrollView(
           floatHeaderSlivers: true,
           headerSliverBuilder: (context, innerBoxIsScrolled) {

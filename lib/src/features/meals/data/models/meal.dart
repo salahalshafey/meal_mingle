@@ -1,32 +1,54 @@
 import 'ingredient.dart';
+import 'package:hive/hive.dart';
 
-enum Complexity {
-  simple,
-  challenging,
-  hard,
-}
+part 'meal.g.dart';
 
-enum Affordability {
-  affordable,
-  pricey,
-  luxurious,
-}
-
+@HiveType(typeId: 2)
 class Meal {
+  @HiveField(0)
   final String id;
+
+  @HiveField(1)
   final List<String> categories;
+
+  @HiveField(2)
   final String mealLanguageCode;
+
+  @HiveField(3)
   final String title;
+
+  @HiveField(4)
   final String imageUrl;
+
+  @HiveField(5)
   final List<Ingredient> ingredients;
+
+  @HiveField(6)
   final List<String> steps;
+
+  @HiveField(7)
   final int duration;
+
+  @HiveField(8)
   final String complexity;
+
+  @HiveField(9)
   final String affordability;
+
+  @HiveField(10)
   final bool isGlutenFree;
+
+  @HiveField(11)
   final bool isLactoseFree;
+
+  @HiveField(12)
   final bool isVegan;
+
+  @HiveField(13)
   final bool isVegetarian;
+
+  @HiveField(14)
+  final DateTime? timeOfSavingToFavorites;
 
   const Meal({
     required this.id,
@@ -43,6 +65,7 @@ class Meal {
     required this.isLactoseFree,
     required this.isVegan,
     required this.isVegetarian,
+    this.timeOfSavingToFavorites,
   });
 
   factory Meal.fromJson(Map<String, dynamic> json) => Meal(
@@ -64,6 +87,7 @@ class Meal {
         isLactoseFree: json['isLactoseFree'] ?? false,
         isVegan: json['isVegan'] ?? false,
         isVegetarian: json['isVegetarian'] ?? false,
+        timeOfSavingToFavorites: DateTime.now(),
       );
 
   Meal copyWith({
@@ -81,6 +105,7 @@ class Meal {
     bool? isLactoseFree,
     bool? isVegan,
     bool? isVegetarian,
+    DateTime? timeOfSavingToFavorites,
   }) {
     return Meal(
       id: id ?? this.id,
@@ -97,6 +122,20 @@ class Meal {
       isLactoseFree: isLactoseFree ?? this.isLactoseFree,
       isVegan: isVegan ?? this.isVegan,
       isVegetarian: isVegetarian ?? this.isVegetarian,
+      timeOfSavingToFavorites:
+          timeOfSavingToFavorites ?? this.timeOfSavingToFavorites,
     );
   }
+}
+
+enum Complexity {
+  simple,
+  challenging,
+  hard,
+}
+
+enum Affordability {
+  affordable,
+  pricey,
+  luxurious,
 }
