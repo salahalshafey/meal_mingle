@@ -6,7 +6,9 @@ import './favorites_screen.dart';
 import '../widgets/taps/main_appbar.dart';
 
 class TabsScreen extends StatefulWidget {
-  const TabsScreen({Key? key}) : super(key: key);
+  const TabsScreen(this.jumpToSearchScreen, {Key? key}) : super(key: key);
+
+  final void Function() jumpToSearchScreen;
 
   @override
   State<TabsScreen> createState() => _TabsScreenState();
@@ -23,7 +25,7 @@ class _TabsScreenState extends State<TabsScreen> {
         body: NestedScrollView(
           floatHeaderSlivers: true,
           headerSliverBuilder: (context, innerBoxIsScrolled) =>
-              const [MainAppBar()],
+              [MainAppBar(widget.jumpToSearchScreen)],
           body: const TabBarView(
             children: [
               CategoriesScreen(key: PageStorageKey("CategoriesScreen")),

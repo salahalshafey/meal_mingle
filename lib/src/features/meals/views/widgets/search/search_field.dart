@@ -21,6 +21,21 @@ class _SearchFieldState extends State<SearchField> {
   final _focusNode = FocusNode();
   late TextDirection _textDirection;
 
+  void _initAutofocus() async {
+    await Future.delayed(const Duration(milliseconds: 400));
+
+    if (mounted) {
+      _focusNode.requestFocus();
+    }
+  }
+
+  @override
+  void initState() {
+    _initAutofocus();
+
+    super.initState();
+  }
+
   @override
   void dispose() {
     _focusNode.dispose();
@@ -37,7 +52,6 @@ class _SearchFieldState extends State<SearchField> {
       child: TextField(
         key: const ValueKey('search'),
         focusNode: _focusNode,
-        autofocus: true,
         autocorrect: false,
         enableSuggestions: true,
         textCapitalization: TextCapitalization.sentences,

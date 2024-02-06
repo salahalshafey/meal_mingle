@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:meal_mingle/l10n/l10n.dart';
 
 class MainAppBar extends StatelessWidget {
-  const MainAppBar({Key? key}) : super(key: key);
+  const MainAppBar(this.jumpToSearchScreen, {Key? key}) : super(key: key);
+
+  final void Function() jumpToSearchScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class MainAppBar extends StatelessWidget {
           text: TextSpan(
             children: [
               TextSpan(
-                text: 'Hi Mohamed 👋 ',
+                text: 'Hi There 👋 ',
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               const TextSpan(text: '\n'),
@@ -34,7 +36,7 @@ class MainAppBar extends StatelessWidget {
       leading: isWideScreen
           ? null
           : Transform.translate(
-              offset: const Offset(0, 20),
+              offset: const Offset(0, 0), // Offset(0, 20),
               child: IconButton(
                 // color: Colors.black,
                 // iconSize: 28,
@@ -44,6 +46,16 @@ class MainAppBar extends StatelessWidget {
                 onPressed: () => Scaffold.of(context).openDrawer(),
               ),
             ),
+      actions: [
+        Transform.translate(
+          offset: const Offset(0, 0), // Offset(0, 20),
+          child: IconButton(
+            onPressed: jumpToSearchScreen,
+            tooltip: Strings.of(context).search,
+            icon: const Icon(Icons.search),
+          ),
+        ),
+      ],
       floating: true,
       pinned: true,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,

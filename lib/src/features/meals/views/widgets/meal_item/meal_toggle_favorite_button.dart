@@ -17,8 +17,7 @@ class MealToggleFavoriteButton extends StatelessWidget {
       title: "Confirm Remove?",
       titleColor: Colors.red,
       contentPadding: const EdgeInsets.all(20),
-      content:
-          "Are you sure you want to remove this Scan result from Favorites?",
+      content: "Are you sure you want to remove this Meal from Favorites?",
       actionsBuilder: (builderContext) => [
         TextButton(
           onPressed: () {

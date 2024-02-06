@@ -17,8 +17,8 @@ class _HomePageState extends State<HomePage> {
   final _controller = PageController();
   int _currentScreenInedex = 0;
 
-  final _screenOptions = [
-    const TabsScreen(key: PageStorageKey("TabsScreen")),
+  late final _screenOptions = [
+    TabsScreen(_jumpToSearchScreen, key: const PageStorageKey("TabsScreen")),
     const SearchScreen(key: PageStorageKey("SearchScreen")),
     const FoodScanScreen(key: PageStorageKey("FoodScanScreen")),
   ];
@@ -29,6 +29,12 @@ class _HomePageState extends State<HomePage> {
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeIn,
     );
+  }
+
+  void _jumpToSearchScreen() {
+    _controller.jumpToPage(1);
+
+    // _animateToScreen(1);
   }
 
   @override

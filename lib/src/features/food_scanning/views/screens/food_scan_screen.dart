@@ -46,7 +46,9 @@ class FoodScanScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(Strings.of(context).scanFoodWithAi),
+        title: FittedBox(
+          child: Text(Strings.of(context).scanFoodWithAi),
+        ),
         centerTitle: true,
       ),
       drawer: isWideScreen ? null : const MainDrawer(),
