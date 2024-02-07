@@ -10,6 +10,8 @@ import '../widgets/cusom_switch.dart';
 import '../widgets/reset_button.dart';
 
 class GeneralSettingsScreen extends StatelessWidget {
+  static const routeName = '/General-Settings_Screen';
+
   const GeneralSettingsScreen({super.key});
 
   @override

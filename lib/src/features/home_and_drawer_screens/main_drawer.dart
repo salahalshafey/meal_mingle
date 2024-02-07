@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:meal_mingle/l10n/l10n.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-import '../../core/util/builders/go_to_screen_with_slide_transition.dart';
 import 'screens/genearal_settings_screen.dart';
 import 'screens/meals_settings_screen.dart';
 
@@ -27,6 +28,7 @@ class MainDrawer extends StatelessWidget {
             ),
             child: const Text(
               'Cooking Up!',
+              textDirection: TextDirection.ltr,
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 30,
@@ -36,14 +38,14 @@ class MainDrawer extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           DrawerItem(
-            title: 'Home',
+            title: Strings.of(context).home,
             icon: Icons.home_filled,
             onTap: () {
               Scaffold.of(context).closeDrawer();
             },
           ),
           DrawerItem(
-            title: 'Profile',
+            title: Strings.of(context).profile,
             icon: Icons.account_box,
             onTap: () {
               //  goToScreenWithSlideTransition(context ,  SettingsScreen());
@@ -51,7 +53,7 @@ class MainDrawer extends StatelessWidget {
             },
           ),
           DrawerItem(
-            title: 'Meals Settings',
+            title: Strings.of(context).mealsSettings,
             icon: Icons.settings_suggest,
             onTap: () {
               //  goToScreenWithSlideTransition(context ,  SettingsScreen());
@@ -61,35 +63,35 @@ class MainDrawer extends StatelessWidget {
             },
           ),
           DrawerItem(
-            title: 'General Settings',
+            title: Strings.of(context).generalSettings,
             icon: Icons.settings,
             onTap: () {
-              goToScreenWithSlideTransition(
-                context,
-                const GeneralSettingsScreen(),
-              );
+              Navigator.of(context).pushNamed(GeneralSettingsScreen.routeName);
 
               Scaffold.of(context).closeDrawer();
             },
           ),
           DrawerItem(
-            title: 'Share',
+            title: Strings.of(context).shareTheApp,
             icon: Icons.share,
             onTap: () {
               //  Scaffold.of(context).closeDrawer();
 
               Share.share(
-                "           AI MealMingle App\nDownload from the Play Store\n\n"
-                "https://play.google.com/store/apps/details?id=com.salahalshafey.aimealmingle",
+                Strings.of(context).shareTheAppText,
               );
             },
           ),
           DrawerItem(
-            title: 'About',
-            icon: Icons.info,
+            title: Strings.of(context).privacyPolicy,
+            icon: Icons.privacy_tip,
             onTap: () {
               //  goToScreenWithSlideTransition(context ,  SettingsScreen());
-              Scaffold.of(context).closeDrawer();
+              launchUrl(
+                Uri.parse(
+                    "https://sites.google.com/view/aimealmingle-privacypolicy"),
+                mode: LaunchMode.externalApplication,
+              );
             },
           ),
         ],
@@ -117,17 +119,17 @@ class DrawerItem extends StatelessWidget {
         ListTile(
           leading: Icon(
             icon,
-            size: 30,
+            size: 25,
           ),
           title: Text(
             title,
             style: const TextStyle(
-              fontSize: 30,
+              fontSize: 24,
             ),
           ),
           trailing: const Icon(
             Icons.arrow_right_rounded,
-            size: 35,
+            size: 25,
           ),
           onTap: onTap,
         ),

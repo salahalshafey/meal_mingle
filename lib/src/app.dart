@@ -10,6 +10,7 @@ import 'features/home_and_drawer_screens/home_page.dart';
 import 'features/home_and_drawer_screens/providers/general_settings_provider.dart';
 import 'features/home_and_drawer_screens/providers/meals_settings_provider.dart';
 
+import 'features/home_and_drawer_screens/screens/genearal_settings_screen.dart';
 import 'features/meals/data/models/dummy_data.dart';
 import 'features/meals/data/models/meal.dart';
 
@@ -73,13 +74,15 @@ class _MyAppState extends State<MyApp> {
       locale: provider.currentLocal,
       home: const HomePage(),
       routes: {
-        // '/': (ctx) => const TabsScreen(),
+        // '/': (ctx) => const TabsScreen(), // GeneralSettingsScreen
         FavoriteFoodScanScreen.routeName: (ctx) =>
             const FavoriteFoodScanScreen(),
         CategoryMealsScreen.routeName: (ctx) =>
             CategoryMealsScreen(_availableMeals),
         MealDetailScreen.routeName: (ctx) => const MealDetailScreen(),
-        MealsSettingsScreen.routeName: (ctx) => MealsSettingsScreen(_setFilters)
+        MealsSettingsScreen.routeName: (ctx) =>
+            MealsSettingsScreen(_setFilters),
+        GeneralSettingsScreen.routeName: (ctx) => const GeneralSettingsScreen(),
       },
     );
   }

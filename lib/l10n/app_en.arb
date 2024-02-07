@@ -451,9 +451,21 @@
 
   
   "@_MENUE_SCREEN": {},
+  "home": "Home",
+  "@home": {
+    "description": "the home button of menue screen"
+  },
   "profile": "Profile",
   "@profile": {
     "description": "the profile button of menue screen"
+  },
+  "mealsSettings": "Meals Settings",
+  "@mealsSettings": {
+    "description": "title in `_SETTINGS_SCREENS`"
+  },
+  "generalSettings": "General Settings",
+  "@generalSettings": {
+    "description": "title in `_SETTINGS_SCREENS`"
   },
   "settings": "Settings",
   "@settings": {
@@ -463,7 +475,7 @@
   "@shareTheApp": {
     "description": "the Share The App word"
   },
-  "shareTheAppText": "          \"Breast Cancer Awareness App\"\n\nEmpowering individuals to take charge of their breast health.\n\nYou can download this app from Google Play, by following this link: \nhttps://play.google.com/store/apps/details?id=com.salahalshafey.breastcancerawareness",
+  "shareTheAppText":  "           AI MealMingle App\nDownload from the Play Store\n\nhttps://play.google.com/store/apps/details?id=com.salahalshafey.aimealmingle",
   "@shareTheAppText": {
     "description": "share text of share the app button in menue screen"
   },
@@ -483,9 +495,35 @@
 
 
   "@_SETTINGS_SCREENS": {},
-  "generalSettings": "General Settings",
-  "@generalSettings": {
-    "description": "title in `_SETTINGS_SCREENS`"
+  "adjustYourMealsSelection": "Adjust your Meals Selection",
+  "@adjustYourMealsSelection": {
+    "description": "the tilte of `meals settings screen`"
+  },
+  "glutenfree": "Gluten-Free",
+  "@glutenfree": {
+    "description": "one setting of `meals settings screen`"
+  },
+  "lactosefree": "Lactose-Free",
+  "@lactosefree": {
+    "description": "one setting of `meals settings screen`"
+  },
+  "vegetarian": "Vegetarian",
+  "@vegetarian": {
+    "description": "one setting of `meals settings screen`"
+  },
+  "vegan": "Vegan",
+  "@vegan": {
+    "description": "one setting of `meals settings screen`"
+  },
+  "displayMealTypeMeals": "Display {mealType} Meals",
+  "@displayMealTypeMeals": {
+    "description": "Display {mealType} meals, like: Display Vegan Meals",
+    "placeholders": {
+      "mealType": {
+        "type": "String",
+        "example": "Vegan"
+      }
+    }
   },
   "displayArabicLanguage": "Display Arabic Language",
   "@displayArabicLanguage": {

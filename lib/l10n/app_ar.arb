@@ -99,9 +99,12 @@
 
    
     "@_MENUE_SCREEN": {},
+    "home": "الرئيسية",
     "profile": "الحساب الشخصي",
+    "mealsSettings": "إعدادات الوجبات",
+    "generalSettings": "الإعدادات العامة",
     "shareTheApp": "شارك التطبيق",
-    "shareTheAppText": "          \"تطبيق التوعية بسرطان الثدي\"\n\nتمكين الأفراد من تولي مسؤولية صحة ثديهم.\n\nيمكنكم تحميل هذا التطبيق من جوجل بلاي عبر الرابط ادناه \n\nhttps://play.google.com/store/apps/details?id=com.salahalshafey.breastcancerawareness",
+    "shareTheAppText":  "تطبيق AI MealMingle \n لتحميل التطبيق من جوجل بلاي\n\nhttps://play.google.com/store/apps/details?id=com.salahalshafey.aimealmingle",
     "about": "عن التطبيق",
     "logout": "تسجيل الخروج",
     "signIn": "تسجيل الدخول",
@@ -109,7 +112,12 @@
   
 
     "@_SETTINGS_SCREENS": {},
-    "generalSettings": "الإعدادات العامة",
+    "adjustYourMealsSelection": "تعديل اختيارات وجباتك",
+    "glutenfree": "خالي من الجلوتين",
+    "lactosefree": "خالي من اللاكتوز",
+    "vegetarian": "نباتي",
+    "vegan": "نباتي صارم (فيجان)",
+    "displayMealTypeMeals": "عرض وجبات {mealType}",
     "displayArabicLanguage": "عرض اللغة العربية",
     "displayDarkTheme": "عرض الوضع المظلم",
     "color": "اللون",
