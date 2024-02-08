@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_mingle/l10n/l10n.dart';
 
 import '../../../data/models/food_scanning_result_model.dart';
 import 'share_with_state.dart';
@@ -12,7 +13,7 @@ class ShareFoodScanningResultButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       heroTag: null,
-      tooltip: "Share as PDF",
+      tooltip: Strings.of(context).shareAsPdf,
       onPressed: () => _showSharingWithStateDialog(context, dataToShare),
       child: const Icon(Icons.share),
     );

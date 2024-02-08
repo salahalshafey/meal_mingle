@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
+import 'package:meal_mingle/l10n/l10n.dart';
 
 import '../../../../core/error/exceptions_without_message.dart';
 
@@ -26,9 +27,7 @@ class FoodScanningGeminiProVisionImpl implements FoodScanningService {
         "parts": [
           {
             "text":
-                "Act as a nutritionist with 30 years of experience in the field. What is in this image? And how many calories are in it?\n\n"
-            // "text":
-            //    "تصرف كخبير تغذية بخبرة 30 عامًا في هذا المجال.ماذا يوجد في هذه الصورة؟ وكم عدد السعرات الحرارية فيه؟\n"
+                Strings.get.actAsANutritionistWithYearsOfExperienceInTheField
           },
           {
             "inlineData": {

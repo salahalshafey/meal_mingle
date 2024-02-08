@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:meal_mingle/l10n/l10n.dart';
 
 import '../../../../core/util/widgets/custom_back_button.dart';
 import 'custom_tap.dart';
@@ -29,14 +30,14 @@ class ImageAndChoicesAppbar extends StatelessWidget {
       floating: true,
       pinned: true,
       elevation: 0,
-      bottom: const TabBar(
+      bottom: TabBar(
         isScrollable: true,
         tabs: [
-          CustomTap("Overview"),
-          CustomTap("Nutritional Evaluation"),
-          CustomTap("Comprehensive Nutrition Analysis"),
-          CustomTap("Ingredient Inquiry"),
-          CustomTap("How To Prepare It"),
+          CustomTap(Strings.of(context).overview),
+          CustomTap(Strings.of(context).nutritionalEvaluation),
+          CustomTap(Strings.of(context).comprehensiveNutritionAnalysis),
+          CustomTap(Strings.of(context).ingredientInquiry),
+          CustomTap(Strings.of(context).howToPrepareIt),
         ],
       ),
     );

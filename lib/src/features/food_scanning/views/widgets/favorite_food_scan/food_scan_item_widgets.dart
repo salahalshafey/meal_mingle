@@ -4,12 +4,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:meal_mingle/l10n/l10n.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart' as intl;
 
 import '../../../../../core/util/builders/custom_alret_dialog.dart';
 import '../../../../../core/util/builders/custom_snack_bar.dart';
 import '../../../../../core/util/functions/string_manipulations_and_search.dart';
+
 import '../../providers/favorites_food_scan.dart';
 
 class ScanImage extends StatelessWidget {
@@ -90,28 +92,28 @@ class DeleteFromFavoriteButton extends StatelessWidget {
     final delete = await showCustomAlretDialog<bool>(
       context: context,
       constraints: const BoxConstraints(maxWidth: 500),
-      title: "Confirm Remove?",
+      title: Strings.of(context).confirmRemove,
       titleColor: Colors.red,
       contentPadding: const EdgeInsets.all(20),
-      content:
-          "Are you sure you want to remove this Scan result from Favorites?",
+      content: Strings.of(context)
+          .areYouSureYouWantToRemoveThisScanResultFromFavorites,
       actionsBuilder: (builderContext) => [
         TextButton(
           onPressed: () {
             Navigator.of(builderContext).pop(true);
           },
-          child: const Text(
-            "Remove",
-            style: TextStyle(color: Colors.red),
+          child: Text(
+            Strings.of(context).remove,
+            style: const TextStyle(color: Colors.red),
           ),
         ),
         TextButton(
           onPressed: () {
             Navigator.of(builderContext).pop(false);
           },
-          child: const Text(
-            "Cancel",
-            style: TextStyle(color: Colors.red),
+          child: Text(
+            Strings.of(context).cancel,
+            style: const TextStyle(color: Colors.red),
           ),
         ),
       ],
@@ -139,7 +141,7 @@ class DeleteFromFavoriteButton extends StatelessWidget {
       child: FittedBox(
         child: FloatingActionButton(
             heroTag: null,
-            tooltip: "Remove from favorites",
+            tooltip: Strings.of(context).removeFromFavorites,
             // backgroundColor: Colors.white,
             onPressed: () => _deleteFromFavorite(context),
             child: const Icon(

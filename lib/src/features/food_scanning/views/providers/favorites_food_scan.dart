@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_mingle/l10n/l10n.dart';
 
 import '../../../../core/error/error_exceptions_with_message.dart';
 import '../../../../core/error/exceptions_without_message.dart';
@@ -15,34 +16,12 @@ class FavoritesFoodScan extends ChangeNotifier {
     required this.favoriteFoodScanningViewmodel,
   });
 
-  final List<String> _questionsChoices = const [
-    """Is this food considered Healthy? Explain The benefits of this food in detail and Why?
-If there is more than one item, "Give the result in table format for each item".""",
-    """Please give me the following Nutrition Facts: 
--  Calories.
--  Proteins (g).
--  Fats (g). 
--  What Vitamins are in it?
--  Carbohydrates (g).
--  Sodium (mg).
--  Potassium (mg).
--  and more...
-
-If there is more than one item, "Give the result in table format for each item and the overall (sum) of the results of all the above".""",
-    """Please answer the following:
-
--  Does this food contain "Pork or Alcohol"?
--  Does this food contain "Gluten"?
--  Does this food contain Lactose?
--  Is this food considered "Vegetarian"?
--  Is this food considered "Vegan"?
--  and more...
-
-If there is more than one item, "Give the result in table format for each item and the overall (sum) of the results of all the above".
-""",
-    """How to prepare this food?
-
-If there is more than one item, "Give the result for each item".""",
+  final List<String> _questionsChoices = [
+    Strings.get.isThisFoodConsideredHealthyExplainTheBenefits,
+    Strings.get.pleaseGiveMeTheFollowingNutritionFacts,
+    Strings.get.pleaseAnswerTheFollowingnDoesThisFoodContain,
+    Strings.get
+        .howToPrepareThisFoodnnifThereIsMoreThanOneItemGiveTheResultForEachItem,
   ];
 
   List<FoodScanningResultModel> _allFavorites = [];
@@ -56,9 +35,9 @@ If there is more than one item, "Give the result for each item".""",
 
       notifyListeners();
     } on LocalDataException {
-      throw ErrorMessage("Not Able To read data from Local Device");
+      throw ErrorMessage(Strings.get.notAbleToReadDataFromLocalDevice);
     } catch (error) {
-      throw ErrorMessage("Unexpected Error Happened");
+      throw ErrorMessage(Strings.get.unexpectedErrorHappened);
     }
   }
 
@@ -91,23 +70,15 @@ If there is more than one item, "Give the result for each item".""",
 
       return questionsResults[questionIndex]!;
     } on OfflineException {
-      throw ErrorMessage(
-          "You Are Currently Offline!!" //AppLocalizations.of(_context)!.youAreCurrentlyOffline,
-          );
+      throw ErrorMessage(Strings.get.youAreCurrentlyOffline);
     } on ServerException {
-      throw ErrorMessage(
-          "Something Went Wrong Please Try Again Later!!" //AppLocalizations.of(_context)!.somethingWentWrongPleaseTryAgainLater,
-          );
+      throw ErrorMessage(Strings.get.somethingWentWrongPleaseTryAgainLater);
     } on FilterException {
-      throw ErrorMessage(
-          "Sorry There Is No Result For Your Scan" //AppLocalizations.of(_context)!.sorryThereIsNoResultForYourSearch,
-          );
+      throw ErrorMessage(Strings.get.sorryThereIsNoResultForYourSearch);
     } on ErrorMessage {
       rethrow;
     } catch (error) {
-      throw ErrorMessage(
-          "Unexpected Error Happened" //AppLocalizations.of(_context)!.unexpectedErrorHappened,
-          );
+      throw ErrorMessage(Strings.get.unexpectedErrorHappened);
     }
   }
 
@@ -115,11 +86,11 @@ If there is more than one item, "Give the result for each item".""",
     try {
       await favoriteFoodScanningViewmodel.updateFavoirte(favoriteModel);
     } on LocalDataException {
-      throw ErrorMessage("Not Able To Save data To Local Device");
+      throw ErrorMessage(Strings.get.notAbleToSaveDataToLocalDevice);
     } on LocalStorageException {
-      throw ErrorMessage("Not Able To Save Files To Local Device Storage");
+      throw ErrorMessage(Strings.get.notAbleToSaveFilesToLocalDeviceStorage);
     } catch (error) {
-      throw ErrorMessage("Unexpected Error Happened");
+      throw ErrorMessage(Strings.get.unexpectedErrorHappened);
     }
   }
 
@@ -136,11 +107,13 @@ If there is more than one item, "Give the result for each item".""",
 
       return removedIndex;
     } on LocalDataException {
-      throw ErrorMessage("Not Able To Delete data To Local Device");
+      throw ErrorMessage(
+          Strings.get.notAbleToDeleteFilesFromLocalDeviceStorage);
     } on LocalStorageException {
-      throw ErrorMessage("Not Able To Delete Files To Local Device Storage");
+      throw ErrorMessage(
+          Strings.get.notAbleToDeleteFilesFromLocalDeviceStorage);
     } catch (error) {
-      throw ErrorMessage("Unexpected Error Happened");
+      throw ErrorMessage(Strings.get.unexpectedErrorHappened);
     }
   }
 }

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:meal_mingle/l10n/l10n.dart';
 
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
@@ -29,11 +30,11 @@ Future<Uint8List> generateFoodScanReportPdfAfterConvertingResultsToImages(
       ...questionsResults,
     ],
     [
-      "Unveiling Contents and Caloric Breakdown",
-      "Healthiness and Benefits of Featured Foods",
-      "Facts and Summaries",
-      "Unveiling Dietary Preferences and Status",
-      "How to Prepare it at Home",
+      Strings.get.unveilingContentsAndCaloricBreakdown,
+      Strings.get.healthinessAndBenefitsOfFeaturedFoods,
+      Strings.get.factsAndSummaries,
+      Strings.get.unveilingDietaryPreferencesAndStatus,
+      Strings.get.howToPrepareItAtHome,
     ],
     [
       Icons.description,
@@ -133,12 +134,12 @@ pw.Widget _titleForRefrencingTheApp() {
       pw.RichText(
         text: pw.TextSpan(
           children: [
-            const pw.TextSpan(text: "This Food Report is From "),
+            const pw.TextSpan(text: "This Food Report is From"),
             pw.TextSpan(
-              text: "AI MealMingle",
+              text: " AI MealMingle ",
               style: pw.TextStyle(fontWeight: pw.FontWeight.bold),
             ),
-            const pw.TextSpan(text: " App."),
+            const pw.TextSpan(text: "App"),
           ],
         ),
       ),
@@ -201,28 +202,31 @@ class _DescriptionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //  style: Theme.of(context).textTheme.bodyLarge,
-    return Column(
-      children: [
-        Row(
-          children: [
-            Icon(icon),
-            const SizedBox(width: 10),
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
+    return Directionality(
+      textDirection: getDirectionalityOf(title),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Icon(icon),
+              const SizedBox(width: 10),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
               ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 30),
-        Directionality(
-          textDirection: getDirectionalityOf(description),
-          child: MarkdownBody(data: description),
-        ),
-      ],
+            ],
+          ),
+          const SizedBox(height: 30),
+          Directionality(
+            textDirection: getDirectionalityOf(description),
+            child: MarkdownBody(data: description),
+          ),
+        ],
+      ),
     );
   }
 }

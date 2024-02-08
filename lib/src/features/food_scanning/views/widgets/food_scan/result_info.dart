@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
+import 'package:meal_mingle/l10n/l10n.dart';
 
 import '../../../../../core/util/functions/string_manipulations_and_search.dart';
 
@@ -63,24 +64,25 @@ class ResultInfo extends StatelessWidget {
           body: TabBarView(
             children: [
               OverviewResult(result: overviewResult),
-              const ChoiceResult(
+              ChoiceResult(
                 questionIndex: 0,
-                title: "Healthiness and Benefits of Featured Foods",
+                title:
+                    Strings.of(context).healthinessAndBenefitsOfFeaturedFoods,
                 icon: Icons.health_and_safety,
               ),
-              const ChoiceResult(
+              ChoiceResult(
                 questionIndex: 1,
-                title: "Facts and Summaries",
+                title: Strings.of(context).factsAndSummaries,
                 icon: Icons.dining,
               ),
-              const ChoiceResult(
+              ChoiceResult(
                 questionIndex: 2,
-                title: "Unveiling Dietary Preferences and Status",
+                title: Strings.of(context).unveilingDietaryPreferencesAndStatus,
                 icon: Icons.fact_check,
               ),
-              const ChoiceResult(
+              ChoiceResult(
                 questionIndex: 3,
-                title: "How to Prepare it at Home",
+                title: Strings.of(context).howToPrepareItAtHome,
                 icon: Icons.restaurant_menu,
               ),
             ],

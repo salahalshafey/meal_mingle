@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/services.dart';
+import 'package:meal_mingle/l10n/l10n.dart';
 
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
@@ -32,7 +33,7 @@ Future<Uint8List> generateFoodScanReportPdfFromResultText(
             ),
             pw.SizedBox(height: 40),
             _description(
-              "Unveiling Contents and Caloric Breakdown",
+              Strings.get.unveilingContentsAndCaloricBreakdown,
               resultOverview,
             ),
           ],
@@ -47,7 +48,7 @@ Future<Uint8List> generateFoodScanReportPdfFromResultText(
         pageTheme: pageTheme,
         build: (pw.Context context) {
           return _description(
-            "Healthiness and Benefits of Featured Foods",
+            Strings.get.healthinessAndBenefitsOfFeaturedFoods,
             questionsResults[0]!,
           );
         },
@@ -61,7 +62,7 @@ Future<Uint8List> generateFoodScanReportPdfFromResultText(
         pageTheme: pageTheme,
         build: (pw.Context context) {
           return _description(
-            "Facts and Summaries",
+            Strings.get.factsAndSummaries,
             questionsResults[1]!,
           );
         },
@@ -75,7 +76,7 @@ Future<Uint8List> generateFoodScanReportPdfFromResultText(
         pageTheme: pageTheme,
         build: (pw.Context context) {
           return _description(
-            "Unveiling Dietary Preferences and Status",
+            Strings.get.unveilingDietaryPreferencesAndStatus,
             questionsResults[2]!,
           );
         },
@@ -89,7 +90,7 @@ Future<Uint8List> generateFoodScanReportPdfFromResultText(
         pageTheme: pageTheme,
         build: (pw.Context context) {
           return _description(
-            "How to Prepare it at Home",
+            Strings.get.howToPrepareItAtHome,
             questionsResults[3]!,
           );
         },

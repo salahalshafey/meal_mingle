@@ -439,6 +439,10 @@
   "@notAbleToDeleteFilesFromLocalDeviceStorage": {
     "description": "the response if error happened while trying to delete file to local device storage"
   },
+  "notAbleToReadDataFromLocalDevice": "Not Able To read data from Local Device",
+  "@notAbleToReadDataFromLocalDevice": {
+    "description": "the response if error happened while trying to read file from local device storage"
+  },
   "sorryThereIsNoResultForYourSearch": "Sorry, there is no result for your search, the result has been filtered.",
   "@sorryThereIsNoResultForYourSearch": {
     "description": "the response if the result of web search filtered"
@@ -446,6 +450,10 @@
   "sorryThereIsNoResultForYourSearchWithDetails": "**Sorry, there is no result for your search**\n\n* The result has been filtered.\n* Or you are searching with a **language** that is not supported yet.",
   "@sorryThereIsNoResultForYourSearchWithDetails": {
     "description": "the response if the result of AI search filtered"
+  },
+  "notAbleToSaveDataToLocalDevice": "Not Able To Save data To Local Device",
+  "@notAbleToSaveDataToLocalDevice": {
+    "description": "the response if error happened while trying to save data to local device storage"
   },
 
 
@@ -592,7 +600,28 @@
   },
 
 
-  "@_FOOD_SCAN_SCREEN": {},
+  "@_FOOD_SCAN_API": {},
+  "actAsANutritionistWithYearsOfExperienceInTheField": "Act as a nutritionist with 30 years of experience in the field. What is in this image? And how many calories are in it?\n\n",
+  "@actAsANutritionistWithYearsOfExperienceInTheField": {
+    "description": "one of the questions of Food Scanning"
+  },
+  "isThisFoodConsideredHealthyExplainTheBenefits": "Is this food considered Healthy? Explain The benefits of this food in detail and Why?\nIf there is more than one item, \"Give the result in table format for each item\".",
+  "@isThisFoodConsideredHealthyExplainTheBenefits": {
+    "description": "one of the questions of Food Scanning"
+  },
+  "pleaseGiveMeTheFollowingNutritionFacts": "Please give me the following Nutrition Facts: \n-  Calories.\n-  Proteins (g).\n-  Fats (g).\n-  What Vitamins are in it?\n-  Carbohydrates (g).\n-  Sodium (mg).\n-  Potassium (mg).\n-  and more...\n\nIf there is more than one item, \"Give the result in table format for each item and the overall (sum) of the results of all the above\".",
+  "@pleaseGiveMeTheFollowingNutritionFacts": {
+    "description": "one of the questions of Food Scanning"
+  },
+  "pleaseAnswerTheFollowingnDoesThisFoodContain": "Please answer the following:\n-  Does this food contain \"Pork or Alcohol\"?\n-  Does this food contain \"Gluten\"?\n-  Does this food contain Lactose?\n-  Is this food considered \"Vegetarian\"?\n-  Is this food considered \"Vegan\"?\n-  and more...\n\nIf there is more than one item, \"Give the result in table format for each item and the overall (sum) of the results of all the above\".",
+  "@pleaseAnswerTheFollowingnDoesThisFoodContain": {
+    "description": "one of the questions of Food Scanning"
+  },
+  "howToPrepareThisFoodnnifThereIsMoreThanOneItemGiveTheResultForEachItem": "How to prepare this food?\n\nIf there is more than one item, \"Give the result for each item\".",
+  "@howToPrepareThisFoodnnifThereIsMoreThanOneItemGiveTheResultForEachItem": {
+    "description": "one of the questions of Food Scanning"
+  },
+  "@_FOOD_SCAN_SCREENS": {},
   "scanFoodWithAi": "Scan Food With AI",
   "@scanFoodWithAi": {
     "description": "the Scan Food With AI word"
@@ -601,7 +630,102 @@
   "@scanFood": {
     "description": "the Scan Food word"
   },
-
+  "favorites": "Favorites",
+  "@favorites": {
+    "description": "the Favorites word"
+  },
+  "getImageToScan": "Get Image to Scan",
+  "@getImageToScan": {
+    "description": "the button in `FOOD_SCAN_SCREEN`"
+  },
+  "youHaveNoFavoritesYetStartAddingSome": "You Have no Favorites yet - Start Adding Some!",
+  "@youHaveNoFavoritesYetStartAddingSome": {
+    "description": "when no favorites yet"
+  },
+  "unveilingContentsAndCaloricBreakdown": "Unveiling Contents and Caloric Breakdown",
+  "@unveilingContentsAndCaloricBreakdown": {
+    "description": "one of the titles of the food scan result"
+  },
+  "healthinessAndBenefitsOfFeaturedFoods": "Healthiness and Benefits of Featured Foods",
+  "@healthinessAndBenefitsOfFeaturedFoods": {
+    "description": "one of the titles of the food scan result"
+  },
+  "factsAndSummaries": "Facts and Summaries",
+  "@factsAndSummaries": {
+    "description": "one of the titles of the food scan result"
+  },
+  "unveilingDietaryPreferencesAndStatus": "Unveiling Dietary Preferences and Status",
+  "@unveilingDietaryPreferencesAndStatus": {
+    "description": "one of the titles of the food scan result"
+  },
+  "howToPrepareItAtHome": "How to Prepare it at Home",
+  "@howToPrepareItAtHome": {
+    "description": "one of the titles of the food scan result"
+  },
+  "overview": "Overview",
+  "@overview": {
+    "description": "the Overview word, one of the taps in `FoodScanScreens`"
+  },
+  "nutritionalEvaluation": "Nutritional Evaluation",
+  "@nutritionalEvaluation": {
+    "description": "one of the taps in `FoodScanScreens`"
+  },
+  "comprehensiveNutritionAnalysis": "Comprehensive Nutrition Analysis",
+  "@comprehensiveNutritionAnalysis": {
+    "description": "one of the taps in `FoodScanScreens`"
+  },
+  "ingredientInquiry": "Ingredient Inquiry",
+  "@ingredientInquiry": {
+    "description": "one of the taps in `FoodScanScreens`"
+  },
+  "howToPrepareIt": "How To Prepare It",
+  "@howToPrepareIt": {
+    "description": "one of the taps in `FoodScanScreens`"
+  },
+  "confirmRemove": "Confirm Remove?",
+  "@confirmRemove": {
+    "description": "the Confirm Remove? word"
+  },
+  "areYouSureYouWantToRemoveThisScanResultFromFavorites": "Are you sure you want to remove this Scan result from Favorites?",
+  "@areYouSureYouWantToRemoveThisScanResultFromFavorites": {
+    "description": "dialog when trying to delete a scan result from favorites"
+  },
+  "remove": "Remove",
+  "@remove": {
+    "description": "the Remove word"
+  },
+  "removeFromFavorites": "Remove from favorites",
+  "@removeFromFavorites": {
+    "description": "tooltip of button"
+  },
+  "saveToFavorites": "Save to favorites",
+  "@saveToFavorites": {
+    "description": "tooltip of button"
+  },
+  "shareAsPdf": "Share as PDF",
+  "@shareAsPdf": {
+    "description": "tooltip of button"
+  },
+  "takingScreenshotsOfTheResults": "Taking screenshots of the results...",
+  "@takingScreenshotsOfTheResults": {
+    "description": "one of the states when sharing the food scan result as a PDF"
+  },
+  "convertingScreenshotsToPdf": "Converting screenshots to PDF...",
+  "@convertingScreenshotsToPdf": {
+    "description": "one of the states when sharing the food scan result as a PDF"
+  },
+  "preparingThePdfToBeSavedAtDesktop": "Preparing the PDF to be saved at Desktop...",
+  "@preparingThePdfToBeSavedAtDesktop": {
+    "description": "one of the states when sharing the food scan result as a PDF"
+  },
+  "preparingThePdfToShare": "Preparing the PDF to Share...",
+  "@preparingThePdfToShare": {
+    "description": "one of the states when sharing the food scan result as a PDF"
+  },
+  "errorHappenedCouldntShareThePdf": "Error happened, Couldn't share the PDF!!!",
+  "@errorHappenedCouldntShareThePdf": {
+    "description": "one of the states when sharing the food scan result as a PDF"
+  },
 
 
   "@_SEARCH_SCREEN": {},
@@ -632,6 +756,28 @@
   "recipe": "RECIPE",
   "@recipe": {
     "description": "the RECIPE word"
+  },
+  "hi": "Hi {name} 👋 ",
+  "@hi": {
+    "description": "greeting like: `Hi Ahmed 👋 `",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ahmed"
+      }
+    }
+  },
+  "whatDoYouWantToEat": "WHAT DO YOU WANT TO EAT ?",
+  "@whatDoYouWantToEat": {
+    "description": "question on the appbar of taps screen"
+  },
+  "categories": "CATEGORIES",
+  "@categories": {
+    "description": "the CATEGORIES word"
+  },
+  "areYouSureYouWantToRemoveThisMealFromFavorites": "Are you sure you want to remove this Meal from Favorites?",
+  "@areYouSureYouWantToRemoveThisMealFromFavorites": {
+    "description": "the in dialog of trying to remove a meal from favorites"
   },
 
 

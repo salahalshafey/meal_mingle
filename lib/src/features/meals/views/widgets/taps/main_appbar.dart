@@ -20,12 +20,12 @@ class MainAppBar extends StatelessWidget {
           text: TextSpan(
             children: [
               TextSpan(
-                text: 'Hi There 👋 ',
+                text: Strings.of(context).hi("Ahmed"),
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               const TextSpan(text: '\n'),
               TextSpan(
-                text: 'WHAT DO YOU WANT TO EAT ?',
+                text: Strings.of(context).whatDoYouWantToEat.toUpperCase(),
                 style: Theme.of(context).textTheme.titleSmall,
               )
             ],
@@ -72,9 +72,9 @@ class MainAppBar extends StatelessWidget {
                 borderRadius: BorderRadius.circular(50),
                 color: Colors.grey[300],
               ),
-              child: const Text(
-                'CATEGORIES',
-                style: TextStyle(
+              child: Text(
+                Strings.of(context).categories.toUpperCase(),
+                style: const TextStyle(
                   fontFamily: 'Metrophobic',
                   fontSize: 18,
                 ),
@@ -90,9 +90,9 @@ class MainAppBar extends StatelessWidget {
                 borderRadius: BorderRadius.circular(50),
                 color: Colors.grey[300],
               ),
-              child: const Text(
-                'FAVORITES',
-                style: TextStyle(
+              child: Text(
+                Strings.of(context).favorites.toUpperCase(),
+                style: const TextStyle(
                   fontFamily: 'Metrophobic',
                   fontSize: 18,
                 ),

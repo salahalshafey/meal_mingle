@@ -3,6 +3,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:meal_mingle/l10n/l10n.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:share_plus/share_plus.dart';
@@ -20,7 +21,7 @@ class ShareWithState extends StatefulWidget {
 }
 
 class _ShareWithStateState extends State<ShareWithState> {
-  String _stringState = "Taking screenshots of the results...";
+  String _stringState = Strings.of(context).takingScreenshotsOfTheResults;
   IconData _iconState = Icons.screenshot;
   double _passedState = 0.1;
   bool _errorHappened = false;
@@ -37,7 +38,7 @@ class _ShareWithStateState extends State<ShareWithState> {
       await Future.delayed(const Duration(seconds: 2));
 
       setState(() {
-        _stringState = "Converting screenshots to PDF...";
+        _stringState = Strings.of(context).convertingScreenshotsToPdf;
         _iconState = Icons.picture_as_pdf_rounded;
         _passedState = 0.5;
       });
@@ -52,7 +53,7 @@ class _ShareWithStateState extends State<ShareWithState> {
 
       if (Platform.isWindows) {
         setState(() {
-          _stringState = "Preparing the PDF to be saved at Desktop...";
+          _stringState = Strings.of(context).preparingThePdfToBeSavedAtDesktop;
           _iconState = Icons.desktop_windows;
           _passedState = 0.9;
         });
@@ -69,7 +70,7 @@ class _ShareWithStateState extends State<ShareWithState> {
       }
 
       setState(() {
-        _stringState = "Preparing the PDF to Share...";
+        _stringState = Strings.of(context).preparingThePdfToShare;
         _iconState = Icons.share;
         _passedState = 0.9;
       });
@@ -85,7 +86,7 @@ class _ShareWithStateState extends State<ShareWithState> {
       await _shareThePdf(pdfFile.path);
     } catch (error) {
       setState(() {
-        _stringState = "Error happened, Couldn't share the PDF!!!";
+        _stringState = Strings.of(context).errorHappenedCouldntShareThePdf;
         _iconState = Icons.error;
         _passedState = 0.9;
         _errorHappened = true;
@@ -160,7 +161,7 @@ class _ShareWithStateState extends State<ShareWithState> {
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
-                    child: const Text("Ok"),
+                    child: Text(Strings.of(context).ok),
                   ),
                 ),
               )

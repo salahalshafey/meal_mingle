@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../data/models/food_scanning_result_model.dart';
 import 'package:provider/provider.dart';
+import 'package:meal_mingle/l10n/l10n.dart';
 
 import '../../../../core/util/widgets/custom_back_button.dart';
+import '../../data/models/food_scanning_result_model.dart';
 
 import '../providers/favorites_food_scan.dart';
-
 import '../widgets/favorite_food_scan/food_scan_item.dart';
 
 class AllFavoriteFoodScanScreen extends StatelessWidget {
@@ -36,10 +36,10 @@ class AllFavoriteFoodScanScreen extends StatelessWidget {
           final allFavorites = Provider.of<FavoritesFoodScan>(ctx).allFavorites;
 
           if (allFavorites.isEmpty) {
-            return const Center(
+            return Center(
               child: Text(
-                'You Have no Favorites yet - Start Adding Some!',
-                style: TextStyle(fontWeight: FontWeight.bold),
+                Strings.of(context).youHaveNoFavoritesYetStartAddingSome,
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
             );
           }

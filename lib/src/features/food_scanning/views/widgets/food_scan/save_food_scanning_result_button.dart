@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_mingle/l10n/l10n.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../core/util/builders/custom_snack_bar.dart';
@@ -16,8 +17,9 @@ class SaveFoodScanningResultButton extends StatelessWidget {
 
     return FloatingActionButton(
       heroTag: null,
-      tooltip:
-          provider.isFavorite ? "Remove from favorites" : "Save to favorites",
+      tooltip: provider.isFavorite
+          ? Strings.of(context).removeFromFavorites
+          : Strings.of(context).saveToFavorites,
       onPressed: () {
         provider.toggleFavorite().onError((error, stackTrace) =>
             showCustomSnackBar(context: context, content: error.toString()));

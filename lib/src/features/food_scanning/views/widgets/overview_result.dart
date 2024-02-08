@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:meal_mingle/l10n/l10n.dart';
 
 import '../../../../core/util/widgets/note_description.dart';
 import 'customized_markdown.dart';
@@ -23,7 +24,7 @@ class OverviewResult extends StatelessWidget {
           Icons.description,
           color: Theme.of(context).colorScheme.primary,
         ),
-        title: "Unveiling Contents and Caloric Breakdown",
+        title: Strings.of(context).unveilingContentsAndCaloricBreakdown,
         child: CustomizedMarkdown(data: result),
       ).animate(delay: 200.ms).slideY(begin: -0.07).fadeIn(),
     );

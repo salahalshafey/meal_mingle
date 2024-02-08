@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_mingle/l10n/l10n.dart';
 import 'package:meal_mingle/src/features/meals/views/providers/favorite_meals.dart';
 import 'package:provider/provider.dart';
 
@@ -14,27 +15,28 @@ class MealToggleFavoriteButton extends StatelessWidget {
     return showCustomAlretDialog<bool>(
       context: context,
       constraints: const BoxConstraints(maxWidth: 500),
-      title: "Confirm Remove?",
+      title: Strings.of(context).confirmRemove,
       titleColor: Colors.red,
       contentPadding: const EdgeInsets.all(20),
-      content: "Are you sure you want to remove this Meal from Favorites?",
+      content:
+          Strings.of(context).areYouSureYouWantToRemoveThisMealFromFavorites,
       actionsBuilder: (builderContext) => [
         TextButton(
           onPressed: () {
             Navigator.of(builderContext).pop(true);
           },
-          child: const Text(
-            "Remove",
-            style: TextStyle(color: Colors.red),
+          child: Text(
+            Strings.of(context).remove,
+            style: const TextStyle(color: Colors.red),
           ),
         ),
         TextButton(
           onPressed: () {
             Navigator.of(builderContext).pop(false);
           },
-          child: const Text(
-            "Cancel",
-            style: TextStyle(color: Colors.red),
+          child: Text(
+            Strings.of(context).cancel,
+            style: const TextStyle(color: Colors.red),
           ),
         ),
       ],
@@ -48,7 +50,9 @@ class MealToggleFavoriteButton extends StatelessWidget {
 
     return FloatingActionButton(
       heroTag: null,
-      tooltip: isMealFavorite ? "Remove from favorites" : "Save to favorites",
+      tooltip: isMealFavorite
+          ? Strings.of(context).removeFromFavorites
+          : Strings.of(context).saveToFavorites,
       onPressed: () async {
         if (isMealFavorite) {
           final delete = await _confirmRemoveDialog(context);
