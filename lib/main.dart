@@ -37,7 +37,7 @@ void main() async {
 }
 
 Future<void> _initHiveBoxes() async {
-  await Hive.initFlutter();
+  await Hive.initFlutter("AI_MealMingle");
 
   Hive.registerAdapter(IngredientAdapter());
   Hive.registerAdapter(MealAdapter());

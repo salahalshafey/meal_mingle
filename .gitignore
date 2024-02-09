@@ -32,6 +32,7 @@ migrate_working_dir/
 /build/
 **/api_keys.*
 save_changes_and_push_it_to_github.cmd
+/meal_mingle_windowes_setup_wizard_creation/
 
 # Symbolication related
 app.*.symbols

@@ -80,7 +80,7 @@ class FavoriteFoodScanningViewmodelImpl
   }
 
   String _getFileNewPath(FoodScanningResultModel foodScanningResultModel) {
-    const folderName = "favorite_food_scanning_images";
+    const folderName = "AI_MealMingle/favorite_food_scanning_images";
 
     final fileName = foodScanningResultModel.id;
 

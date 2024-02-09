@@ -20,7 +20,7 @@ class MainAppBar extends StatelessWidget {
           text: TextSpan(
             children: [
               TextSpan(
-                text: Strings.of(context).hi("Ahmed"),
+                text: Strings.of(context).hi(""),
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               const TextSpan(text: '\n'),

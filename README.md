@@ -16,7 +16,12 @@
 
 
 ## Download the app from the Play Store
-<a href="https://play.google.com/store/apps/details?id=com.salahalshafey.aimealmingle"><img src="https://playerzon.com/asset/download.png" width="300"></img></a>
+<a href="https://play.google.com/store/apps/details?id=com.salahalshafey.aimealmingle"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="300"></img></a>
+
+
+## Download the app For Windows
+<a href="https://github.com/salahalshafey/apps_for_download/raw/main/windows%20apps/AI_MealMingle.exe"><img src="https://get.todoist.help/hc/article_attachments/4403191721234/WindowsButton.svg" width="300"></img></a>
+
 
 
 

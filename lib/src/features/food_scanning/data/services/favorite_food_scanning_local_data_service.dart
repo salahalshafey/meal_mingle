@@ -28,7 +28,7 @@ class FavoriteFoodScanningHiveImpl
           .map((key) =>
               FoodScanningResultModel.fromJson(_favoritesBox.get(key)!))
           .toList();
-    } catch (erro) {
+    } catch (error) {
       throw LocalDataException();
     }
   }

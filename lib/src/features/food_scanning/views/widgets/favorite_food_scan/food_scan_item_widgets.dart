@@ -33,6 +33,16 @@ class ScanImage extends StatelessWidget {
           height: 250,
           width: double.infinity,
           fit: BoxFit.cover,
+          errorBuilder: (context, error, stackTrace) {
+            return const SizedBox(
+              height: 250,
+              width: double.infinity,
+              child: Icon(
+                Icons.broken_image_rounded,
+                size: 55,
+              ),
+            );
+          },
         ),
       ),
     ).animate(delay: 100.ms).fadeIn(duration: 1000.ms);

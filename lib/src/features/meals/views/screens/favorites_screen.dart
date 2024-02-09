@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:meal_mingle/l10n/l10n.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/favorite_meals.dart';
@@ -13,10 +14,10 @@ class FavoritesScreen extends StatelessWidget {
     final favMeals = Provider.of<FavoriteMeals>(context).favoriteMeals;
 
     if (favMeals.isEmpty) {
-      return const Center(
+      return Center(
         child: Text(
-          'You Have no Favorites yet - Start Adding Some!',
-          style: TextStyle(fontWeight: FontWeight.bold),
+          Strings.of(context).youHaveNoFavoritesYetStartAddingSome,
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
       );
     }
