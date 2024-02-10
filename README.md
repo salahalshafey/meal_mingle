@@ -137,3 +137,29 @@ lib
          │──meals
          └──home_and_drawers_screens
 ``` 
+
+
+
+# App pages
+
+## Food Scan Screens
+
+  Food Scan Screen              |     Getting Image      |  Scan Result Screen
+:-------------------------:|:-------------------------:|:-------------------------:
+![](https://github.com/salahalshafey/meal_mingle/assets/64344500/1353ba22-1218-4e35-a455-5dbce946ba30)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/772737c2-0406-49f5-8dc5-0abdef05f895)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/dbfff3aa-00f4-4768-9ba8-5c06028d26db)
+
+  Waiting for results              |     The results in `Markdown`      |  The result can be saved in `Favorites`
+:-------------------------:|:-------------------------:|:-------------------------:
+![](https://github.com/salahalshafey/meal_mingle/assets/64344500/9af15813-8351-434f-bd08-be941464e5c1)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/5208b6fc-5136-4bc5-8cbc-afa94ea1c227)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/59a5f418-06ee-4da3-b721-7bf8e65f9270)
+
+  The result can be shared as PDF              |     The PDF can be shared to external apps   
+:-------------------------:|:-------------------------:
+![](https://github.com/salahalshafey/meal_mingle/assets/64344500/20d01b46-5b47-4983-9895-8d02a6f3c1a6)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/86889153-0819-4414-8904-0683f88f35a3)
+
+
+
+
+
+
+
+
