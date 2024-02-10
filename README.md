@@ -173,10 +173,6 @@ lib
 :-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/salahalshafey/meal_mingle/assets/64344500/7c1cc84b-9eb6-40a0-ba99-5baef36ac5f1)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/0c36bdb5-f017-4726-a82a-8a5454ac4262)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/26dcfe0b-3f27-49da-8f8d-8af219ffb59f)
 
-  Categories Screen | Some meals in the categories | Meal in details with images
-:-------------------------:|:-------------------------:|:-------------------------:
-![](https://github.com/salahalshafey/meal_mingle/assets/64344500/7c1cc84b-9eb6-40a0-ba99-5baef36ac5f1)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/0c36bdb5-f017-4726-a82a-8a5454ac4262)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/26dcfe0b-3f27-49da-8f8d-8af219ffb59f)
-
   Favorite meals Screen | Meals can be removed from favorites
 :-------------------------:|:-------------------------:
 ![](https://github.com/salahalshafey/meal_mingle/assets/64344500/87b77187-2385-46ea-a3cd-5d16584df11a)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/57fc6adf-3a38-4364-af70-c432128320b3)
