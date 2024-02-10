@@ -143,7 +143,6 @@ lib
 # App pages
 
 ## Food Scan Screens
-
   Food Scan Screen              |     Getting Image      |  Scan Result Screen
 :-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/salahalshafey/meal_mingle/assets/64344500/1353ba22-1218-4e35-a455-5dbce946ba30)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/772737c2-0406-49f5-8dc5-0abdef05f895)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/dbfff3aa-00f4-4768-9ba8-5c06028d26db)
@@ -155,6 +154,71 @@ lib
   The result can be shared as PDF              |     The PDF can be shared to external apps   
 :-------------------------:|:-------------------------:
 ![](https://github.com/salahalshafey/meal_mingle/assets/64344500/20d01b46-5b47-4983-9895-8d02a6f3c1a6)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/86889153-0819-4414-8904-0683f88f35a3)
+
+  Favorites Food scans | If the result previously loaded it saved to the local | It still can get other results from Favorites
+:-------------------------:|:-------------------------:|:-------------------------:
+![](https://github.com/salahalshafey/meal_mingle/assets/64344500/bb6bcca7-901d-4859-9482-b3d3679de3c5)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/ff96c9ae-3dbd-4943-a9cd-c5be645e31ae)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/9d49d826-0a72-4948-9ddd-8926d1140292)
+
+## Search Meals Screens with AI
+  Search for meals using `Gemini Pro`          |     One result, the images from `Wikipedia` by `Screping`  
+:-------------------------:|:-------------------------:
+![](https://github.com/salahalshafey/meal_mingle/assets/64344500/bd235051-6cfe-4d41-9a9b-6ba8c5c6e78c)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/bc14b15d-0a07-493e-b265-bee8064a6c36)
+
+  The result meal in details with images | The meal can be toggled as favorites 
+:-------------------------:|:-------------------------:
+![](https://github.com/salahalshafey/meal_mingle/assets/64344500/92bf5664-8436-4f50-962c-3b4f24053c80)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/8afb812f-1812-4cd7-a0c4-1785adb6892b)
+
+## Meals Screen
+  Categories Screen | Some meals in the categories | Meal in details with images
+:-------------------------:|:-------------------------:|:-------------------------:
+![](https://github.com/salahalshafey/meal_mingle/assets/64344500/7c1cc84b-9eb6-40a0-ba99-5baef36ac5f1)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/0c36bdb5-f017-4726-a82a-8a5454ac4262)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/26dcfe0b-3f27-49da-8f8d-8af219ffb59f)
+
+  Categories Screen | Some meals in the categories | Meal in details with images
+:-------------------------:|:-------------------------:|:-------------------------:
+![](https://github.com/salahalshafey/meal_mingle/assets/64344500/7c1cc84b-9eb6-40a0-ba99-5baef36ac5f1)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/0c36bdb5-f017-4726-a82a-8a5454ac4262)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/26dcfe0b-3f27-49da-8f8d-8af219ffb59f)
+
+  Favorite meals Screen | Meals can be removed from favorites
+:-------------------------:|:-------------------------:
+![](https://github.com/salahalshafey/meal_mingle/assets/64344500/87b77187-2385-46ea-a3cd-5d16584df11a)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/57fc6adf-3a38-4364-af70-c432128320b3)
+
+## Settings Screens
+  Meals Settings Screen | General Settings Screen
+:-------------------------:|:-------------------------:
+![](https://github.com/salahalshafey/meal_mingle/assets/64344500/ca63748e-6aec-4d37-aebb-ddf2d815bf11)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/ac292d2c-54be-454e-a74b-80a72bf2d8b5)
+
+  Theme Mode can be changed | Language can be changed | Color can be changed
+:-------------------------:|:-------------------------:|:-------------------------:
+![](https://github.com/salahalshafey/meal_mingle/assets/64344500/2377f3e9-e24e-4c4a-b575-99b32c30134d)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/e5abaf82-724f-4943-9623-19a29ce9c0b0)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/3979d560-142c-4c1d-a48f-f05a2a9d3c29)
+
+ Example in different settings | Example in different settings | Example in different settings
+:-------------------------:|:-------------------------:|:-------------------------:
+![](https://github.com/salahalshafey/meal_mingle/assets/64344500/1846ecff-6a25-4779-9f5d-72e1e80df51e)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/da77f557-fe1f-40b4-abd7-2626b051be1a)|![](https://github.com/salahalshafey/meal_mingle/assets/64344500/16084bc4-c484-4d93-8dd1-9a9d20594273)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
