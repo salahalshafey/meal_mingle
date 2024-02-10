@@ -49,7 +49,7 @@
 
 # The App Architecture, Directory structure, And State Management
   * Using `Provider` State Management.
-  * Using `get_it` for Dependency injection.
+  * Using `get_it` for Dependency injection (service locator).
   * Using Model–view–viewmodel `MVVM` architectural pattern.
 
     ![FLUTTER-MVVM-ARCHITECTURE](https://github.com/salahalshafey/meal_mingle/assets/64344500/d80d32e7-9ab1-4046-a35a-c2f56c1c59f6)
