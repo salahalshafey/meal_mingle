@@ -18,7 +18,7 @@ class CustomBackButton extends StatelessWidget {
       color: includeBackgroundColor ? Colors.black : null,
       style: includeBackgroundColor
           ? ButtonStyle(
-              backgroundColor: MaterialStatePropertyAll(
+              backgroundColor: WidgetStatePropertyAll(
                   Theme.of(context).colorScheme.primary.withOpacity(0.5)),
             )
           : null,

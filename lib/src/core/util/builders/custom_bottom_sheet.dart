@@ -48,8 +48,8 @@ Future<T?> showCustomBottomSheet<T>({
                   ElevatedButton(
                     onPressed: onButtonPressed,
                     style: ButtonStyle(
-                      minimumSize: MaterialStateProperty.all(
-                          Size(screenWidth * 0.9, 20)),
+                      minimumSize:
+                          WidgetStateProperty.all(Size(screenWidth * 0.9, 20)),
                     ),
                     child: Text(buttonTitle ?? ''),
                   ),

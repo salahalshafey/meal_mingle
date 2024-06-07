@@ -47,7 +47,7 @@ class FoodScanScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: FittedBox(
-          child: Text(Strings.of(context).scanFoodWithAi),
+          child: Text('Scan Food With AI'.tr),
         ),
         centerTitle: true,
       ),

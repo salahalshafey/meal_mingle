@@ -21,7 +21,7 @@ class ShareWithState extends StatefulWidget {
 }
 
 class _ShareWithStateState extends State<ShareWithState> {
-  String _stringState = Strings.of(context).takingScreenshotsOfTheResults;
+  String _stringState = Strings.get.takingScreenshotsOfTheResults;
   IconData _iconState = Icons.screenshot;
   double _passedState = 0.1;
   bool _errorHappened = false;
