@@ -14,13 +14,16 @@ abstract class FoodScanningService {
 
 class FoodScanningGeminiProVisionImpl implements FoodScanningService {
   @override
-  Future<String> getResult(String imagePath,
-      [String? foodOverview, String? question]) async {
+  Future<String> getResult(
+    String imagePath, [
+    String? foodOverview,
+    String? question,
+  ]) async {
     const apiKey = makerSuiteAPIKey;
     // print(getImageFormatOrExtention(imagePath));
 
     const apiUrl =
-        "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro-vision:generateContent?key=$apiKey";
+        "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=$apiKey";
 
     final contents = [
       {
@@ -87,7 +90,7 @@ class FoodScanningGeminiProVisionImpl implements FoodScanningService {
     );
 
     if (response.statusCode != 200) {
-      //print('Response: ${response.body}');
+      // print('Response: ${response.body}');
 
       throw ServerException();
     }
