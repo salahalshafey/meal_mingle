@@ -27,8 +27,10 @@ class GeneralSettingsScreen extends StatelessWidget {
         ),
         actions: [
           ResetButton(
-            reset: Provider.of<GeneralSettings>(context, listen: false)
-                .resetGeneralSettings,
+            reset: Provider.of<GeneralSettings>(
+              context,
+              listen: false,
+            ).resetGeneralSettings,
           ),
         ],
       ),

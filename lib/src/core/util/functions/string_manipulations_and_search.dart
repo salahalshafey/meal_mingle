@@ -75,8 +75,9 @@ List<StringWithType<T>> patternMatcher<T>(
   String myText = string;
 
   for (int i = 0; i < patterns.length; i++) {
-    final patternMatches =
-        patterns[i].allMatches(myText).map((match) => Pair(match, types[i]));
+    final patternMatches = patterns[i]
+        .allMatches(myText)
+        .map((match) => Pair(match, types[i]));
 
     allMatches.addAll(patternMatches);
 
@@ -97,25 +98,23 @@ List<StringWithType<T>> patternMatcher<T>(
     }
 
     // add normal string first
-    allStringsWithType.add(StringWithType(
-      string.substring(i, match.first.start),
-      types.last,
-    ));
+    allStringsWithType.add(
+      StringWithType(string.substring(i, match.first.start), types.last),
+    );
 
     // add the string that has match with pattern
-    allStringsWithType.add(StringWithType(
-      string.substring(match.first.start, match.first.end),
-      match.second,
-    ));
+    allStringsWithType.add(
+      StringWithType(
+        string.substring(match.first.start, match.first.end),
+        match.second,
+      ),
+    );
 
     i = match.first.end;
   }
 
   // add remaining normal string if any
-  allStringsWithType.add(StringWithType(
-    string.substring(i),
-    types.last,
-  ));
+  allStringsWithType.add(StringWithType(string.substring(i), types.last));
 
   return allStringsWithType;
 }
@@ -136,14 +135,14 @@ String wellFormatedString(String str, {String seperatorBetweenWords = " "}) {
   return str.trim().isEmpty
       ? str
       : str
-          .trim()
-          .split(RegExp(r' +'))
-          .map(
-            (word) =>
-                word.substring(0, 1).toUpperCase() +
-                word.substring(1).toLowerCase(),
-          )
-          .join(seperatorBetweenWords);
+            .trim()
+            .split(RegExp(r' +'))
+            .map(
+              (word) =>
+                  word.substring(0, 1).toUpperCase() +
+                  word.substring(1).toLowerCase(),
+            )
+            .join(seperatorBetweenWords);
 }
 
 String firstName(String fullName) => fullName.split(RegExp(r' +')).first;
@@ -182,8 +181,8 @@ bool firstCharIsArabic(String text) {
   }
 
   final arabicChars = 'ا؟؛أإءئؤآبتثةجحخدذرزسشصضطظعغفقكلمنهويلالآى'.toSet();
-  final englishChars =
-      'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'.toSet();
+  final englishChars = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'
+      .toSet();
 
   final listOfText = text.toList();
 
@@ -201,9 +200,12 @@ bool firstCharIsArabic(String text) {
 }
 
 String multiLineConvertTolowerCamelCaseStyle(String multiLinestring) {
-  return multiLinestring.split("\n").map((lineString) {
-    return converTolowerCamelCaseStyle(lineString);
-  }).join("\n");
+  return multiLinestring
+      .split("\n")
+      .map((lineString) {
+        return converTolowerCamelCaseStyle(lineString);
+      })
+      .join("\n");
 }
 
 String converTolowerCamelCaseStyle(String string) {
@@ -211,11 +213,15 @@ String converTolowerCamelCaseStyle(String string) {
   final whiteSpaceMatcher = RegExp(r" +");
 
   final stringList = string.characters.toList()
-    ..removeWhere((char) =>
-        !dartNamingMather.hasMatch(char) && !whiteSpaceMatcher.hasMatch(char));
+    ..removeWhere(
+      (char) =>
+          !dartNamingMather.hasMatch(char) && !whiteSpaceMatcher.hasMatch(char),
+    );
 
-  return wellFormatedString(stringList.join(), seperatorBetweenWords: "")
-      .replaceRange(
+  return wellFormatedString(
+    stringList.join(),
+    seperatorBetweenWords: "",
+  ).replaceRange(
     0,
     stringList.join().trim().isEmpty ? 0 : 1,
     stringList.join().trim().isEmpty
@@ -227,6 +233,7 @@ String converTolowerCamelCaseStyle(String string) {
 extension on String {
   Set<String> toSet() => {for (int i = 0; i < length; i++) substring(i, i + 1)};
 
-  List<String> toList() =>
-      [for (int i = 0; i < length; i++) substring(i, i + 1)];
+  List<String> toList() => [
+    for (int i = 0; i < length; i++) substring(i, i + 1),
+  ];
 }

@@ -33,15 +33,17 @@ class FavoriteFoodScanningViewmodelImpl
 
   @override
   Future<void> saveToFavoirte(
-      FoodScanningResultModel foodScanningResultModel) async {
+    FoodScanningResultModel foodScanningResultModel,
+  ) async {
     try {
       final newImagePath = await localStorageService.save(
         foodScanningResultModel.imagePath,
         _getFileNewPath(foodScanningResultModel),
       );
 
-      foodScanningResultModel =
-          foodScanningResultModel.copyWith(imagePath: newImagePath);
+      foodScanningResultModel = foodScanningResultModel.copyWith(
+        imagePath: newImagePath,
+      );
 
       await localDataService.saveToFavoirte(foodScanningResultModel);
     } catch (error) {

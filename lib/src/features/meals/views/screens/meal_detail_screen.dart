@@ -36,20 +36,23 @@ class MealDetailScreen extends StatelessWidget {
                     titlePadding: const EdgeInsets.all(0),
                     title: Hero(
                       tag: meal.imageUrl,
-                      child: Image.network(meal.imageUrl,
-                          height: 300,
-                          width: double.infinity,
-                          fit: BoxFit.cover, errorBuilder: (ctx, error, stk) {
-                        return const SizedBox(
-                          height: 300,
-                          width: double.infinity,
-                          child: Icon(
-                            Icons.restaurant_rounded,
-                            size: 80,
-                            textDirection: TextDirection.ltr,
-                          ),
-                        );
-                      }),
+                      child: Image.network(
+                        meal.imageUrl,
+                        height: 300,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                        errorBuilder: (ctx, error, stk) {
+                          return const SizedBox(
+                            height: 300,
+                            width: double.infinity,
+                            child: Icon(
+                              Icons.restaurant_rounded,
+                              size: 80,
+                              textDirection: TextDirection.ltr,
+                            ),
+                          );
+                        },
+                      ),
                     ),
                   ),
                   leading: const CustomBackButton(includeBackgroundColor: true),
@@ -98,8 +101,10 @@ class MealDetailScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 Padding(
-                  padding:
-                      const EdgeInsetsDirectional.only(start: 10, bottom: 10),
+                  padding: const EdgeInsetsDirectional.only(
+                    start: 10,
+                    bottom: 10,
+                  ),
                   child: Text(
                     Strings.of(context).recipe,
                     style: Theme.of(context).textTheme.displayLarge,

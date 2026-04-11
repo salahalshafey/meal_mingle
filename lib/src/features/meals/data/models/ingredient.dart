@@ -20,10 +20,10 @@ class Ingredient {
   });
 
   factory Ingredient.fromJson(Map<String, dynamic> json) => Ingredient(
-        ingredientName: json['name'] as String,
-        ingredientImage: json['name_in_english'] ?? "",
-        ingredientAmount: json['quantity'] as String,
-      );
+    ingredientName: json['name'] as String,
+    ingredientImage: json['name_in_english'] ?? "",
+    ingredientAmount: json['quantity'] as String,
+  );
 
   Ingredient copyWith({
     String? ingredientName,

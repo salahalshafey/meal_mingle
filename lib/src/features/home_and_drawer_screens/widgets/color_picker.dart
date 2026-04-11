@@ -64,27 +64,31 @@ class ColorPicker extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           child: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
-              int countForEachRow = constraints.maxWidth ~/
+              int countForEachRow =
+                  constraints.maxWidth ~/
                   (spacingBetweenColorsItems * 2 + colorsCircleRadius);
               if (countForEachRow == 0) {
                 countForEachRow = 1;
               }
 
-              countForEachRow =
-                  _fixedCountForEachRowFor12ColorsLength(countForEachRow);
+              countForEachRow = _fixedCountForEachRowFor12ColorsLength(
+                countForEachRow,
+              );
 
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.only(start: 10, bottom: 5),
+                    padding: const EdgeInsetsDirectional.only(
+                      start: 10,
+                      bottom: 5,
+                    ),
                     child: Text(
                       Strings.of(context).color,
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodySmall
-                          ?.copyWith(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   for (int i = 0; i < _colors.length; i += countForEachRow)
@@ -141,7 +145,7 @@ class ColorsRow extends StatelessWidget {
               padding: EdgeInsets.all(spacingBetweenColorsItems),
               child: IconButton(
                 onPressed: () => onSelected(color),
-                icon: currentColor.value == color.value
+                icon: currentColor.toARGB32() == color.toARGB32()
                     ? const Icon(Icons.check, color: Colors.white)
                     : const SizedBox(),
                 style: ButtonStyle(
@@ -193,10 +197,10 @@ class ColorPickerFromGrid extends StatelessWidget {
           children: [
             Text(
               "Color",
-              style: Theme.of(context)
-                  .textTheme
-                  .bodySmall
-                  ?.copyWith(fontSize: 18, fontWeight: FontWeight.bold),
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const SizedBox(height: 10),
             Expanded(
@@ -209,12 +213,15 @@ class ColorPickerFromGrid extends StatelessWidget {
                   // mainAxisExtent: 50,
                 ),
                 children: _colors
-                    .map((color) => IconButton(
-                          onPressed: () {},
-                          icon: const SizedBox(),
-                          style: ButtonStyle(
-                              backgroundColor: WidgetStatePropertyAll(color)),
-                        ))
+                    .map(
+                      (color) => IconButton(
+                        onPressed: () {},
+                        icon: const SizedBox(),
+                        style: ButtonStyle(
+                          backgroundColor: WidgetStatePropertyAll(color),
+                        ),
+                      ),
+                    )
                     .toList(),
               ),
             ),

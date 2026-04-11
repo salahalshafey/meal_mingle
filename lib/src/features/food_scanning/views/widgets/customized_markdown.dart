@@ -4,10 +4,7 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import '../../../../core/util/functions/string_manipulations_and_search.dart';
 
 class CustomizedMarkdown extends StatelessWidget {
-  const CustomizedMarkdown({
-    super.key,
-    required this.data,
-  });
+  const CustomizedMarkdown({super.key, required this.data});
 
   final String data;
 

@@ -42,7 +42,8 @@ class NoteDescription extends StatelessWidget {
               Expanded(
                 child: Text(
                   title,
-                  style: titleStyle ??
+                  style:
+                      titleStyle ??
                       const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -56,7 +57,8 @@ class NoteDescription extends StatelessWidget {
             description ?? "",
             textDirection: getDirectionalityOf(description ?? ""),
             textAlign: TextAlign.justify,
-            style: descriptionStyle ??
+            style:
+                descriptionStyle ??
                 TextStyle(fontSize: 16, color: Colors.grey.shade600),
           ),
           if (child != null) ...[const SizedBox(height: 10), child!],

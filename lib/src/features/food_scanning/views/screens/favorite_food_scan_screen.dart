@@ -20,8 +20,9 @@ class FavoriteFoodScanScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final favoriteId = ModalRoute.of(context)!.settings.arguments as String;
-    final foodScanResult =
-        Provider.of<FavoritesFoodScan>(context).getFavoriteById(favoriteId);
+    final foodScanResult = Provider.of<FavoritesFoodScan>(
+      context,
+    ).getFavoriteById(favoriteId);
 
     return Scaffold(
       floatingActionButton: ShareFoodScanningResultButton(foodScanResult)
@@ -45,8 +46,9 @@ class FavoriteFoodScanScreen extends StatelessWidget {
               FavoriteChoiceResult(
                 favoriteId: favoriteId,
                 questionIndex: 0,
-                title:
-                    Strings.of(context).healthinessAndBenefitsOfFeaturedFoods,
+                title: Strings.of(
+                  context,
+                ).healthinessAndBenefitsOfFeaturedFoods,
                 icon: Icons.health_and_safety,
               ),
               FavoriteChoiceResult(

@@ -17,61 +17,69 @@ import 'features/meals/views/providers/search_meals.dart';
 final sl = GetIt.instance;
 
 Future<void> init() async {
-///////////////////////////////////////////// !!!! Features - FoodScanning !!!! //////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////// !!!! Features - FoodScanning !!!! //////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Provider "View"
-  sl.registerFactory(() => FoodScan(
-        foodScanningViewModel: sl(),
-        favoriteFoodScanningViewmodel: sl(),
-      ));
-  sl.registerFactory(() => FavoritesFoodScan(
-        foodScanningViewModel: sl(),
-        favoriteFoodScanningViewmodel: sl(),
-      ));
+  // Provider "View"
+  sl.registerFactory(
+    () => FoodScan(
+      foodScanningViewModel: sl(),
+      favoriteFoodScanningViewmodel: sl(),
+    ),
+  );
+  sl.registerFactory(
+    () => FavoritesFoodScan(
+      foodScanningViewModel: sl(),
+      favoriteFoodScanningViewmodel: sl(),
+    ),
+  );
 
-// Viewmodels
+  // Viewmodels
   sl.registerLazySingleton<FoodScanningViewModel>(
-      () => FoodScanningViewModelImpl(
-            foodScanningService: sl(),
-            networkInfo: sl(),
-          ));
+    () =>
+        FoodScanningViewModelImpl(foodScanningService: sl(), networkInfo: sl()),
+  );
   sl.registerLazySingleton<FavoriteFoodScanningViewmodel>(
-      () => FavoriteFoodScanningViewmodelImpl(
-            localDataService: sl(),
-            localStorageService: sl(),
-          ));
+    () => FavoriteFoodScanningViewmodelImpl(
+      localDataService: sl(),
+      localStorageService: sl(),
+    ),
+  );
 
-// Services "Model"
+  // Services "Model"
   sl.registerLazySingleton<FoodScanningService>(
-      () => FoodScanningGeminiProVisionImpl());
+    () => FoodScanningGeminiProVisionImpl(),
+  );
   sl.registerLazySingleton<FavoriteFoodScanningLocalDataService>(
-      () => FavoriteFoodScanningHiveImpl());
+    () => FavoriteFoodScanningHiveImpl(),
+  );
   sl.registerLazySingleton<FavoriteFoodScanningLocalStorageService>(
-      () => FavoriteFoodScanningLocalStorageImpl());
+    () => FavoriteFoodScanningLocalStorageImpl(),
+  );
 
-////////////////////////////////////// !!!! Features - Meals !!!! ///////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////// !!!! Features - Meals !!!! ///////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Provider "View"
-  sl.registerFactory(() => SearchMeals(
-        mealsViewModel: sl(),
-      ));
+  // Provider "View"
+  sl.registerFactory(() => SearchMeals(mealsViewModel: sl()));
 
-// Viewmodels
-  sl.registerLazySingleton<MealsViewModel>(() => MealsViewModelImpl(
-        mealsSrevice: sl(),
-        foodImageService: sl(),
-        networkInfo: sl(),
-      ));
+  // Viewmodels
+  sl.registerLazySingleton<MealsViewModel>(
+    () => MealsViewModelImpl(
+      mealsSrevice: sl(),
+      foodImageService: sl(),
+      networkInfo: sl(),
+    ),
+  );
 
-// Services "Model"
+  // Services "Model"
   sl.registerLazySingleton<MealsSrevice>(() => MealsGeminiProVisionImpl());
   sl.registerLazySingleton<FoodImageService>(
-      () => FoodImageWikipediaScrapingImpl());
+    () => FoodImageWikipediaScrapingImpl(),
+  );
 
-//////////////////////////////////////////////////// !!!! core !!!! ///////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////// !!!! core !!!! ///////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   sl.registerLazySingleton<NetworkInfo>(() => MyNetworkInfoImpl());
 }

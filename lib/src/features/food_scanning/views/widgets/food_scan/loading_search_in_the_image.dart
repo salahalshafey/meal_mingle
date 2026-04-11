@@ -22,27 +22,12 @@ class LoadingSearchInTheImage extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             Image.file(File(imagePath)),
-            Scanner(
-              scanHeight: scanHeight,
-              color: color,
-            )
-                .animate(
-                  onPlay: (controller) => controller.repeat(),
-                )
-                .slideY(
-                  duration: duration,
-                  begin: offset,
-                  end: -offset,
-                )
+            Scanner(scanHeight: scanHeight, color: color)
+                .animate(onPlay: (controller) => controller.repeat())
+                .slideY(duration: duration, begin: offset, end: -offset)
                 .fadeOut(delay: duration),
-            Scanner(
-              scanHeight: scanHeight,
-              color: color,
-              reversed: true,
-            )
-                .animate(
-                  onPlay: (controller) => controller.repeat(),
-                )
+            Scanner(scanHeight: scanHeight, color: color, reversed: true)
+                .animate(onPlay: (controller) => controller.repeat())
                 .slideY(
                   delay: duration,
                   duration: duration,
@@ -80,23 +65,23 @@ class Scanner extends StatelessWidget {
           end: reversed ? Alignment.topCenter : Alignment.bottomCenter,
           colors: [
             color,
-            color.withOpacity(0.55),
-            color.withOpacity(0.51),
-            color.withOpacity(0.47),
-            color.withOpacity(0.44),
-            color.withOpacity(0.41),
-            color.withOpacity(0.38),
-            color.withOpacity(0.35),
-            color.withOpacity(0.32),
-            color.withOpacity(0.29),
-            color.withOpacity(0.26),
-            color.withOpacity(0.23),
-            color.withOpacity(0.20),
-            color.withOpacity(0.15),
-            color.withOpacity(0.12),
-            color.withOpacity(0.09),
-            color.withOpacity(0.06),
-            color.withOpacity(0.03),
+            color.withValues(alpha: 0.55),
+            color.withValues(alpha: 0.51),
+            color.withValues(alpha: 0.47),
+            color.withValues(alpha: 0.44),
+            color.withValues(alpha: 0.41),
+            color.withValues(alpha: 0.38),
+            color.withValues(alpha: 0.35),
+            color.withValues(alpha: 0.32),
+            color.withValues(alpha: 0.29),
+            color.withValues(alpha: 0.26),
+            color.withValues(alpha: 0.23),
+            color.withValues(alpha: 0.20),
+            color.withValues(alpha: 0.15),
+            color.withValues(alpha: 0.12),
+            color.withValues(alpha: 0.09),
+            color.withValues(alpha: 0.06),
+            color.withValues(alpha: 0.03),
           ],
         ),
       ),

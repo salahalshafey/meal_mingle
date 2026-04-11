@@ -20,62 +20,66 @@ const dummyData = [
         'https://uploads-ssl.webflow.com/5ce87e408cdd0a4373281d7b/6017fa780eb0741848b6af9a_cover.png',
   ),
   Category(
-      id: 'c3',
-      title: 'Hamburgers',
-      color: Colors.orange,
-      image:
-          'https://www.hamburdehesa.com/wp-content/uploads/2017/10/background-hosteleriaburger.png'),
+    id: 'c3',
+    title: 'Hamburgers',
+    color: Colors.orange,
+    image:
+        'https://www.hamburdehesa.com/wp-content/uploads/2017/10/background-hosteleriaburger.png',
+  ),
   Category(
-      id: 'c4',
-      title: 'German',
-      color: Colors.amber,
-      image:
-          'https://uploads-ssl.webflow.com/5ce87e408cdd0a4373281d7b/6017fa780eb0741848b6af9a_cover.png'),
+    id: 'c4',
+    title: 'German',
+    color: Colors.amber,
+    image:
+        'https://uploads-ssl.webflow.com/5ce87e408cdd0a4373281d7b/6017fa780eb0741848b6af9a_cover.png',
+  ),
   Category(
-      id: 'c5',
-      title: 'Light & Lovely',
-      color: Colors.greenAccent,
-      image:
-          'https://realfood.tesco.com/media/images/starter-8e10fd4c-1385-410b-bf6a-e2aa391b40ae-0-250x250.png'),
+    id: 'c5',
+    title: 'Light & Lovely',
+    color: Colors.greenAccent,
+    image:
+        'https://realfood.tesco.com/media/images/starter-8e10fd4c-1385-410b-bf6a-e2aa391b40ae-0-250x250.png',
+  ),
   Category(
-      id: 'c6',
-      title: 'Sweet',
-      color: Colors.pink,
-      image:
-          'https://uploads-ssl.webflow.com/5ce87e408cdd0a4373281d7b/6017fa780eb0741848b6af9a_cover.png'),
+    id: 'c6',
+    title: 'Sweet',
+    color: Colors.pink,
+    image:
+        'https://uploads-ssl.webflow.com/5ce87e408cdd0a4373281d7b/6017fa780eb0741848b6af9a_cover.png',
+  ),
   Category(
-      id: 'c7',
-      title: 'Breakfast',
-      color: Colors.lightBlue,
-      image:
-          'https://uploads-ssl.webflow.com/5ce87e408cdd0a4373281d7b/6017fa780eb0741848b6af9a_cover.png'),
+    id: 'c7',
+    title: 'Breakfast',
+    color: Colors.lightBlue,
+    image:
+        'https://uploads-ssl.webflow.com/5ce87e408cdd0a4373281d7b/6017fa780eb0741848b6af9a_cover.png',
+  ),
   Category(
-      id: 'c8',
-      title: 'Asian',
-      color: Colors.lightGreen,
-      image:
-          'https://simplyasia.co.za/wp-content/uploads/2021/06/550-dish-2.png'),
+    id: 'c8',
+    title: 'Asian',
+    color: Colors.lightGreen,
+    image: 'https://simplyasia.co.za/wp-content/uploads/2021/06/550-dish-2.png',
+  ),
   Category(
-      id: 'c9',
-      title: 'French',
-      color: Colors.blue,
-      image:
-          'https://i.pinimg.com/originals/dd/04/28/dd04283f5413d2da68de4ac01d5558bd.png'),
+    id: 'c9',
+    title: 'French',
+    color: Colors.blue,
+    image:
+        'https://i.pinimg.com/originals/dd/04/28/dd04283f5413d2da68de4ac01d5558bd.png',
+  ),
   Category(
-      id: 'c10',
-      title: 'Summer',
-      color: Colors.teal,
-      image:
-          'https://www.dillons.com/content/v2/binary/image/featured/summer-shop/summer_arugulapapayasalad--summer_arugulapapayasalad_330x330.png'),
+    id: 'c10',
+    title: 'Summer',
+    color: Colors.teal,
+    image:
+        'https://www.dillons.com/content/v2/binary/image/featured/summer-shop/summer_arugulapapayasalad--summer_arugulapapayasalad_330x330.png',
+  ),
 ];
 
 const dummyMeal = [
   Meal(
     id: 'm1',
-    categories: [
-      'c1',
-      'c2',
-    ],
+    categories: ['c1', 'c2'],
     title: 'Spaghetti with Tomato Sauce',
     affordability: "Affordable",
     complexity: "Simple",
@@ -114,10 +118,11 @@ const dummyMeal = [
         ingredientAmount: 'As you Like',
       ),
       Ingredient(
-          ingredientName: 'Cheese',
-          ingredientImage:
-              'https://cdn.shopify.com/s/files/1/0244/3513/0423/products/2300717_4fcdc746-ea0b-4f94-af17-5f185d26d6a2_600x.png?v=1627800575',
-          ingredientAmount: 'As you Like'),
+        ingredientName: 'Cheese',
+        ingredientImage:
+            'https://cdn.shopify.com/s/files/1/0244/3513/0423/products/2300717_4fcdc746-ea0b-4f94-af17-5f185d26d6a2_600x.png?v=1627800575',
+        ingredientAmount: 'As you Like',
+      ),
     ],
     steps: [
       'Cut the tomatoes and the onion into small pieces.',
@@ -126,7 +131,7 @@ const dummyMeal = [
       'In the meantime, heaten up some olive oil and add the cut onion.',
       'After 2 minutes, add the tomato pieces, salt, pepper and your other spices.',
       'The sauce will be done once the spaghetti are.',
-      'Feel free to add some cheese on top of the finished dish.'
+      'Feel free to add some cheese on top of the finished dish.',
     ],
     isGlutenFree: false,
     isVegan: true,
@@ -135,9 +140,7 @@ const dummyMeal = [
   ),
   Meal(
     id: 'm2',
-    categories: [
-      'c2',
-    ],
+    categories: ['c2'],
     title: 'Toast Hawaii',
     affordability: "Affordable",
     complexity: "Simple",
@@ -179,7 +182,7 @@ const dummyMeal = [
     steps: [
       'Butter one side of the white bread',
       'Layer ham, the pineapple and cheese on the white bread',
-      'Bake the toast for round about 10 minutes in the oven at 200°C'
+      'Bake the toast for round about 10 minutes in the oven at 200°C',
     ],
     isGlutenFree: false,
     isVegan: false,
@@ -188,10 +191,7 @@ const dummyMeal = [
   ),
   Meal(
     id: 'm3',
-    categories: [
-      'c2',
-      'c3',
-    ],
+    categories: ['c2', 'c3'],
     title: 'Classic Hamburger',
     affordability: "Pricey",
     complexity: "Simple",
@@ -241,7 +241,7 @@ const dummyMeal = [
       'Fry the patties for c. 4 minutes on each side',
       'Quickly fry the buns for c. 1 minute on each side',
       'Bruch buns with ketchup',
-      'Serve burger with tomato, cucumber and onion'
+      'Serve burger with tomato, cucumber and onion',
     ],
     isGlutenFree: false,
     isVegan: false,
@@ -250,9 +250,7 @@ const dummyMeal = [
   ),
   Meal(
     id: 'm4',
-    categories: [
-      'c4',
-    ],
+    categories: ['c4'],
     title: 'Wiener Schnitzel',
     affordability: "Luxurious",
     complexity: "Challenging",
@@ -315,7 +313,7 @@ const dummyMeal = [
       'Heat the butter and oil in a large pan (allow the fat to get very hot) and fry the schnitzels until golden brown on both sides.',
       'Make sure to toss the pan regularly so that the schnitzels are surrounded by oil and the crumbing becomes ‘fluffy’.',
       'Remove, and drain on kitchen paper. Fry the parsley in the remaining oil and drain.',
-      'Place the schnitzels on awarmed plate and serve garnishedwith parsley and slices of lemon.'
+      'Place the schnitzels on awarmed plate and serve garnishedwith parsley and slices of lemon.',
     ],
     isGlutenFree: false,
     isVegan: false,
@@ -396,7 +394,7 @@ const dummyMeal = [
       'Dice the salmon',
       'Process mustard, vinegar and olive oil into a dessing',
       'Prepare the salad',
-      'Add salmon cubes and dressing'
+      'Add salmon cubes and dressing',
     ],
     isGlutenFree: true,
     isVegan: false,
@@ -405,10 +403,7 @@ const dummyMeal = [
   ),
   Meal(
     id: 'm6',
-    categories: [
-      'c6',
-      'c10',
-    ],
+    categories: ['c6', 'c10'],
     title: 'Delicious Orange Mousse',
     affordability: "Affordable",
     complexity: "Hard",
@@ -471,9 +466,7 @@ const dummyMeal = [
   ),
   Meal(
     id: 'm7',
-    categories: [
-      'c7',
-    ],
+    categories: ['c7'],
     title: 'Pancakes',
     affordability: "Affordable",
     complexity: "Simple",
@@ -527,7 +520,7 @@ const dummyMeal = [
       'In a large bowl, sift together the flour, baking powder, salt and sugar.',
       'Make a well in the center and pour in the milk, egg and melted butter; mix until smooth.',
       'Heat a lightly oiled griddle or frying pan over medium high heat.',
-      'Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake. Brown on both sides and serve hot.'
+      'Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake. Brown on both sides and serve hot.',
     ],
     isGlutenFree: true,
     isVegan: false,
@@ -536,9 +529,7 @@ const dummyMeal = [
   ),
   Meal(
     id: 'm8',
-    categories: [
-      'c8',
-    ],
+    categories: ['c8'],
     title: 'Creamy Indian Chicken Curry',
     affordability: "Pricey",
     complexity: "Challenging",
@@ -595,7 +586,7 @@ const dummyMeal = [
       'Add spices and stir fry',
       'Add chicken breast + 250ml of water and cook everything for 10 minutes',
       'Add coconut milk',
-      'Serve with rice'
+      'Serve with rice',
     ],
     isGlutenFree: true,
     isVegan: false,
@@ -604,9 +595,7 @@ const dummyMeal = [
   ),
   Meal(
     id: 'm9',
-    categories: [
-      'c9',
-    ],
+    categories: ['c9'],
     title: 'Chocolate Souffle',
     affordability: "Affordable",
     complexity: "Hard",
@@ -712,11 +701,7 @@ const dummyMeal = [
   ),
   Meal(
     id: 'm10',
-    categories: [
-      'c2',
-      'c5',
-      'c10',
-    ],
+    categories: ['c2', 'c5', 'c10'],
     title: 'Asparagus Salad with Cherry Tomatoes',
     affordability: "Luxurious",
     complexity: "Simple",
@@ -762,7 +747,7 @@ const dummyMeal = [
       'Roast the pine nuts',
       'Halve the tomatoes',
       'Mix with asparagus, salad and dressing',
-      'Serve with Baguette'
+      'Serve with Baguette',
     ],
     isGlutenFree: true,
     isVegan: true,

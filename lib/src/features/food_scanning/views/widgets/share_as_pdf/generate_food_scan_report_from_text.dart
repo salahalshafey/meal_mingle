@@ -28,9 +28,7 @@ Future<Uint8List> generateFoodScanReportPdfFromResultText(
           children: [
             _titleForRefrencingTheApp(),
             pw.SizedBox(height: 30),
-            pw.Center(
-              child: pw.Image(image, height: 300),
-            ),
+            pw.Center(child: pw.Image(image, height: 300)),
             pw.SizedBox(height: 40),
             _description(
               Strings.get.unveilingContentsAndCaloricBreakdown,
@@ -123,9 +121,10 @@ Future<pw.PageTheme> _myPageTheme(PdfPageFormat format) async {
       // icons: await PdfGoogleFonts.materialIcons(),
       fontFallback: [
         pw.Font.ttf(
-          await rootBundle
-              .load('assets/fonts/NotoSansArabic_Condensed-Regular.ttf'),
-        )
+          await rootBundle.load(
+            'assets/fonts/NotoSansArabic_Condensed-Regular.ttf',
+          ),
+        ),
       ],
     ),
     /* buildBackground: (pw.Context context) {
@@ -188,8 +187,9 @@ pw.Widget _description(String title, String description) {
     children: [
       pw.Text(
         title,
-        textDirection:
-            firstCharIsRtl(title) ? pw.TextDirection.rtl : pw.TextDirection.ltr,
+        textDirection: firstCharIsRtl(title)
+            ? pw.TextDirection.rtl
+            : pw.TextDirection.ltr,
         style: pw.TextStyle(fontSize: 22, fontWeight: pw.FontWeight.bold),
       ),
       pw.Divider(),
@@ -203,4 +203,5 @@ pw.Widget _description(String title, String description) {
     ],
   );
 }
+
 //

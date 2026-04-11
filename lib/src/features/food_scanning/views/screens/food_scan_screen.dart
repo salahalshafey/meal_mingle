@@ -46,9 +46,7 @@ class FoodScanScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: FittedBox(
-          child: Text('Scan Food With AI'.tr),
-        ),
+        title: FittedBox(child: Text('Scan Food With AI'.tr)),
         centerTitle: true,
       ),
       drawer: isWideScreen ? null : const MainDrawer(),
@@ -57,9 +55,7 @@ class FoodScanScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset("assets/images/food_scan.jpg"),
-            ],
+            children: [Image.asset("assets/images/food_scan.jpg")],
           ),
         ),
       ),
@@ -75,20 +71,14 @@ class FoodScanScreen extends StatelessWidget {
                 const AllFavoriteFoodScanScreen(),
               );
             }, // => _getImageAndGoToResultScreen(context),
-            child: const Icon(
-              Icons.favorite,
-              size: 30,
-            ),
+            child: const Icon(Icons.favorite, size: 30),
           ),
           const SizedBox(height: 20),
           FloatingActionButton(
             heroTag: null,
             tooltip: Strings.of(context).getImageToScan,
             onPressed: () => _getImageAndGoToResultScreen(context),
-            child: const Icon(
-              Icons.photo_camera,
-              size: 30,
-            ),
+            child: const Icon(Icons.photo_camera, size: 30),
           ),
         ].animate(interval: 25.ms).slideY(begin: 3),
       ),

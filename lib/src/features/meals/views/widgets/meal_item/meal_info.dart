@@ -23,23 +23,23 @@ class MealInfo extends StatelessWidget {
           children: [
             const Icon(Icons.schedule),
             const SizedBox(width: 6),
-            Text(minuteWithLocalization(duration))
+            Text(minuteWithLocalization(duration)),
           ],
         ),
         Row(
           children: [
             const Icon(Icons.work),
             const SizedBox(width: 6),
-            Text(complexity)
+            Text(complexity),
           ],
         ),
         Row(
           children: [
             const Icon(Icons.attach_money_rounded),
             const SizedBox(width: 6),
-            Text(affordability)
+            Text(affordability),
           ],
-        )
+        ),
       ],
     );
   }

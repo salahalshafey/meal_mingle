@@ -6,10 +6,7 @@ import '../../../data/models/ingredient.dart';
 import '../../../data/models/mesauring_icon_icons.dart';
 
 class IngredientItem extends StatelessWidget {
-  const IngredientItem({
-    super.key,
-    required this.ingredient,
-  });
+  const IngredientItem({super.key, required this.ingredient});
 
   final Ingredient ingredient;
 
@@ -79,7 +76,7 @@ class IngredientItem extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

@@ -17,12 +17,14 @@ class CategoriesScreen extends StatelessWidget {
         mainAxisExtent: 210,
       ),
       children: dummyData
-          .map((catData) => CategoryItem(
-                catData.title,
-                catData.color,
-                catData.id,
-                catData.image,
-              ))
+          .map(
+            (catData) => CategoryItem(
+              catData.title,
+              catData.color,
+              catData.id,
+              catData.image,
+            ),
+          )
           .toList(),
     );
   }

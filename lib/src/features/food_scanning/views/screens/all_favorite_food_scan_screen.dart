@@ -14,23 +14,19 @@ class AllFavoriteFoodScanScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: const CustomBackButton(),
-      ),
+      appBar: AppBar(leading: const CustomBackButton()),
       body: FutureBuilder(
-        future: Provider.of<FavoritesFoodScan>(context, listen: false)
-            .fetchAllFavorites(),
+        future: Provider.of<FavoritesFoodScan>(
+          context,
+          listen: false,
+        ).fetchAllFavorites(),
         builder: (ctx, snapshot) {
           if (snapshot.hasError) {
-            return Center(
-              child: Text(snapshot.error.toString()),
-            );
+            return Center(child: Text(snapshot.error.toString()));
           }
 
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
+            return const Center(child: CircularProgressIndicator());
           }
 
           final allFavorites = Provider.of<FavoritesFoodScan>(ctx).allFavorites;
@@ -109,7 +105,7 @@ class _AllFavoritesGridState extends State<AllFavoritesGrid> {
 ///////
 ////
 
-   /* return GridView.builder(
+/* return GridView.builder(
             itemCount: allFavorites.length,
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 800,

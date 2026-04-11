@@ -6,10 +6,7 @@ import '../../../../core/util/widgets/note_description.dart';
 import 'customized_markdown.dart';
 
 class OverviewResult extends StatelessWidget {
-  const OverviewResult({
-    super.key,
-    required this.result,
-  });
+  const OverviewResult({super.key, required this.result});
 
   final String result;
 
@@ -17,8 +14,10 @@ class OverviewResult extends StatelessWidget {
   Widget build(BuildContext context) {
     //  style: Theme.of(context).textTheme.bodyLarge,
     return SingleChildScrollView(
-      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10)
-          .add(const EdgeInsets.only(bottom: 120)),
+      padding: const EdgeInsets.symmetric(
+        vertical: 20,
+        horizontal: 10,
+      ).add(const EdgeInsets.only(bottom: 120)),
       child: NoteDescription(
         icon: Icon(
           Icons.description,

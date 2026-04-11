@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' as intl;
 
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
+import '../../../../l10n/generated/app_localizations.dart';
 import '../../../app.dart';
 import 'nouns_in_diff_languages.dart';
 //import 'nouns_in_diff_languages.dart';
@@ -115,8 +114,10 @@ String wellFormattedDateTime(DateTime date, {bool seperateByLine = false}) {
 ///
 /// * if [seperateByLine] = `true`, the time `02:30 PM` will be in new line.
 
-String wellFormattedDateTimeLong(DateTime dateTime,
-    {bool seperateByLine = false}) {
+String wellFormattedDateTimeLong(
+  DateTime dateTime, {
+  bool seperateByLine = false,
+}) {
   final date = intl.DateFormat(
     "EEEE, d MMMM, y",
     Localizations.localeOf(_context).languageCode,
@@ -136,13 +137,8 @@ String wellFormattedDateWithoutDay(DateTime dateTime) {
   ).format(dateTime);
 }
 
-DateTime getCurrentDateTimeremovedMinutesAndSeconds() =>
-    DateTime.now().copyWith(
-      minute: 0,
-      second: 0,
-      millisecond: 0,
-      microsecond: 0,
-    );
+DateTime getCurrentDateTimeremovedMinutesAndSeconds() => DateTime.now()
+    .copyWith(minute: 0, second: 0, millisecond: 0, microsecond: 0);
 
 String formatedDuration(Duration time) {
   // print(time.toString());

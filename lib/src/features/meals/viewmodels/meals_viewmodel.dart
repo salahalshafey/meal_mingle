@@ -44,16 +44,19 @@ class MealsViewModelImpl implements MealsViewModel {
 
       final imageLinks = await Future.wait([
         foodImageService.getImageLink(mealWithoutImages.imageUrl, 1024),
-        ...imagesNameInEnglish
-            .map((imageName) => foodImageService.getImageLink(imageName, 120)),
+        ...imagesNameInEnglish.map(
+          (imageName) => foodImageService.getImageLink(imageName, 120),
+        ),
       ]);
 
       final mealImageUrl = imageLinks.first;
 
       int imagesIndex = 1;
       final ingredientsWithImages = mealWithoutImages.ingredients
-          .map((ingredient) =>
-              ingredient.copyWith(ingredientImage: imageLinks[imagesIndex++]))
+          .map(
+            (ingredient) =>
+                ingredient.copyWith(ingredientImage: imageLinks[imagesIndex++]),
+          )
           .toList();
 
       return mealWithoutImages.copyWith(

@@ -8,8 +8,11 @@ import '../../../../core/error/exceptions_without_message.dart';
 import 'api_keys.dart';
 
 abstract class FoodScanningService {
-  Future<String> getResult(String imagePath,
-      [String? foodOverview, String? question]);
+  Future<String> getResult(
+    String imagePath, [
+    String? foodOverview,
+    String? question,
+  ]);
 }
 
 class FoodScanningGeminiProVisionImpl implements FoodScanningService {
@@ -30,22 +33,16 @@ class FoodScanningGeminiProVisionImpl implements FoodScanningService {
         "parts": [
           {
             "text":
-                Strings.get.actAsANutritionistWithYearsOfExperienceInTheField
+                Strings.get.actAsANutritionistWithYearsOfExperienceInTheField,
           },
           {
             "inlineData": {
               "mimeType": "image/${getImageFormatOrExtention(imagePath)}",
-              "data": base64Encode(File(imagePath).readAsBytesSync())
-            }
+              "data": base64Encode(File(imagePath).readAsBytesSync()),
+            },
           },
-          if (foodOverview != null)
-            {
-              "text": foodOverview,
-            },
-          if (question != null)
-            {
-              "text": question,
-            },
+          if (foodOverview != null) {"text": foodOverview},
+          if (question != null) {"text": question},
         ],
       },
     ];
@@ -55,26 +52,26 @@ class FoodScanningGeminiProVisionImpl implements FoodScanningService {
       "topK": 32,
       "topP": 1,
       "maxOutputTokens": 4096,
-      "stopSequences": []
+      "stopSequences": [],
     };
 
     final safetySettings = [
       {
         "category": "HARM_CATEGORY_HARASSMENT",
-        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE",
       },
       {
         "category": "HARM_CATEGORY_HATE_SPEECH",
-        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE",
       },
       {
         "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE",
       },
       {
         "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
-        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
-      }
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE",
+      },
     ];
 
     final requestData = {

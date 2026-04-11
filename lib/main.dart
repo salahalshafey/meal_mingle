@@ -17,10 +17,7 @@ import 'src/app.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Future.wait([
-    di.init(),
-    _initHiveBoxes(),
-  ]);
+  await Future.wait([di.init(), _initHiveBoxes()]);
 
   runApp(
     MultiProvider(

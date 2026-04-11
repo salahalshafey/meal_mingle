@@ -25,7 +25,8 @@ class FoodImageWikipediaScrapingImpl implements FoodImageService {
           : "Special:Search";
 
       final url = Uri.parse(
-          'https://$lang.wikipedia.org/w/index.php?search=$searchKey&title=$searchHeaderTitle&profile=advanced&fulltext=1&ns0=1');
+        'https://$lang.wikipedia.org/w/index.php?search=$searchKey&title=$searchHeaderTitle&profile=advanced&fulltext=1&ns0=1',
+      );
 
       final headers = {
         'User-Agent':
@@ -41,15 +42,18 @@ class FoodImageWikipediaScrapingImpl implements FoodImageService {
       }
 
       final html = dom.Document.html(response.body);
-      final targetElements =
-          html.getElementsByClassName("searchResultImage-thumbnail");
+      final targetElements = html.getElementsByClassName(
+        "searchResultImage-thumbnail",
+      );
 
       final images = targetElements
           .map((element) => element.children[0].children[0].attributes['src'])
           .toList();
 
-      final imageLink =
-          images.firstWhere((image) => image != null, orElse: () => null);
+      final imageLink = images.firstWhere(
+        (image) => image != null,
+        orElse: () => null,
+      );
 
       final scaledImage = _scaleWikipediaImage(imageLink, squareDimension);
 

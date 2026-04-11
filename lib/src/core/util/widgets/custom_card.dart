@@ -61,10 +61,7 @@ class _CustomCardState extends State<CustomCard> {
         borderRadius: widget.borderRadius,
         onHighlightChanged: _onHighlightChanged,
         onTap: widget.onTap,
-        child: Padding(
-          padding: widget.padding,
-          child: widget.child,
-        ),
+        child: Padding(padding: widget.padding, child: widget.child),
       ),
     );
   }

@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../../l10n/generated/app_localizations.dart';
 
 class CustomBackButton extends StatelessWidget {
-  const CustomBackButton({
-    super.key,
-    this.includeBackgroundColor = false,
-  });
+  const CustomBackButton({super.key, this.includeBackgroundColor = false});
 
   final bool includeBackgroundColor;
   @override
@@ -19,7 +16,8 @@ class CustomBackButton extends StatelessWidget {
       style: includeBackgroundColor
           ? ButtonStyle(
               backgroundColor: WidgetStatePropertyAll(
-                  Theme.of(context).colorScheme.primary.withOpacity(0.5)),
+                Theme.of(context).colorScheme.primary.withValues(alpha: 0.5),
+              ),
             )
           : null,
       onPressed: () => Navigator.of(context).pop(),

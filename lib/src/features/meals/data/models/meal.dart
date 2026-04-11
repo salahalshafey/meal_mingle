@@ -69,26 +69,26 @@ class Meal {
   });
 
   factory Meal.fromJson(Map<String, dynamic> json) => Meal(
-        id: DateTime.now().hashCode.toString(),
-        categories: [],
-        mealLanguageCode: json["language"],
-        title: json['name'] as String,
-        imageUrl: json['name_in_english'] ?? "",
-        ingredients: (json['ingredients'] as List<dynamic>)
-            .map((e) => Ingredient.fromJson(e as Map<String, dynamic>))
-            .toList(),
-        steps: (json['instructions'] as List<dynamic>)
-            .map((e) => e as String)
-            .toList(),
-        duration: json['duration_in_minutes'] as int,
-        complexity: json['complexity'] as String,
-        affordability: json['affordability'] as String,
-        isGlutenFree: json['isGlutenFree'] ?? false,
-        isLactoseFree: json['isLactoseFree'] ?? false,
-        isVegan: json['isVegan'] ?? false,
-        isVegetarian: json['isVegetarian'] ?? false,
-        timeOfSavingToFavorites: DateTime.now(),
-      );
+    id: DateTime.now().hashCode.toString(),
+    categories: [],
+    mealLanguageCode: json["language"],
+    title: json['name'] as String,
+    imageUrl: json['name_in_english'] ?? "",
+    ingredients: (json['ingredients'] as List<dynamic>)
+        .map((e) => Ingredient.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    steps: (json['instructions'] as List<dynamic>)
+        .map((e) => e as String)
+        .toList(),
+    duration: json['duration_in_minutes'] as int,
+    complexity: json['complexity'] as String,
+    affordability: json['affordability'] as String,
+    isGlutenFree: json['isGlutenFree'] ?? false,
+    isLactoseFree: json['isLactoseFree'] ?? false,
+    isVegan: json['isVegan'] ?? false,
+    isVegetarian: json['isVegetarian'] ?? false,
+    timeOfSavingToFavorites: DateTime.now(),
+  );
 
   Meal copyWith({
     String? id,
@@ -128,14 +128,6 @@ class Meal {
   }
 }
 
-enum Complexity {
-  simple,
-  challenging,
-  hard,
-}
+enum Complexity { simple, challenging, hard }
 
-enum Affordability {
-  affordable,
-  pricey,
-  luxurious,
-}
+enum Affordability { affordable, pricey, luxurious }

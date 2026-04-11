@@ -21,17 +21,15 @@ class FoodScanResultScreen extends StatelessWidget {
       builder: (ctx, child) => Scaffold(
         body: FutureBuilder(
           key: UniqueKey(),
-          future: Provider.of<FoodScan>(ctx, listen: false)
-              .getFoodOverview(imagePath),
+          future: Provider.of<FoodScan>(
+            ctx,
+            listen: false,
+          ).getFoodOverview(imagePath),
           builder: (ctx, snapshot) {
             if (snapshot.hasError) {
               return Scaffold(
                 appBar: AppBar(leading: const CustomBackButton()),
-                body: Center(
-                  child: Text(
-                    snapshot.error.toString(),
-                  ),
-                ),
+                body: Center(child: Text(snapshot.error.toString())),
               );
             }
 

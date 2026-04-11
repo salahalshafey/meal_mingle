@@ -41,14 +41,15 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          elevation: 3,
-          leading: const CustomBackButton(),
-          title: Text(
-            'These Are Some $categoryTitle Recepies',
-            style: Theme.of(context).textTheme.titleSmall,
-            textScaler: const TextScaler.linear(0.8),
-          )),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        elevation: 3,
+        leading: const CustomBackButton(),
+        title: Text(
+          'These Are Some $categoryTitle Recepies',
+          style: Theme.of(context).textTheme.titleSmall,
+          textScaler: const TextScaler.linear(0.8),
+        ),
+      ),
       body: GridView.builder(
         itemCount: displayMeals.length,
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(

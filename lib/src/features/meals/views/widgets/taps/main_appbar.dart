@@ -27,7 +27,7 @@ class MainAppBar extends StatelessWidget {
               TextSpan(
                 text: Strings.of(context).whatDoYouWantToEat.toUpperCase(),
                 style: Theme.of(context).textTheme.titleSmall,
-              )
+              ),
             ],
           ),
           textScaler: const TextScaler.linear(0.7),
@@ -74,10 +74,7 @@ class MainAppBar extends StatelessWidget {
               ),
               child: Text(
                 Strings.of(context).categories.toUpperCase(),
-                style: const TextStyle(
-                  fontFamily: 'Metrophobic',
-                  fontSize: 18,
-                ),
+                style: const TextStyle(fontFamily: 'Metrophobic', fontSize: 18),
               ),
             ),
           ),
@@ -92,13 +89,10 @@ class MainAppBar extends StatelessWidget {
               ),
               child: Text(
                 Strings.of(context).favorites.toUpperCase(),
-                style: const TextStyle(
-                  fontFamily: 'Metrophobic',
-                  fontSize: 18,
-                ),
+                style: const TextStyle(fontFamily: 'Metrophobic', fontSize: 18),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

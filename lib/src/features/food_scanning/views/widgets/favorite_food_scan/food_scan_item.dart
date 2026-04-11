@@ -28,10 +28,9 @@ class FoodScanItem extends StatelessWidget {
       elevation: 10,
       margin: const EdgeInsets.all(15),
       onTap: () {
-        Navigator.of(context).pushNamed(
-          FavoriteFoodScanScreen.routeName,
-          arguments: favoriteId,
-        );
+        Navigator.of(
+          context,
+        ).pushNamed(FavoriteFoodScanScreen.routeName, arguments: favoriteId);
       },
       child: Column(
         children: [

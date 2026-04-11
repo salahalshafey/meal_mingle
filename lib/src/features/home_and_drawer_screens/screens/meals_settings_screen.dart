@@ -31,8 +31,10 @@ class MealsSettingsScreen extends StatelessWidget {
         ),
         actions: [
           ResetButton(
-            reset: Provider.of<MealsSettings>(context, listen: false)
-                .resetMealsSettings,
+            reset: Provider.of<MealsSettings>(
+              context,
+              listen: false,
+            ).resetMealsSettings,
           ),
         ],
       ),
@@ -52,8 +54,9 @@ class MealsSettingsScreen extends StatelessWidget {
           ),
           CusomSwitch(
             title: Strings.of(context).glutenfree,
-            subtitle: Strings.of(context)
-                .displayMealTypeMeals(Strings.of(context).glutenfree),
+            subtitle: Strings.of(
+              context,
+            ).displayMealTypeMeals(Strings.of(context).glutenfree),
             currentValue: provider.isGlutenFree,
             onChanged: (newValue) {
               provider.isGlutenFree = newValue;
@@ -63,8 +66,9 @@ class MealsSettingsScreen extends StatelessWidget {
           ),
           CusomSwitch(
             title: Strings.of(context).lactosefree,
-            subtitle: Strings.of(context)
-                .displayMealTypeMeals(Strings.of(context).lactosefree),
+            subtitle: Strings.of(
+              context,
+            ).displayMealTypeMeals(Strings.of(context).lactosefree),
             currentValue: provider.isLactoseFree,
             onChanged: (newValue) {
               provider.isLactoseFree = newValue;
@@ -74,8 +78,9 @@ class MealsSettingsScreen extends StatelessWidget {
           ),
           CusomSwitch(
             title: Strings.of(context).vegetarian,
-            subtitle: Strings.of(context)
-                .displayMealTypeMeals(Strings.of(context).vegetarian),
+            subtitle: Strings.of(
+              context,
+            ).displayMealTypeMeals(Strings.of(context).vegetarian),
             currentValue: provider.isVegetarian,
             onChanged: (newValue) {
               provider.isVegetarian = newValue;
@@ -85,8 +90,9 @@ class MealsSettingsScreen extends StatelessWidget {
           ),
           CusomSwitch(
             title: Strings.of(context).vegan,
-            subtitle: Strings.of(context)
-                .displayMealTypeMeals(Strings.of(context).vegan),
+            subtitle: Strings.of(
+              context,
+            ).displayMealTypeMeals(Strings.of(context).vegan),
             currentValue: provider.isVegan,
             onChanged: (newValue) {
               provider.isVegan = newValue;

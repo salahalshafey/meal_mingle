@@ -30,25 +30,26 @@ class ResultInfo extends StatelessWidget {
     return Scaffold(
       floatingActionButton: Column(
         mainAxisSize: MainAxisSize.min,
-        children: [
-          Consumer<FoodScan>(
-            builder: (context, provider, child) {
-              return ShareFoodScanningResultButton(
-                FoodScanningResultModel(
-                  id: DateTime.now().hashCode.toString(),
-                  dateTime: DateTime.now(),
-                  imagePath: imagePath,
-                  resultOverview: overviewResult,
-                  questionsResults: provider.questionsResults,
-                ),
-              );
-            },
-          ),
-          const SizedBox(height: 20),
-          const SaveFoodScanningResultButton(),
-        ]
-            .animate(delay: 500.ms, interval: 50.ms)
-            .slideX(begin: appCurrentDirectionalityIsRtl() ? -1.5 : 1.5),
+        children:
+            [
+                  Consumer<FoodScan>(
+                    builder: (context, provider, child) {
+                      return ShareFoodScanningResultButton(
+                        FoodScanningResultModel(
+                          id: DateTime.now().hashCode.toString(),
+                          dateTime: DateTime.now(),
+                          imagePath: imagePath,
+                          resultOverview: overviewResult,
+                          questionsResults: provider.questionsResults,
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 20),
+                  const SaveFoodScanningResultButton(),
+                ]
+                .animate(delay: 500.ms, interval: 50.ms)
+                .slideX(begin: appCurrentDirectionalityIsRtl() ? -1.5 : 1.5),
       ),
       //  floatingActionButtonLocation:
       // FloatingActionButtonLocation.startFloat, ///// remove this
@@ -57,17 +58,16 @@ class ResultInfo extends StatelessWidget {
         child: NestedScrollView(
           floatHeaderSlivers: true,
           headerSliverBuilder: (context, innerBoxIsScrolled) {
-            return [
-              ImageAndChoicesAppbar(imagePath: imagePath),
-            ];
+            return [ImageAndChoicesAppbar(imagePath: imagePath)];
           },
           body: TabBarView(
             children: [
               OverviewResult(result: overviewResult),
               ChoiceResult(
                 questionIndex: 0,
-                title:
-                    Strings.of(context).healthinessAndBenefitsOfFeaturedFoods,
+                title: Strings.of(
+                  context,
+                ).healthinessAndBenefitsOfFeaturedFoods,
                 icon: Icons.health_and_safety,
               ),
               ChoiceResult(

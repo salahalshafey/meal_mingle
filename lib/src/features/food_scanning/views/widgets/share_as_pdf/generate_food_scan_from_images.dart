@@ -25,10 +25,7 @@ Future<Uint8List> generateFoodScanReportPdfAfterConvertingResultsToImages(
   final foodImage = pw.MemoryImage(File(fileImagePath).readAsBytesSync());
 
   final resultImages = await _convertquestionsResultsToImages(
-    [
-      resultOverview,
-      ...questionsResults,
-    ],
+    [resultOverview, ...questionsResults],
     [
       Strings.get.unveilingContentsAndCaloricBreakdown,
       Strings.get.healthinessAndBenefitsOfFeaturedFoods,
@@ -53,9 +50,7 @@ Future<Uint8List> generateFoodScanReportPdfAfterConvertingResultsToImages(
           children: [
             _titleForRefrencingTheApp(),
             pw.SizedBox(height: 30),
-            pw.Center(
-              child: pw.Image(foodImage, height: 500),
-            ),
+            pw.Center(child: pw.Image(foodImage, height: 500)),
           ],
         );
       },
@@ -100,9 +95,10 @@ Future<pw.PageTheme> _myPageTheme(PdfPageFormat format) async {
     theme: pw.ThemeData.withFont(
       fontFallback: [
         pw.Font.ttf(
-          await rootBundle
-              .load('assets/fonts/NotoSansArabic_Condensed-Regular.ttf'),
-        )
+          await rootBundle.load(
+            'assets/fonts/NotoSansArabic_Condensed-Regular.ttf',
+          ),
+        ),
       ],
     ),
   );
@@ -117,11 +113,9 @@ Future<List<Uint8List>> _convertquestionsResultsToImages(
 
   for (int i = 0; i < questionsResults.length; i++) {
     if (questionsResults[i] != null) {
-      result.add(_getImageFromWidget(
-        titles[i],
-        questionsResults[i]!,
-        icons[i],
-      ));
+      result.add(
+        _getImageFromWidget(titles[i], questionsResults[i]!, icons[i]),
+      );
     }
   }
 
@@ -189,11 +183,7 @@ Future<Uint8List> _getImageFromWidget(
 }
 
 class _DescriptionWidget extends StatelessWidget {
-  const _DescriptionWidget(
-    this.title,
-    this.description,
-    this.icon,
-  );
+  const _DescriptionWidget(this.title, this.description, this.icon);
 
   final String title;
   final String description;

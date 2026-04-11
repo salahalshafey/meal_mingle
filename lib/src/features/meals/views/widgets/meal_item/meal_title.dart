@@ -13,16 +13,10 @@ class MealTitle extends StatelessWidget {
         color: Colors.black54,
       ),
       width: 300,
-      padding: const EdgeInsets.symmetric(
-        horizontal: 30,
-        vertical: 5,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
       child: Text(
         title,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 24,
-        ),
+        style: const TextStyle(color: Colors.white, fontSize: 24),
         softWrap: true,
         overflow: TextOverflow.fade,
       ),

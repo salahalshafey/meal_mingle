@@ -20,10 +20,7 @@ class RecipeStepItem extends StatelessWidget {
             foregroundColor: Colors.white,
             child: Text('# $stepNumber'),
           ),
-          title: Text(
-            step,
-            style: Theme.of(context).textTheme.displaySmall,
-          ),
+          title: Text(step, style: Theme.of(context).textTheme.displaySmall),
         ),
         const Divider(),
       ],

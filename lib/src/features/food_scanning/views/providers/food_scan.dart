@@ -30,16 +30,12 @@ class FoodScan with ChangeNotifier {
     Strings.get.isThisFoodConsideredHealthyExplainTheBenefits,
     Strings.get.pleaseGiveMeTheFollowingNutritionFacts,
     Strings.get.pleaseAnswerTheFollowingnDoesThisFoodContain,
-    Strings.get
+    Strings
+        .get
         .howToPrepareThisFoodnnifThereIsMoreThanOneItemGiveTheResultForEachItem,
   ];
 
-  final List<String?> _questionsResults = [
-    null,
-    null,
-    null,
-    null,
-  ];
+  final List<String?> _questionsResults = [null, null, null, null];
 
   List<String?> get questionsResults => [..._questionsResults];
 
@@ -67,12 +63,12 @@ class FoodScan with ChangeNotifier {
     }
 
     try {
-      _questionsResults[questionIndex] =
-          await foodScanningViewModel.foodMoreDetails(
-        _imagePath,
-        _resultOverview,
-        _questionsChoices[questionIndex],
-      );
+      _questionsResults[questionIndex] = await foodScanningViewModel
+          .foodMoreDetails(
+            _imagePath,
+            _resultOverview,
+            _questionsChoices[questionIndex],
+          );
 
       notifyListeners();
 
@@ -149,7 +145,8 @@ class FoodScan with ChangeNotifier {
       throw ErrorMessage(Strings.get.notAbleToSaveDataToLocalDevice);
     } on LocalStorageException {
       throw ErrorMessage(
-          Strings.get.notAbleToDeleteFilesFromLocalDeviceStorage);
+        Strings.get.notAbleToDeleteFilesFromLocalDeviceStorage,
+      );
     } catch (error) {
       throw ErrorMessage(Strings.get.unexpectedErrorHappened);
     }

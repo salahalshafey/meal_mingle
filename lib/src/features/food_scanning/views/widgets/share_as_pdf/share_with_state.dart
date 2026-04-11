@@ -1,5 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -30,7 +28,7 @@ class _ShareWithStateState extends State<ShareWithState> {
       'C:\\Users\\${Platform.environment['USERPROFILE']!.split('\\').last}\\Desktop';
 
   Future<void> _shareThePdf(String pdfFilePath) async {
-    await Share.shareXFiles([XFile(pdfFilePath)]);
+    await SharePlus.instance.share(ShareParams(files: [XFile(pdfFilePath)]));
   }
 
   void _convertTheDataToPdfAndShare() async {
@@ -45,11 +43,11 @@ class _ShareWithStateState extends State<ShareWithState> {
 
       final pdfbytes =
           await generateFoodScanReportPdfAfterConvertingResultsToImages(
-        PdfPageFormat.a4,
-        fileImagePath: widget.dataToShare.imagePath,
-        resultOverview: widget.dataToShare.resultOverview,
-        questionsResults: widget.dataToShare.questionsResults,
-      );
+            PdfPageFormat.a4,
+            fileImagePath: widget.dataToShare.imagePath,
+            resultOverview: widget.dataToShare.resultOverview,
+            questionsResults: widget.dataToShare.questionsResults,
+          );
 
       if (Platform.isWindows) {
         setState(() {
@@ -63,7 +61,9 @@ class _ShareWithStateState extends State<ShareWithState> {
         final desktopFilePath = File("$desktopPath\\$pdfName");
         await desktopFilePath.writeAsBytes(pdfbytes);
 
-        Navigator.of(context).pop();
+        if (mounted) {
+          Navigator.of(context).pop();
+        }
         await _shareThePdf(desktopFilePath.path);
 
         return;
@@ -82,7 +82,9 @@ class _ShareWithStateState extends State<ShareWithState> {
       final pdfFile = File("${tempDir.path}/$pdfName");
       await pdfFile.writeAsBytes(pdfbytes);
 
-      Navigator.of(context).pop();
+      if (mounted) {
+        Navigator.of(context).pop();
+      }
       await _shareThePdf(pdfFile.path);
     } catch (error) {
       setState(() {
@@ -141,10 +143,7 @@ class _ShareWithStateState extends State<ShareWithState> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(
-          _iconState,
-          color: _errorHappened ? Colors.red : null,
-        ),
+        Icon(_iconState, color: _errorHappened ? Colors.red : null),
         const SizedBox(height: 20),
         Text(_stringState, textAlign: TextAlign.center),
         const SizedBox(height: 40),

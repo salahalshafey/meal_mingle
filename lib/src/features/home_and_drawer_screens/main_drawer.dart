@@ -77,8 +77,8 @@ class MainDrawer extends StatelessWidget {
             onTap: () {
               //  Scaffold.of(context).closeDrawer();
 
-              Share.share(
-                Strings.of(context).shareTheAppText,
+              SharePlus.instance.share(
+                ShareParams(text: Strings.of(context).shareTheAppText),
               );
             },
           ),
@@ -89,7 +89,8 @@ class MainDrawer extends StatelessWidget {
               //  goToScreenWithSlideTransition(context ,  SettingsScreen());
               launchUrl(
                 Uri.parse(
-                    "https://sites.google.com/view/aimealmingle-privacypolicy"),
+                  "https://sites.google.com/view/aimealmingle-privacypolicy",
+                ),
                 mode: LaunchMode.externalApplication,
               );
             },
@@ -117,20 +118,9 @@ class DrawerItem extends StatelessWidget {
     return Column(
       children: [
         ListTile(
-          leading: Icon(
-            icon,
-            size: 25,
-          ),
-          title: Text(
-            title,
-            style: const TextStyle(
-              fontSize: 24,
-            ),
-          ),
-          trailing: const Icon(
-            Icons.arrow_right_rounded,
-            size: 25,
-          ),
+          leading: Icon(icon, size: 25),
+          title: Text(title, style: const TextStyle(fontSize: 24)),
+          trailing: const Icon(Icons.arrow_right_rounded, size: 25),
           onTap: onTap,
         ),
         const Divider(height: 16, thickness: 1),

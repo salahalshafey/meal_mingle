@@ -7,9 +7,7 @@ import '../../../../../core/util/builders/custom_snack_bar.dart';
 import '../../providers/food_scan.dart';
 
 class SaveFoodScanningResultButton extends StatelessWidget {
-  const SaveFoodScanningResultButton({
-    super.key,
-  });
+  const SaveFoodScanningResultButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +19,10 @@ class SaveFoodScanningResultButton extends StatelessWidget {
           ? Strings.of(context).removeFromFavorites
           : Strings.of(context).saveToFavorites,
       onPressed: () {
-        provider.toggleFavorite().onError((error, stackTrace) =>
-            showCustomSnackBar(context: context, content: error.toString()));
+        provider.toggleFavorite().onError((error, stackTrace) {
+          if (!context.mounted) return;
+          showCustomSnackBar(context: context, content: error.toString());
+        });
       },
       child: Icon(
         provider.isFavorite

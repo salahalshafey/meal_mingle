@@ -25,8 +25,9 @@ class FavoriteFoodScanningHiveImpl
       }
 
       return _favoritesBox.keys
-          .map((key) =>
-              FoodScanningResultModel.fromJson(_favoritesBox.get(key)!))
+          .map(
+            (key) => FoodScanningResultModel.fromJson(_favoritesBox.get(key)!),
+          )
           .toList();
     } catch (error) {
       throw LocalDataException();
@@ -35,10 +36,13 @@ class FavoriteFoodScanningHiveImpl
 
   @override
   Future<void> saveToFavoirte(
-      FoodScanningResultModel foodScanningResultModel) async {
+    FoodScanningResultModel foodScanningResultModel,
+  ) async {
     try {
       await _favoritesBox.put(
-          foodScanningResultModel.id, foodScanningResultModel.toJson());
+        foodScanningResultModel.id,
+        foodScanningResultModel.toJson(),
+      );
     } catch (error) {
       throw LocalDataException();
     }
@@ -47,8 +51,9 @@ class FavoriteFoodScanningHiveImpl
   @override
   Future<FoodScanningResultModel> deleteFavorite(String id) async {
     try {
-      final deletedFavorite =
-          FoodScanningResultModel.fromJson(_favoritesBox.get(id)!);
+      final deletedFavorite = FoodScanningResultModel.fromJson(
+        _favoritesBox.get(id)!,
+      );
 
       await _favoritesBox.delete(id);
 

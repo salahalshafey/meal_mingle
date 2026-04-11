@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
+import '../../../../l10n/generated/app_localizations.dart';
 import '../widgets/text_well_formatted.dart';
 
 /// * [titleColor] if null it will be Colors.red.shade900
@@ -22,8 +21,12 @@ Future<T?> showCustomAlretDialog<T>({
   double contentFontSize = 16.0,
   EdgeInsetsGeometry contentPadding = const EdgeInsets.all(10),
   EdgeInsetsGeometry actionsPadding = const EdgeInsets.all(10),
-  EdgeInsetsGeometry titlePadding =
-      const EdgeInsetsDirectional.only(start: 20, end: 10, top: 10, bottom: 10),
+  EdgeInsetsGeometry titlePadding = const EdgeInsetsDirectional.only(
+    start: 20,
+    end: 10,
+    top: 10,
+    bottom: 10,
+  ),
   Widget? contentWidget,
   Color? titleColor,
   Widget? icon,
@@ -54,11 +57,11 @@ Future<T?> showCustomAlretDialog<T>({
           actionsPadding: actionsPadding,
           icon: showIconAboveTitle
               ? icon ??
-                  Icon(
-                    Icons.warning_rounded,
-                    size: 55,
-                    color: titleColor ?? Colors.red.shade900,
-                  )
+                    Icon(
+                      Icons.warning_rounded,
+                      size: 55,
+                      color: titleColor ?? Colors.red.shade900,
+                    )
               : null,
           title: showIconAboveTitle
               ? Text(
@@ -77,8 +80,9 @@ Future<T?> showCustomAlretDialog<T>({
                     Expanded(
                       child: Text(
                         title,
-                        style:
-                            TextStyle(color: titleColor ?? Colors.red.shade900),
+                        style: TextStyle(
+                          color: titleColor ?? Colors.red.shade900,
+                        ),
                       ),
                     ),
                   ],
@@ -105,9 +109,7 @@ Future<T?> showCustomAlretDialog<T>({
               TextButton(
                 child: Text(
                   AppLocalizations.of(context)!.ok,
-                  style: TextStyle(
-                    color: titleColor ?? Colors.red.shade900,
-                  ),
+                  style: TextStyle(color: titleColor ?? Colors.red.shade900),
                 ),
                 onPressed: () {
                   Navigator.of(dialogContext).pop();
@@ -116,7 +118,8 @@ Future<T?> showCustomAlretDialog<T>({
             else
               ...actionsBuilder(dialogContext),
           ],
-          actionsAlignment: actionsBuilder == null ||
+          actionsAlignment:
+              actionsBuilder == null ||
                   actionsBuilder(dialogContext).length == 1
               ? null
               : MainAxisAlignment.spaceAround,

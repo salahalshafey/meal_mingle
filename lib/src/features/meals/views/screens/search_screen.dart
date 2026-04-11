@@ -40,10 +40,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: SearchField(
-          controller: _controller,
-          setMealName: _setMealName,
-        ),
+        title: SearchField(controller: _controller, setMealName: _setMealName),
         centerTitle: true,
         actions: [
           SearchIcon(mealName: _controller.text, setMealName: _setMealName),
@@ -51,9 +48,7 @@ class _SearchScreenState extends State<SearchScreen> {
       ),
       drawer: isWideScreen ? null : const MainDrawer(),
       body: _mealName == null
-          ? Center(
-              child: Image.asset("assets/images/search_meals.png"),
-            )
+          ? Center(child: Image.asset("assets/images/search_meals.png"))
           : MealSearchResult(_mealName!),
     );
   }

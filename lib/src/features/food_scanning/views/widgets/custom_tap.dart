@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomTap extends StatelessWidget {
-  const CustomTap(
-    this.title, {
-    super.key,
-  });
+  const CustomTap(this.title, {super.key});
 
   final String title;
 
@@ -22,10 +19,7 @@ class CustomTap extends StatelessWidget {
         child: FittedBox(
           child: Text(
             title,
-            style: const TextStyle(
-              fontFamily: 'Metrophobic',
-              fontSize: 18,
-            ),
+            style: const TextStyle(fontFamily: 'Metrophobic', fontSize: 18),
           ),
         ),
       ),

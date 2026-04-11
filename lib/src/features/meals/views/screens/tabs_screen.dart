@@ -24,8 +24,9 @@ class _TabsScreenState extends State<TabsScreen> {
       child: Scaffold(
         body: NestedScrollView(
           floatHeaderSlivers: true,
-          headerSliverBuilder: (context, innerBoxIsScrolled) =>
-              [MainAppBar(widget.jumpToSearchScreen)],
+          headerSliverBuilder: (context, innerBoxIsScrolled) => [
+            MainAppBar(widget.jumpToSearchScreen),
+          ],
           body: const TabBarView(
             children: [
               CategoriesScreen(key: PageStorageKey("CategoriesScreen")),

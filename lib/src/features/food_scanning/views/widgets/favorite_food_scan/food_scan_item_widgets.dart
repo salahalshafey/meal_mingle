@@ -37,10 +37,7 @@ class ScanImage extends StatelessWidget {
             return const SizedBox(
               height: 250,
               width: double.infinity,
-              child: Icon(
-                Icons.broken_image_rounded,
-                size: 55,
-              ),
+              child: Icon(Icons.broken_image_rounded, size: 55),
             );
           },
         ),
@@ -57,28 +54,24 @@ class ScanOverview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadiusDirectional.only(topEnd: Radius.circular(40)),
-        color: Colors.black54,
-      ),
-      width: 300,
-      // color: Colors.black45,
-      padding: const EdgeInsets.symmetric(
-        horizontal: 30,
-        vertical: 5,
-      ),
-      child: Text(
-        overview,
-        textDirection: getDirectionalityOf(overview),
-        maxLines: 3,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 24,
-        ),
-        softWrap: true,
-        overflow: TextOverflow.fade,
-      ),
-    )
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadiusDirectional.only(
+              topEnd: Radius.circular(40),
+            ),
+            color: Colors.black54,
+          ),
+          width: 300,
+          // color: Colors.black45,
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+          child: Text(
+            overview,
+            textDirection: getDirectionalityOf(overview),
+            maxLines: 3,
+            style: const TextStyle(color: Colors.white, fontSize: 24),
+            softWrap: true,
+            overflow: TextOverflow.fade,
+          ),
+        )
         .animate(delay: 300.ms)
         .slideX(
           duration: 500.ms,
@@ -89,11 +82,7 @@ class ScanOverview extends StatelessWidget {
 }
 
 class DeleteFromFavoriteButton extends StatelessWidget {
-  const DeleteFromFavoriteButton(
-    this.favoriteId,
-    this.removeItem, {
-    super.key,
-  });
+  const DeleteFromFavoriteButton(this.favoriteId, this.removeItem, {super.key});
 
   final void Function(int index) removeItem;
   final String favoriteId;
@@ -105,8 +94,9 @@ class DeleteFromFavoriteButton extends StatelessWidget {
       title: Strings.of(context).confirmRemove,
       titleColor: Colors.red,
       contentPadding: const EdgeInsets.all(20),
-      content: Strings.of(context)
-          .areYouSureYouWantToRemoveThisScanResultFromFavorites,
+      content: Strings.of(
+        context,
+      ).areYouSureYouWantToRemoveThisScanResultFromFavorites,
       actionsBuilder: (builderContext) => [
         TextButton(
           onPressed: () {
@@ -134,8 +124,10 @@ class DeleteFromFavoriteButton extends StatelessWidget {
     }
 
     try {
-      final index = await Provider.of<FavoritesFoodScan>(context, listen: false)
-          .deleteFavorite(favoriteId);
+      final index = await Provider.of<FavoritesFoodScan>(
+        context,
+        listen: false,
+      ).deleteFavorite(favoriteId);
 
       removeItem(index);
     } catch (error) {
@@ -146,20 +138,18 @@ class DeleteFromFavoriteButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 50,
-      height: 50,
-      child: FittedBox(
-        child: FloatingActionButton(
-            heroTag: null,
-            tooltip: Strings.of(context).removeFromFavorites,
-            // backgroundColor: Colors.white,
-            onPressed: () => _deleteFromFavorite(context),
-            child: const Icon(
-              Icons.favorite_rounded,
-              color: Colors.pink,
-            )),
-      ),
-    )
+          width: 50,
+          height: 50,
+          child: FittedBox(
+            child: FloatingActionButton(
+              heroTag: null,
+              tooltip: Strings.of(context).removeFromFavorites,
+              // backgroundColor: Colors.white,
+              onPressed: () => _deleteFromFavorite(context),
+              child: const Icon(Icons.favorite_rounded, color: Colors.pink),
+            ),
+          ),
+        )
         .animate(delay: 500.ms)
         .slideX(begin: appCurrentDirectionalityIsRtl() ? -1.5 : 1.5)
         .fade();
@@ -196,24 +186,24 @@ class NumberOfQuestionResultsChecked extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final questionsResults =
-        Provider.of<FavoritesFoodScan>(context, listen: false)
-            .getFavoriteById(favoriteId)
-            .questionsResults;
+    final questionsResults = Provider.of<FavoritesFoodScan>(
+      context,
+      listen: false,
+    ).getFavoriteById(favoriteId).questionsResults;
 
     return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: questionsResults
-          .map(
-            (result) => result == null
-                ? const Icon(Icons.check)
-                : Icon(
-                    Icons.check,
-                    color: Theme.of(context).colorScheme.primary,
-                  ),
-          )
-          .toList(),
-    )
+          mainAxisSize: MainAxisSize.min,
+          children: questionsResults
+              .map(
+                (result) => result == null
+                    ? const Icon(Icons.check)
+                    : Icon(
+                        Icons.check,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+              )
+              .toList(),
+        )
         .animate(delay: 800.ms)
         .slideY(duration: 500.ms, begin: 1)
         .fadeIn()

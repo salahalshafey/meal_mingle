@@ -26,8 +26,9 @@ class CusomSwitch extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           child: SwitchListTile(
             contentPadding: const EdgeInsets.all(15),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
             title: Text(
               title,
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),

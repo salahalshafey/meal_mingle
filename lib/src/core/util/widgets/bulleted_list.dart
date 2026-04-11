@@ -40,13 +40,15 @@ class BulletedList extends StatelessWidget {
       textDirection: textDirection,
       children: [
         Padding(
-          padding: bulletMargin ??
+          padding:
+              bulletMargin ??
               EdgeInsetsDirectional.only(
                 end: 10,
                 start: 20,
                 top: charHeight - 7 < 0 ? 0 : (charHeight - 5) / 2,
               ),
-          child: bullet ??
+          child:
+              bullet ??
               Container(
                 width: 5,
                 height: 5,
@@ -71,9 +73,7 @@ class BulletedList extends StatelessWidget {
 extension on String {
   double charHeight(double? fontSize) {
     // text style that used inside SelectableLinkifyText
-    TextStyle textStyle = TextStyle(
-      fontSize: fontSize,
-    );
+    TextStyle textStyle = TextStyle(fontSize: fontSize);
 
     // Create a TextPainter
     TextPainter textPainter = TextPainter(

@@ -21,10 +21,7 @@ class ImageAndChoicesAppbar extends StatelessWidget {
       expandedHeight: 400,
       flexibleSpace: FlexibleSpaceBar(
         titlePadding: const EdgeInsets.all(0),
-        title: ImageWithHero(
-          imagePath: imagePath,
-          includeHero: includeHero,
-        ),
+        title: ImageWithHero(imagePath: imagePath, includeHero: includeHero),
       ),
       leading: const CustomBackButton(includeBackgroundColor: true),
       floating: true,
@@ -68,10 +65,7 @@ class ImageWithHero extends StatelessWidget {
                 return const SizedBox(
                   height: 350,
                   width: double.infinity,
-                  child: Icon(
-                    Icons.broken_image_rounded,
-                    size: 55,
-                  ),
+                  child: Icon(Icons.broken_image_rounded, size: 55),
                 );
               },
             ),
@@ -85,10 +79,7 @@ class ImageWithHero extends StatelessWidget {
               return const SizedBox(
                 height: 350,
                 width: double.infinity,
-                child: Icon(
-                  Icons.broken_image_rounded,
-                  size: 55,
-                ),
+                child: Icon(Icons.broken_image_rounded, size: 55),
               );
             },
           );

@@ -24,32 +24,29 @@ class FavoriteChoiceResult extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: Provider.of<FavoritesFoodScan>(context, listen: false)
-          .getfoodMoreDetails(favoriteId, questionIndex),
+      future: Provider.of<FavoritesFoodScan>(
+        context,
+        listen: false,
+      ).getfoodMoreDetails(favoriteId, questionIndex),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          return Center(
-            child: Text(snapshot.error.toString()),
-          );
+          return Center(child: Text(snapshot.error.toString()));
         }
 
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return const Center(child: CircularProgressIndicator());
         }
 
         final questionResult = snapshot.data!;
 
         //  style: Theme.of(context).textTheme.bodyLarge,
         return SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10)
-              .add(const EdgeInsets.only(bottom: 120)),
+          padding: const EdgeInsets.symmetric(
+            vertical: 20,
+            horizontal: 10,
+          ).add(const EdgeInsets.only(bottom: 120)),
           child: NoteDescription(
-            icon: Icon(
-              icon,
-              color: Theme.of(context).colorScheme.primary,
-            ),
+            icon: Icon(icon, color: Theme.of(context).colorScheme.primary),
             title: title,
             child: CustomizedMarkdown(data: questionResult),
           ).animate(delay: 200.ms).slideY(begin: -0.07).fadeIn(),

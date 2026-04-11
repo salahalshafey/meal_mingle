@@ -13,18 +13,12 @@ import 'meal_info.dart';
 class MealItem extends StatelessWidget {
   final Meal meal;
 
-  const MealItem(
-    this.meal, {
-    Key? key,
-  }) : super(key: key);
+  const MealItem(this.meal, {Key? key}) : super(key: key);
 
   void selectMeal(BuildContext context) {
-    Navigator.of(context)
-        .pushNamed(
-      MealDetailScreen.routeName,
-      arguments: meal,
-    )
-        .then((result) {
+    Navigator.of(
+      context,
+    ).pushNamed(MealDetailScreen.routeName, arguments: meal).then((result) {
       if (result != null) {
         // removeItem(result);
       }

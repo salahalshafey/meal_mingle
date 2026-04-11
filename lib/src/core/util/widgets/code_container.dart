@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../../l10n/generated/app_localizations.dart';
 
 class CodeContainer extends StatelessWidget {
   const CodeContainer({
@@ -74,10 +74,7 @@ class CodeContainer extends StatelessWidget {
                   : SelectableText(
                       code,
                       textDirection: TextDirection.ltr,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: fontSize,
-                      ),
+                      style: TextStyle(color: Colors.white, fontSize: fontSize),
                     ),
             ),
           ),
@@ -88,11 +85,7 @@ class CodeContainer extends StatelessWidget {
 }
 
 class CopyCode extends StatefulWidget {
-  const CopyCode({
-    super.key,
-    required this.code,
-    required this.fontSize,
-  });
+  const CopyCode({super.key, required this.code, required this.fontSize});
 
   final String code;
   final double fontSize;
@@ -116,14 +109,11 @@ class _CopyCodeState extends State<CopyCode> {
                 _isCopyed = true;
               });
 
-              Future.delayed(
-                const Duration(seconds: 3),
-                () {
-                  setState(() {
-                    _isCopyed = false;
-                  });
-                },
-              );
+              Future.delayed(const Duration(seconds: 3), () {
+                setState(() {
+                  _isCopyed = false;
+                });
+              });
             },
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -138,10 +128,7 @@ class _CopyCodeState extends State<CopyCode> {
             _isCopyed
                 ? AppLocalizations.of(context)!.copid
                 : AppLocalizations.of(context)!.copyCode,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: widget.fontSize,
-            ),
+            style: TextStyle(color: Colors.white, fontSize: widget.fontSize),
           ),
         ],
       ),

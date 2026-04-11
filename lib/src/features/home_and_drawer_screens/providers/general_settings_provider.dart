@@ -8,7 +8,7 @@ const _themeIsDark = "themeIsDark";
 const _color = "color";
 
 class GeneralSettings extends ChangeNotifier {
-///////////////////////////// Locale //////////////////////////////
+  ///////////////////////////// Locale //////////////////////////////
 
   Locale? get currentLocal {
     final languageCode = _generalSettingsBox.get(_languageCode) as String?;
@@ -70,11 +70,11 @@ class GeneralSettings extends ChangeNotifier {
   }
 
   bool currentColorIsSameOf(Color color) {
-    return currentColor.value == color.value;
+    return currentColor.toARGB32() == color.toARGB32();
   }
 
   void setColor(Color color) {
-    _generalSettingsBox.put(_color, color.value);
+    _generalSettingsBox.put(_color, color.toARGB32());
 
     notifyListeners();
   }

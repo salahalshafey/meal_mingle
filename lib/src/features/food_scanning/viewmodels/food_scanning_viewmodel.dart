@@ -5,7 +5,10 @@ import '../data/services/food_scanning_service.dart';
 abstract class FoodScanningViewModel {
   Future<String> foodOverview(String imagePath);
   Future<String> foodMoreDetails(
-      String imagePath, String foodOverview, String question);
+    String imagePath,
+    String foodOverview,
+    String question,
+  );
 }
 
 class FoodScanningViewModelImpl implements FoodScanningViewModel {
@@ -28,7 +31,10 @@ class FoodScanningViewModelImpl implements FoodScanningViewModel {
 
   @override
   Future<String> foodMoreDetails(
-      String imagePath, String foodOverview, String question) async {
+    String imagePath,
+    String foodOverview,
+    String question,
+  ) async {
     if (await networkInfo.isNotConnected) {
       throw OfflineException();
     }

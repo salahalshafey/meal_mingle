@@ -15,19 +15,17 @@ class MealSearchResult extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
       key: UniqueKey(),
-      future:
-          Provider.of<SearchMeals>(context, listen: false).searchMeal(mealName),
+      future: Provider.of<SearchMeals>(
+        context,
+        listen: false,
+      ).searchMeal(mealName),
       builder: (ctx, snapshot) {
         if (snapshot.hasError) {
-          return Center(
-            child: Text(snapshot.error.toString()),
-          );
+          return Center(child: Text(snapshot.error.toString()));
         }
 
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return const Center(child: CircularProgressIndicator());
         }
 
         final meal = snapshot.data!;

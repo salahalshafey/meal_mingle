@@ -20,7 +20,8 @@ class FavoritesFoodScan extends ChangeNotifier {
     Strings.get.isThisFoodConsideredHealthyExplainTheBenefits,
     Strings.get.pleaseGiveMeTheFollowingNutritionFacts,
     Strings.get.pleaseAnswerTheFollowingnDoesThisFoodContain,
-    Strings.get
+    Strings
+        .get
         .howToPrepareThisFoodnnifThereIsMoreThanOneItemGiveTheResultForEachItem,
   ];
 
@@ -47,9 +48,12 @@ class FavoritesFoodScan extends ChangeNotifier {
       _allFavorites.firstWhere((element) => element.id == id);
 
   Future<String> getfoodMoreDetails(
-      String favoriteId, int questionIndex) async {
-    final favoriteIndex = _allFavorites
-        .indexWhere((favoriteModel) => favoriteModel.id == favoriteId);
+    String favoriteId,
+    int questionIndex,
+  ) async {
+    final favoriteIndex = _allFavorites.indexWhere(
+      (favoriteModel) => favoriteModel.id == favoriteId,
+    );
     final questionsResults = _allFavorites[favoriteIndex].questionsResults;
 
     if (questionsResults[questionIndex] != null) {
@@ -57,12 +61,12 @@ class FavoritesFoodScan extends ChangeNotifier {
     }
 
     try {
-      questionsResults[questionIndex] =
-          await foodScanningViewModel.foodMoreDetails(
-        _allFavorites[favoriteIndex].imagePath,
-        _allFavorites[favoriteIndex].resultOverview,
-        _questionsChoices[questionIndex],
-      );
+      questionsResults[questionIndex] = await foodScanningViewModel
+          .foodMoreDetails(
+            _allFavorites[favoriteIndex].imagePath,
+            _allFavorites[favoriteIndex].resultOverview,
+            _questionsChoices[questionIndex],
+          );
 
       notifyListeners();
 
@@ -98,20 +102,24 @@ class FavoritesFoodScan extends ChangeNotifier {
     try {
       await favoriteFoodScanningViewmodel.deleteFavorite(favoriteId);
 
-      final removedIndex =
-          _allFavorites.indexWhere((element) => element.id == favoriteId);
-      _allFavorites
-          .removeWhere((favoriteModel) => favoriteModel.id == favoriteId);
+      final removedIndex = _allFavorites.indexWhere(
+        (element) => element.id == favoriteId,
+      );
+      _allFavorites.removeWhere(
+        (favoriteModel) => favoriteModel.id == favoriteId,
+      );
 
       notifyListeners();
 
       return removedIndex;
     } on LocalDataException {
       throw ErrorMessage(
-          Strings.get.notAbleToDeleteFilesFromLocalDeviceStorage);
+        Strings.get.notAbleToDeleteFilesFromLocalDeviceStorage,
+      );
     } on LocalStorageException {
       throw ErrorMessage(
-          Strings.get.notAbleToDeleteFilesFromLocalDeviceStorage);
+        Strings.get.notAbleToDeleteFilesFromLocalDeviceStorage,
+      );
     } catch (error) {
       throw ErrorMessage(Strings.get.unexpectedErrorHappened);
     }

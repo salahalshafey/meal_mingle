@@ -18,8 +18,9 @@ class MealToggleFavoriteButton extends StatelessWidget {
       title: Strings.of(context).confirmRemove,
       titleColor: Colors.red,
       contentPadding: const EdgeInsets.all(20),
-      content:
-          Strings.of(context).areYouSureYouWantToRemoveThisMealFromFavorites,
+      content: Strings.of(
+        context,
+      ).areYouSureYouWantToRemoveThisMealFromFavorites,
       actionsBuilder: (builderContext) => [
         TextButton(
           onPressed: () {
@@ -65,10 +66,7 @@ class MealToggleFavoriteButton extends StatelessWidget {
         favMeals.toggleFavorite(meal);
       },
       child: isMealFavorite
-          ? const Icon(
-              Icons.favorite_rounded,
-              color: Colors.pink,
-            )
+          ? const Icon(Icons.favorite_rounded, color: Colors.pink)
           : const Icon(Icons.favorite_border_rounded),
     );
   }

@@ -7,7 +7,7 @@ class CategoryItem extends StatelessWidget {
   final Color color;
   final String image;
   const CategoryItem(this.title, this.color, this.id, this.image, {Key? key})
-      : super(key: key);
+    : super(key: key);
   void selectCategory(BuildContext context) {
     Navigator.of(context).pushNamed(
       CategoryMealsScreen.routeName,
@@ -26,7 +26,7 @@ class CategoryItem extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [color.withOpacity(0.5), color],
+            colors: [color.withValues(alpha: 0.5), color],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -34,11 +34,7 @@ class CategoryItem extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Image.network(
-              image,
-              fit: BoxFit.cover,
-              height: 100,
-            ),
+            Image.network(image, fit: BoxFit.cover, height: 100),
             Text(
               title,
               textAlign: TextAlign.center,
